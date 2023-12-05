@@ -8,9 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sansita: ['var(--font-sansita)'],
-        idGrotesk: ['var(--font-idGrotesk)'],
+      screens: {
+        'tab': '640px',
+        'lap': '1024px',
+        'desk': '1280px',
       },
       colors: {
         white: 'var(--color-white)',
@@ -18,10 +19,22 @@ const config: Config = {
         pink: 'var(--color-pink)',
         lightpink: 'var(--color-lightpink)',
       },
+      fontFamily: {
+        sansita: ['var(--font-sansita)'],
+        idGrotesk: ['var(--font-idGrotesk)'],
+      },
+      fontSize: {
+        'headerNav-link': 'var(--fs-headerNav-link)',
+        'headerNav-comma': 'var(--fs-headerNav-comma)',
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-white': 'var(--bg-gradient-white)',
+      },
+      spacing: {
+        'headerNav-height': 'var(--h-headerNav)', 
+      },
+      minHeight: {
+        'headerNav': 'var(--h-headerNav)',
       },
     },
   },

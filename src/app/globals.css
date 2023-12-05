@@ -2,23 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/*  ---- GLOBAL ----  */
+
 :root {
   --color-white: #f8f8f8;
   --color-black: #000000;
   --color-pink: #ff4566;
   --color-lightpink: #ffd8df;
-  --gradient-white: linear-gradient(180deg, #F8F8F8 33.33%, rgba(248, 248, 248, 0.00) 100%);
+
+  --bg-gradient-white: linear-gradient(180deg, #F8F8F8 33.33%, rgba(248, 248, 248, 0.00) 100%);
+  
+  --fs-headerNav-link: 1.2rem;
+  --fs-headerNav-comma: 1.6rem;
+
+  --h-headerNav: 70px;
+  --max-h-headerNav: 100px;
 }
 
 body {
   color: var(--color-black);
   background: var(--color-white);
   font-family: var(--font-idGrotesk);
+  line-height: 1.5;
 }
+
+.wrapper {
+  @apply pt-headerNav-height;
+}
+
+/*  ---- TYPOGRAPHY ----  */
 
 h1 {
   font-family: var(--font-sansita);
   font-style: italic;
   font-weight: 700;
   font-size: 2.5rem;
+  line-height: 1;
 }
+
+

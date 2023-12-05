@@ -3,14 +3,16 @@ import Image from 'next/image'
 import grip from '@/app/assets/grip.svg'
 import checkbox from '@/app/assets/checkbox.svg'
 import check from '@/app/assets/check.svg'
+// styles
+import styles from './MainNav.module.css'
 
 export default function MainNav() {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Image src={grip} alt="" />
 
-      <div>
-        <h1>SADiE LEE</h1>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>SADiE LEE</h1>
       </div>
 
       <nav>
