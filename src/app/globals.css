@@ -3,25 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --color-white: #f8f8f8;
+  --color-black: #000000;
+  --color-pink: #ff4566;
+  --color-lightpink: #ffd8df;
+  --gradient-white: linear-gradient(180deg, #F8F8F8 33.33%, rgba(248, 248, 248, 0.00) 100%);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--color-black);
+  background: var(--color-white);
+  font-family: var(--font-idGrotesk);
+}
+
+h1 {
+  font-family: var(--font-sansita);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2.5rem;
 }

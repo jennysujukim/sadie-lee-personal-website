@@ -8,6 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sansita: ['var(--font-sansita)'],
+        idGrotesk: ['var(--font-idGrotesk)'],
+      },
+      colors: {
+        white: 'var(--color-white)',
+        black: 'var(--color-black)',
+        pink: 'var(--color-pink)',
+        lightpink: 'var(--color-lightpink)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
