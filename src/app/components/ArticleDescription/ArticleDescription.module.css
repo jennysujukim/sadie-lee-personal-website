@@ -1,0 +1,27 @@
+.container {
+  @apply min-h-[70vh];
+}
+
+.title {
+  @apply text-right;
+}
+
+.subContainer {
+  @apply flex justify-end mt-2 mb-8;
+}
+
+.keywords {
+  @apply flex justify-end;
+}
+
+.comma {
+  @apply pr-1;
+}
+
+.year {
+  @apply pl-1;
+}
+
+.description {
+  @apply mb-8;
+}

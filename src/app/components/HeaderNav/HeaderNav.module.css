@@ -1,0 +1,23 @@
+.header {
+  @apply fixed min-h-headerNav w-full py-3 bg-gradient-white;
+}
+
+.nav {
+  @apply flex justify-center ;
+}
+
+.links {
+  @apply flex flex-wrap justify-center items-center;
+}
+
+.linkContainer {
+  @apply px-2 text-center leading-tight;
+}
+
+.link {
+  @apply font-light text-headerNav-link;
+}
+
+.comma {
+  @apply font-normal text-headerNav-comma pl-2;
+}

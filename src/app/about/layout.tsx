@@ -1,5 +1,4 @@
 import { ReactNode } from "react"
-import MainNav from "@/app/components/MainNav"
 
 type AboutLayoutProps = {
   children: ReactNode
@@ -7,9 +6,8 @@ type AboutLayoutProps = {
 
 export default function AboutLayout({ children }: AboutLayoutProps) {
   return (
-    <>
-      <MainNav />
+    <div className="wrapper">
       {children}
-    </>
+    </div>
   )
 }

@@ -1,0 +1,11 @@
+.main {
+  @apply flex w-full h-[calc(100vh-70px)];
+}
+
+.imgsContainer {
+  @apply px-10;
+}
+
+.descriptionsContainer {
+  @apply px-10;
+}

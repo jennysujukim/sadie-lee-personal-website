@@ -1,6 +1,4 @@
 import { ReactNode } from "react"
-import MainNav from "@/app/components/MainNav"
-
 
 type WorksLayoutProps = {
   children: ReactNode
@@ -8,9 +6,8 @@ type WorksLayoutProps = {
 
 export default function WorksLayout({ children }: WorksLayoutProps) {
   return (
-    <>
-      <MainNav />
+    <div className="wrapper"> 
       {children}
-    </>
+    </div>
   )
 }
