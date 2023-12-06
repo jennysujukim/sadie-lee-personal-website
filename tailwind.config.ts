@@ -33,6 +33,7 @@ const config: Config = {
       },
       spacing: {
         'headerNav-height': 'var(--h-headerNav)', 
+        'mainNav-width': 'var(--w-mainNav)'
       },
       minHeight: {
         'headerNav': 'var(--h-headerNav)',

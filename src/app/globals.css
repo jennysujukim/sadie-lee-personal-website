@@ -13,11 +13,14 @@
 
   --bg-gradient-white: linear-gradient(180deg, #F8F8F8 33.33%, rgba(248, 248, 248, 0.00) 100%);
   
+  --fs-h1: 2rem;
   --fs-headerNav-link: 1.2rem;
   --fs-headerNav-comma: 1.6rem;
 
   --h-headerNav: 70px;
   --max-h-headerNav: 100px;
+
+  --w-mainNav: 130px;
 }
 
 body {
@@ -37,7 +40,7 @@ h1 {
   font-family: var(--font-sansita);
   font-style: italic;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: var(--fs-h1);
   line-height: 1;
   letter-spacing: 2px;
 }
