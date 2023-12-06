@@ -4,11 +4,11 @@
 
 /* ---- GRIP ---- */
 .gripContainer {
-  @apply flex justify-center items-center mb-[2rem];
+  @apply flex justify-center items-center w-mainNav-width mb-[2rem];
 }
 
 .grip {
-  @apply px-[0.5rem] cursor-grab;
+  @apply px-[0.5rem] cursor-move;
 }
 
 .arrowLeft, .arrowRight {

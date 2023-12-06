@@ -1,0 +1,60 @@
+.wrapper {
+  min-width: 300px;
+  min-height: 70vh;
+
+  /* overflow-x: hidden; */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttonsContainer {
+  @apply bg-lightpink;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrowLeft, .arrowRight {
+  width: 100px;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.dots {
+  padding: 0 0.2rem;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.imgsContainer {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  width: 300px;
+}
+
+.imgBg {
+  @apply bg-lightpink;
+  height: fit-content;
+  border-radius: 0 0 29px 29px;
+  width: 300px;
+}
+
+.img {
+  @apply bg-lightpink;
+  border-radius: 29px;
+  width: 300px;
+}

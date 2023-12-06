@@ -14,6 +14,8 @@
   --bg-gradient-white: linear-gradient(180deg, #F8F8F8 33.33%, rgba(248, 248, 248, 0.00) 100%);
   
   --fs-h1: 2rem;
+  --fs-h2: 1.3rem;
+  --fs-p: 1rem;
   --fs-headerNav-link: 1.2rem;
   --fs-headerNav-comma: 1.6rem;
 
@@ -45,4 +47,13 @@ h1 {
   letter-spacing: 2px;
 }
 
+h2 {
+  font-weight: 600;
+  font-size: var(--fs-h2);
+}
+
+p {
+  font-weight: 300;
+  font-size: var(--fs-p);
+}
 
