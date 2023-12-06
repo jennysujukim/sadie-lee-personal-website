@@ -14,6 +14,7 @@ const config: Config = {
         'desk': '1280px',
       },
       colors: {
+        purewhite: 'var(--color-purewhite)',
         white: 'var(--color-white)',
         black: 'var(--color-black)',
         pink: 'var(--color-pink)',

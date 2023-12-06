@@ -1,21 +1,51 @@
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.wrapper { 
+  @apply flex flex-col items-center; 
 }
 
+/* ---- GRIP ---- */
+.gripContainer {
+  @apply flex justify-center items-center w-[130px] mb-[2rem];
+}
+
+.grip {
+  @apply px-[0.5rem] cursor-grab;
+}
+
+.arrowLeft, .arrowRight {
+  @apply opacity-0 transition-all duration-100 ease-in-out;
+}
+
+.gripContainer:hover .arrowLeft, .gripContainer:hover .arrowRight {
+  @apply opacity-100;
+}
+
+/* ---- 'SADIE LEE' TITLE ---- */
 .titleContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--color-pink);
-  border-radius: 40px;
-  padding: 2.5rem 1rem;
-  width: fit-content;
+  @apply flex justify-center items-center border-[1px] border-pink rounded-[40px] bg-purewhite py-[2rem] px-[0.8rem] mb-[2rem];
 }
 
 .title {
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  @apply rotate-180 translate-x-[-2.5px];
+}
+
+/* ---- NAV ---- */
+.link {
+  @apply flex items-center;
+}
+
+.checkboxContainer {
+  @apply relative w-[20px];
+}
+
+.check {
+  @apply absolute top-[-5px] left-0 z-10 opacity-0;
+}
+
+.active {
+  @apply opacity-100;
+}
+
+.linkText {
+  @apply font-sansita font-bold italic text-[1.2rem] pl-1;
 }

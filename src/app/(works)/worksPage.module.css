@@ -1,3 +1,3 @@
 .main {
-  @apply grid;
+  @apply flex w-full h-[calc(100vh-70px)];
 }
