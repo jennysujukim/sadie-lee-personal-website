@@ -1,0 +1,36 @@
+.wrapper { 
+  @apply min-w-articleImg min-h-articleWrapper;
+}
+
+.btnsContainer {
+  @apply bg-lightpink flex items-center justify-between;
+}
+
+.arrowBtn {
+  @apply w-[100px];
+}
+
+.dotsContainer {
+  @apply flex justify-center items-center px-2;
+}
+
+.dots {
+  @apply px-[0.2rem] w-[0.8rem] h-[0.8rem];
+}
+
+.carouselContainer {
+  @apply flex justify-start overflow-x-hidden w-carousel-min-width;
+
+}
+
+.carousel {
+  @apply flex justify-start transition-all duration-500 ease-in-out;
+}
+
+.imgContainer {
+  @apply bg-lightpink h-fit rounded-b-articleImg w-carousel-min-width;
+}
+
+.img {
+  @apply rounded-articleImg w-carousel-min-width;
+}

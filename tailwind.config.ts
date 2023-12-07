@@ -33,11 +33,19 @@ const config: Config = {
       },
       spacing: {
         'headerNav-height': 'var(--h-headerNav)', 
-        'mainNav-width': 'var(--w-mainNav)'
+        'mainNav-width': 'var(--w-mainNav)',
+        'carousel-min-width': 'var(--min-w-carousel)',
       },
       minHeight: {
         'headerNav': 'var(--h-headerNav)',
+        'articleWrapper': 'var(--min-h-articleWrapper)',
       },
+      minWidth: {
+        'articleImg': 'var(--min-w-articleImg)',
+      },
+      borderRadius: {
+        'articleImg': 'var(--b-radius-articleImg)',
+      }
     },
   },
   plugins: [],

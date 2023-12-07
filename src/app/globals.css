@@ -23,6 +23,14 @@
   --max-h-headerNav: 100px;
 
   --w-mainNav: 130px;
+
+  --min-w-articleImg: calc(300px - 2rem);
+
+  --min-h-articleWrapper: 80vh;
+
+  --min-w-carousel: 300px;
+
+  --b-radius-articleImg: 29px;
 }
 
 body {
