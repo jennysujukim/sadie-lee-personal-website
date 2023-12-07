@@ -1,12 +1,13 @@
+import React from 'react'
 import { projects } from '@/_data/projects'
 //styles
-import styles from './ArticleDescription.module.css'
+import styles from './ProjectDetails.module.css'
 
-type ArticleDescriptionProps = {
+type ProjectDetailsProps = {
   projectId: string;
 }
 
-export default function ArticleDescription({ projectId }: ArticleDescriptionProps) {
+export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
 
   const project = projects.find(project => project.id === projectId)
 
@@ -21,12 +22,12 @@ export default function ArticleDescription({ projectId }: ArticleDescriptionProp
           <div className={styles.subContainer}>
             <div className={styles.keywords}>
               {project.keywords?.map((keyword, index) => (
-                <>
-                  <p key={index}>{keyword}</p>
+                <React.Fragment key={index}>
+                  <p>{keyword}</p>
                   <p className={styles.comma}>
                     { index !== project.keywords.length - 1 && `,`}
                   </p>
-                </>
+                </React.Fragment>
               ))}
             </div>
             <p className={styles.year}>{project.year}</p>

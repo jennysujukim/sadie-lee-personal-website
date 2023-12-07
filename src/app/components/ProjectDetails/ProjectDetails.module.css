@@ -1,5 +1,5 @@
 .container {
-  @apply min-h-[70vh];
+  @apply min-h-articleWrapper;
 }
 
 .title {
