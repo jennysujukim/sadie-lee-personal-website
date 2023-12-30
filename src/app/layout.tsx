@@ -63,7 +63,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${sansita.variable} ${idGrotesk.variable}`}>
+      <body 
+        suppressHydrationWarning={true}
+        className={`${sansita.variable} ${idGrotesk.variable}`}
+      >
         <HeaderNav />
         {children}
       </body>

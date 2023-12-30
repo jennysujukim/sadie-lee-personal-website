@@ -6,6 +6,10 @@
   @apply px-10;
 }
 
+/* .navContainer {
+  position: fixed;
+} */
+
 .descriptionsContainer {
   @apply px-10;
 }
