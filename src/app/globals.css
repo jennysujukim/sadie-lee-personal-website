@@ -5,11 +5,11 @@
 /*  ---- GLOBAL ----  */
 
 :root {
-  --color-purewhite: #ffffff;
-  --color-white: #f8f8f8;
+  --color-white: #ffffff;
   --color-black: #000000;
   --color-pink: #ff4566;
-  --color-lightpink: #ffd8df;
+  --color-lightpink: #FFF2F2;
+  --color-lightgrey: #f3f3f3;
 
   --bg-gradient-white: linear-gradient(180deg, #F8F8F8 33.33%, rgba(248, 248, 248, 0.00) 100%);
   
@@ -34,10 +34,10 @@
 }
 
 body {
+  font-family: var(--font-clashDisplay);
   color: var(--color-black);
-  background: var(--color-white);
-  font-family: var(--font-idGrotesk);
-  line-height: 1.5;
+  background: var(--color-lightpink);
+  line-height: 1.4;
 }
 
 .wrapper {

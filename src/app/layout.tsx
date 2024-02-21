@@ -19,41 +19,10 @@ const sansita = Sansita({
   variable: '--font-sansita',
 })
 
-const idGrotesk = localFont({
-  src: [
-    {
-      path: './fonts/IDGroteskTrial-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './fonts/IDGroteskTrial-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/IDGroteskTrial-Bold.woff2',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: './fonts/IDGroteskTrial-LightItalic.woff2',
-      weight: '300',
-      style: 'italic',
-    },
-    {
-      path: './fonts/IDGroteskTrial-RegularItalic.woff2',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './fonts/IDGroteskTrial-BoldItalic.woff2',
-      weight: '600',
-      style: 'italic',
-    }
-  ],
+const clashDisplay = localFont({
+  src: './fonts/ClashDisplay-Variable.woff2',
   display: 'swap',
-  variable: '--font-idGrotesk',
+  variable: '--font-clashDisplay',
 })
 
 export default function RootLayout({
@@ -65,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body 
         suppressHydrationWarning={true}
-        className={`${sansita.variable} ${idGrotesk.variable}`}
+        className={`${sansita.variable} ${clashDisplay.variable}`}
       >
         <HeaderNav />
         {children}

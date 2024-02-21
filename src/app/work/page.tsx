@@ -6,9 +6,9 @@ import MainNav from '@/app/components/MainNav'
 import ArticleDescriptions from '../components/ArticleDescriptions'
 import ArticleImgs from '../components/ArticleImgs'
 // styles
-import styles from './worksPage.module.css'
+import styles from './workPage.module.css'
 
-export default function WorksPage() {
+export default function WorkPage() {
 
   const [navWidth, setNavWidth] = useState<number>(200);
 

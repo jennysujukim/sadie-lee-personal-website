@@ -1,10 +1,10 @@
 import { ReactNode } from "react"
 
-type WorksLayoutProps = {
+type WorkLayoutProps = {
   children: ReactNode
 }
 
-export default function WorksLayout({ children }: WorksLayoutProps) {
+export default function WorkLayout({ children }: WorkLayoutProps) {
   return (
     <div className="wrapper"> 
       {children}
