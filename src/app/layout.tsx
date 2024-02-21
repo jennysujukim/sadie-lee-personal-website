@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Sansita } from 'next/font/google'
 import localFont from 'next/font/local'
-// components
-import HeaderNav from "@/app/components/HeaderNav"
 // styles
 import './globals.css'
 
@@ -36,7 +34,6 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${sansita.variable} ${clashDisplay.variable}`}
       >
-        <HeaderNav />
         {children}
       </body>
     </html>

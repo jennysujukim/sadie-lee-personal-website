@@ -1,4 +1,6 @@
 import { ReactNode } from "react"
+// components
+import HeaderNav from "@/app/components/HeaderNav"
 
 type WorkLayoutProps = {
   children: ReactNode
@@ -6,7 +8,8 @@ type WorkLayoutProps = {
 
 export default function WorkLayout({ children }: WorkLayoutProps) {
   return (
-    <div className="wrapper"> 
+    <div> 
+      <HeaderNav />
       {children}
     </div>
   )
