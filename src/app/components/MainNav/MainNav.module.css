@@ -21,7 +21,7 @@
 
 /* ---- 'SADIE LEE' TITLE ---- */
 .titleContainer {
-  @apply flex justify-center items-center border-[1px] border-pink rounded-[40px] bg-purewhite py-[2rem] px-[0.8rem] mb-[2rem];
+  @apply flex justify-center items-center border-[1px] border-pink rounded-[40px] bg-white py-[2rem] px-[0.8rem] mb-[2rem];
 }
 
 .title {

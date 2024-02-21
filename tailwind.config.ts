@@ -9,20 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'tab': '640px',
+        'tab': '600px',
         'lap': '1024px',
-        'desk': '1280px',
+        'desk': '1200px',
+        'desk-lg': '1920px'
       },
       colors: {
-        purewhite: 'var(--color-purewhite)',
         white: 'var(--color-white)',
         black: 'var(--color-black)',
         pink: 'var(--color-pink)',
         lightpink: 'var(--color-lightpink)',
+        lightgrey: 'var(--color-lightgrey)',
       },
       fontFamily: {
         sansita: ['var(--font-sansita)'],
-        idGrotesk: ['var(--font-idGrotesk)'],
+        clashDisplay: ['var(--font-clashDisplay)'],
       },
       fontSize: {
         'headerNav-link': 'var(--fs-headerNav-link)',
