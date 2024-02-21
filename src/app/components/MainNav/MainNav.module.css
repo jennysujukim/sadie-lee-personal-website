@@ -11,7 +11,7 @@
 
 .grip {
   @apply hidden
-  tab-lg:block tab-lg:px-[0.5rem] tab-lg:cursor-move;
+  tab-lg:block tab-lg:px-[0.5rem] tab-lg:cursor-col-resize;
 }
 
 .arrowLeft, .arrowRight {
