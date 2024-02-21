@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 // components
 import MainNav from '@/app/components/MainNav'
 import ArticleDescriptions from '../components/ArticleDescriptions'

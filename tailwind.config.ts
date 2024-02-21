@@ -26,26 +26,37 @@ const config: Config = {
         clashDisplay: ['var(--font-clashDisplay)'],
       },
       fontSize: {
-        'headerNav-link': 'var(--fs-headerNav-link)',
-        'headerNav-comma': 'var(--fs-headerNav-comma)',
+        'workNav-link': 'var(--fs-workNav-link)',
+        'workNav-link-mobile': 'var(--fs-workNav-link-mobile)',
+        'workNav-comma': 'var(--fs-workNav-comma)',
       },
       backgroundImage: {
-        'gradient-white': 'var(--bg-gradient-white)',
+        'gradient-workNav': 'var(--bg-gradient-workNav)',
+        'gradient-workNav-mobile': 'var(--bg-gradient-workNav-mobile)',
+        'gradient-workNav-mobile-open': 'var(--bg-gradient-workNav-mobile-open)'
       },
       spacing: {
-        'headerNav-height': 'var(--h-headerNav)', 
+        'workNav-linkContainer-mobile': 'var(--h-workNav-linkContainer-mobile)',
+        'workNav-height-mobile': 'var(--h-workNav-mobile)',
+        'workNav-height': 'var(--h-workNav)', 
         'mainNav-width': 'var(--w-mainNav)',
         'carousel-min-width': 'var(--min-w-carousel)',
       },
       minHeight: {
-        'headerNav': 'var(--h-headerNav)',
+        'workNav': 'var(--h-workNav)',
         'articleWrapper': 'var(--min-h-articleWrapper)',
       },
       minWidth: {
         'articleImg': 'var(--min-w-articleImg)',
       },
+      maxWidth: {
+        'constraint': '1920px',
+      },
       borderRadius: {
         'articleImg': 'var(--b-radius-articleImg)',
+      },
+      boxShadow: {
+        'workNav-hover-thumbnail': 'var(--color-pink) 0px 5px 15px',
       }
     },
   },
