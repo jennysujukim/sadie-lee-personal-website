@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       screens: {
         'tab': '600px',
+        'tab-lg': '768px',
         'lap': '1024px',
         'desk': '1200px',
         'desk-lg': '1920px'
@@ -28,7 +29,8 @@ const config: Config = {
       fontSize: {
         'workNav-link': 'var(--fs-workNav-link)',
         'workNav-link-mobile': 'var(--fs-workNav-link-mobile)',
-        'workNav-comma': 'var(--fs-workNav-comma)',
+        'mainNav-link': 'var(--fs-mainNav-link)',
+        'mainNav-link-mobile': 'var(--fs-mainNav-link-mobile)',
       },
       backgroundImage: {
         'gradient-workNav': 'var(--bg-gradient-workNav)',
@@ -36,6 +38,9 @@ const config: Config = {
         'gradient-workNav-mobile-open': 'var(--bg-gradient-workNav-mobile-open)'
       },
       spacing: {
+        'wrapper-side-mobile': 'var(--spacing-sideWrapper-mobile)',
+        'wrapper-side-tab': 'var(--spacing-sideWrapper-tab)',
+        'wrapper-side-lap': 'var(--spacing-sideWrapper-lap)',
         'workNav-linkContainer-mobile': 'var(--h-workNav-linkContainer-mobile)',
         'workNav-height-mobile': 'var(--h-workNav-mobile)',
         'workNav-height': 'var(--h-workNav)', 

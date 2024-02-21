@@ -3,27 +3,27 @@
 .mobileHeader {
   @apply 
   fixed w-full z-20 bottom-0 bg-gradient-workNav-mobile h-workNav-height-mobile
-  tab:hidden;
+  tab-lg:hidden;
 }
 
 .mobileHeader.open {
   @apply bg-gradient-workNav-mobile-open h-full
-  tab:hidden;
+  tab-lg:hidden;
 }
 
 .mobileArrow {
   @apply absolute bottom-[1rem] left-0 right-0 mx-auto
-  tab:hidden;
+  tab-lg:hidden;
 }
 
 .mobileArrow.open {
   @apply rotate-180
-  tab:hidden;
+  tab-lg:hidden;
 }
 
 .mobileNav {
   @apply py-12 px-7 text-center h-workNav-linkContainer-mobile overflow-y-auto
-  tab:hidden;
+  tab-lg:hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -45,34 +45,34 @@
 .header {
   @apply 
   hidden
-  tab:block tab:fixed tab:w-full tab:z-20 tab:bg-gradient-workNav tab:min-h-workNav tab:py-3;
+  tab-lg:block tab-lg:fixed tab-lg:w-full tab-lg:z-20 tab-lg:bg-gradient-workNav tab-lg:min-h-workNav tab-lg:py-3;
 }
 
 .nav {
   @apply hidden
-  tab:flex tab:justify-center;
+  tab-lg:flex tab-lg:justify-center;
 }
 
 .links {
   @apply hidden
-  tab:flex tab:flex-wrap tab:justify-center tab:items-center tab:gap-y-2
+  tab-lg:flex tab-lg:flex-wrap tab-lg:justify-center tab-lg:items-center tab-lg:gap-y-2
   desk-lg:max-w-constraint;
 }
 
 .linkContainer {
   @apply hidden
-  tab:text-center tab:leading-tight tab:flex tab:justify-center tab:items-center tab:mr-3;
+  tab-lg:text-center tab-lg:leading-tight tab-lg:flex tab-lg:justify-center tab-lg:items-center tab-lg:mr-3;
 }
 
 .link {
   @apply hidden 
-  tab:block tab:relative tab:font-light tab:text-workNav-link tab:mr-3
-  tab:hover:line-through tab:hover:decoration-pink tab:hover:decoration-4;
+  tab-lg:block tab-lg:relative tab-lg:font-light tab-lg:text-workNav-link tab-lg:mr-3
+  tab-lg:hover:line-through tab-lg:hover:decoration-pink tab-lg:hover:decoration-4;
 }
 
 .star {
   @apply hidden
-  tab:block tab:w-[1rem] tab:h-[1rem];
+  tab-lg:block tab-lg:w-[1rem] tab-lg:h-[1rem];
 }
 
 .hoverThumbnail {

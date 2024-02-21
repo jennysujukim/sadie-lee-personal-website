@@ -2,39 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/*  ---- GLOBAL ----  */
-
 :root {
+  /* ---- BREAKPOINTS ----- */
+  --bp-tab: 600px;
+  --bp-tab-lg: 768px;
+  --bp-lap: 1024px;
+  --bp-desk: 1200px;
+  --bp-desk-lg: 1920px;
+  /* ---- COLOURS ---- */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-pink: #ff4566;
   --color-lightpink: #FFF2F2;
   --color-lightgrey: #f3f3f3;
-
+  /* ---- GRADIENTS ---- */
   --bg-gradient-workNav-mobile: linear-gradient(180deg, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 70%);
   --bg-gradient-workNav-mobile-open: linear-gradient(180deg, rgba(248,248,248,0.7) 0%, rgba(248,248,248,1) 25%);
   --bg-gradient-workNav: linear-gradient(180deg, #F8F8F8 50%, rgba(248, 248, 248, 0.00) 100%);
-  
+  /* ---- FONT SIZES ---- */
   --fs-h1: 2rem;
+  --fs-h1-tab-lg: 2rem;
   --fs-h2: 1.3rem;
   --fs-p: 1rem;
   --fs-workNav-link: 1.2rem;
   --fs-workNav-link-mobile: 1.6rem;
-  --fs-workNav-comma: 1.6rem;
-
+  --fs-mainNav-link: 1.2rem;
+  --fs-mainNav-link-mobile: 1.5rem;
+  /* ---- DIMENSIONS ---- */
   --h-workNav-mobile: 90px;
   --h-workNav: 90px;
   --h-workNav-linkContainer-mobile: calc(100% - var(--h-workNav-mobile));
   --max-h-workNav: 100px;
-
   --w-mainNav: 130px;
-
   --min-w-articleImg: calc(300px - 2rem);
-
   --min-h-articleWrapper: 80vh;
-
   --min-w-carousel: 300px;
-
+  /* ---- SPACING ---- */
+  --spacing-sideWrapper-mobile: 1rem;
+  --spacing-sideWrapper-tab: 1.5rem;
+  --spacing-sideWrapper-lap: 3rem;
+  /* ---- BORDER RADIUS ----- */
   --b-radius-articleImg: 29px;
 }
 
@@ -45,8 +52,10 @@ body {
   line-height: 1.4;
 }
 
-.wrapper {
-  @apply pt-workNav-height;
+.globalSideWrapper {
+  @apply px-wrapper-side-mobile
+  tab:px-wrapper-side-tab
+  lap:px-wrapper-side-lap;
 }
 
 /*  ---- TYPOGRAPHY ----  */
@@ -57,7 +66,7 @@ h1 {
   font-weight: 700;
   font-size: var(--fs-h1);
   line-height: 1;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 h2 {
@@ -70,3 +79,9 @@ p {
   font-size: var(--fs-p);
 }
 
+@media screen and (min-width: var(--bp-tab-lg)){
+  h1 {
+    font-size: var(--fs-h1-tab-lg);
+    letter-spacing: 2px;
+  }
+}
