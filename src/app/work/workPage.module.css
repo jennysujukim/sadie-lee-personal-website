@@ -1,9 +1,9 @@
 .main {
-  @apply flex w-full h-[calc(100vh-70px)];
+  @apply tab:flex tab:w-full tab:h-[calc(100vh-70px)];
 }
 
 .imgsContainer {
-  @apply px-10;
+  @apply tab:px-10;
 }
 
 /* .navContainer {
@@ -11,5 +11,5 @@
 } */
 
 .descriptionsContainer {
-  @apply px-10;
+  @apply tab:px-10;
 }

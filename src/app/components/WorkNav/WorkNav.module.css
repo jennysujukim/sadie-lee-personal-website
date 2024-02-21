@@ -1,0 +1,84 @@
+/* ---- MOBILE NAV ---- */
+
+.mobileHeader {
+  @apply 
+  fixed w-full z-20 bottom-0 bg-gradient-workNav-mobile h-workNav-height-mobile
+  tab:hidden;
+}
+
+.mobileHeader.open {
+  @apply bg-gradient-workNav-mobile-open h-full
+  tab:hidden;
+}
+
+.mobileArrow {
+  @apply absolute bottom-[1rem] left-0 right-0 mx-auto
+  tab:hidden;
+}
+
+.mobileArrow.open {
+  @apply rotate-180
+  tab:hidden;
+}
+
+.mobileNav {
+  @apply py-12 px-7 text-center h-workNav-linkContainer-mobile overflow-y-auto
+  tab:hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mobileNav::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.mobileLinkContainer {
+  @apply mb-8;
+}
+
+.mobileLink {
+  @apply text-workNav-link-mobile font-light;
+}
+
+/* ---- DESK NAV ---- */
+
+.header {
+  @apply 
+  hidden
+  tab:block tab:fixed tab:w-full tab:z-20 tab:bg-gradient-workNav tab:min-h-workNav tab:py-3;
+}
+
+.nav {
+  @apply hidden
+  tab:flex tab:justify-center;
+}
+
+.links {
+  @apply hidden
+  tab:flex tab:flex-wrap tab:justify-center tab:items-center tab:gap-y-2
+  desk-lg:max-w-constraint;
+}
+
+.linkContainer {
+  @apply hidden
+  tab:text-center tab:leading-tight tab:flex tab:justify-center tab:items-center tab:mr-3;
+}
+
+.link {
+  @apply hidden 
+  tab:block tab:relative tab:font-light tab:text-workNav-link tab:mr-3
+  tab:hover:line-through tab:hover:decoration-pink tab:hover:decoration-4;
+}
+
+.star {
+  @apply hidden
+  tab:block tab:w-[1rem] tab:h-[1rem];
+}
+
+.hoverThumbnail {
+  @apply absolute top-[2rem] left-0 right-0 mx-auto w-[100px] hidden shadow-workNav-hover-thumbnail z-10;
+}
+
+.linkContainer:hover .hoverThumbnail {
+  @apply block;
+}
