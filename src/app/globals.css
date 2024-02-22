@@ -28,6 +28,10 @@
   --fs-workNav-link-mobile: 1.6rem;
   --fs-mainNav-link: 1.2rem;
   --fs-mainNav-link-mobile: 1.5rem;
+  /* ---- SPACING ---- */
+  --spacing-sideWrapper-mobile: 1rem;
+  --spacing-sideWrapper-tab: 1.5rem;
+  --spacing-sideWrapper-lap: 3rem;
   /* ---- DIMENSIONS ---- */
   --h-workNav-mobile: 90px;
   --h-workNav: 90px;
@@ -37,10 +41,8 @@
   --min-w-articleImg: calc(300px - 2rem);
   --min-h-articleWrapper: 80vh;
   --min-w-carousel: 300px;
-  /* ---- SPACING ---- */
-  --spacing-sideWrapper-mobile: 1rem;
-  --spacing-sideWrapper-tab: 1.5rem;
-  --spacing-sideWrapper-lap: 3rem;
+  --w-articleImg-mobile: calc(100vw - (var(--spacing-sideWrapper-mobile) * 2));
+  --w-articleImg-tab: calc(100vw - (var(--spacing-sideWrapper-tab) * 2));
   /* ---- BORDER RADIUS ----- */
   --b-radius-articleImg: 29px;
 }

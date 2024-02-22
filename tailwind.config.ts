@@ -46,6 +46,8 @@ const config: Config = {
         'workNav-height': 'var(--h-workNav)', 
         'mainNav-width': 'var(--w-mainNav)',
         'carousel-min-width': 'var(--min-w-carousel)',
+        'articleImg-mobile': 'var(--w-articleImg-mobile)',
+        'articleImg-tab': 'var(--w-articleImg-tab)',
       },
       minHeight: {
         'workNav': 'var(--h-workNav)',

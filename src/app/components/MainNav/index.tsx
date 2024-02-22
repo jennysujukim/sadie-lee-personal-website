@@ -37,13 +37,16 @@ export default function MainNav() {
           alt="Right arrow icon"
         />
       </div>
-      <div className={styles.logoContainer}>
+      <Link
+        href={'/'} 
+        className={styles.logoContainer}
+      >
         <Image 
           className={styles.logo}
           src={logo}
           alt="Sadie Lee logo"
         />
-      </div>
+      </Link>
       <nav className={styles.navContainer}>
         <ul>
           {navLinks.map((navLink, index) => (

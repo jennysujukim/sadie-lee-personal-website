@@ -1,7 +1,20 @@
 .main {
-  @apply 
-  flex flex-col
-  tab-lg:w-full tab-lg:flex-row tab-lg:pt-[7rem];
+  @apply tab-lg:pt-[7rem];
+}
+
+.mobileWrapper {
+  @apply relative tab-lg:hidden;
+}
+
+.mobileArticlesContainer {
+  @apply px-wrapper-side-mobile 
+  tab:px-wrapper-side-tab
+  tab-lg:px-0;
+}
+
+.wrapper {
+  @apply hidden
+  tab-lg:flex;
 }
 
 .imgsContainer {
@@ -10,7 +23,7 @@
 }
 
 .navContainer {
-  @apply sticky top-0 w-full -order-1 px-wrapper-side-mobile
+  @apply sticky top-0 z-10 w-full -order-1 px-wrapper-side-mobile
   tab:px-wrapper-side-tab
   tab-lg:px-0 tab-lg:static tab-lg:order-none;
 }

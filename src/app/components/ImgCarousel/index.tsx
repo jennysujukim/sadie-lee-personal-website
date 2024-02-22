@@ -8,6 +8,7 @@ import arrowRight from '@/app/assets/slide-arrow-right.svg'
 import arrowLeft from '@/app/assets/slide-arrow-left.svg'
 import dotImg from '@/app/assets/slide-dot.svg'
 import selectedDotImg from '@/app/assets/slide-dot-coloured.svg'
+import mobileModalBtn from '@/app/assets/modal-btn-mobile.svg'
 // styles
 import styles from './ImgCarousel.module.css'
 
@@ -44,6 +45,33 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
     dots.push(i)
   }
 
+  const [ startX, setStartX ] = useState<number | null>(null);
+  
+  // mobile version touch event handlers
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setStartX(e.touches[0].clientX);
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if(startX === null) return ;
+
+    const currentX = e.touches[0].clientX;
+    const deltaX = currentX - startX;
+
+    if(Math.abs(deltaX) > 50) {
+      if(deltaX > 0) {
+        prevSlide()
+      } else {
+        nextSlide()
+      }
+      setStartX(null)
+    }
+  }
+
+  const handleTouchEnd = () => {
+    setStartX(null)
+  }  
+
   return (
     <>
       {project && (
@@ -60,23 +88,49 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
             </button>
             <div className={styles.dotsContainer}>
               {dots.map((index) => ( index === currIndex ? 
-                (<Image key={index} src={selectedDotImg} alt="" className={styles.dots} />) 
+                (
+                  <Image 
+                    key={index} 
+                    src={selectedDotImg} 
+                    alt="Selected dot icon" 
+                    className={styles.dots} 
+                  />
+                ) 
                 : 
-                (<Image key={index} src={dotImg} alt="" className={styles.dots} />)
+                (
+                  <Image 
+                    key={index} 
+                    src={dotImg} 
+                    alt="Dot icon" 
+                    className={styles.dots} 
+                  />
+                )
               ))}
             </div>
             <button 
               className={styles.arrowBtn} 
               onClick={() => nextSlide()}
             >
-              <Image src={arrowRight} alt="right arrow" />
+              <Image 
+                src={arrowRight} 
+                alt="right arrow"
+              />
+            </button>
+            <button className={styles.mobileModalBtn}>
+              <Image 
+                src={mobileModalBtn}
+                alt="Mobile modal button"
+              />
             </button>
           </div>
-
           <div className={styles.carouselContainer}>
             <div 
-              className={`${styles.carousel} only:w-[calc(300px * ${imageLength})`} 
+              className={styles.carousel} 
               ref={carousel}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onClick={nextSlide}
             >
               {images.map((image, index) => (
                 <div 

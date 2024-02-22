@@ -1,5 +1,5 @@
 .wrapper { 
-  @apply flex justify-between items-center my-[2rem] gap-2
+  @apply flex justify-between items-center py-[2rem] gap-2
   tab-lg:gap-0 tab-lg:flex-col tab-lg:w-mainNav-width tab-lg:my-0 tab-lg:mx-0 ; 
 }
 
