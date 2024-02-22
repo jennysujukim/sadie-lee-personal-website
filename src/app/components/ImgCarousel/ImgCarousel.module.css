@@ -24,7 +24,12 @@
 
 .mobileModalBtn {
   @apply absolute right-[1rem] bottom-[-1rem] z-10
+  tab:right-[2rem] tab:bottom-[-1.5rem]
   tab-lg:hidden;
+}
+
+.mobileModalBtnImg {
+  @apply tab:w-[65px];
 }
 
 /* ---- CAROUSEL ---- */
@@ -45,5 +50,6 @@
 
 .img {
   @apply rounded-articleImg w-articleImg-mobile
+  tab:w-articleImg-tab
   tab-lg:w-carousel-min-width;
 }

@@ -23,7 +23,7 @@
 }
 
 .navContainer {
-  @apply sticky top-0 z-10 w-full -order-1 px-wrapper-side-mobile
+  @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
   tab:px-wrapper-side-tab
   tab-lg:px-0 tab-lg:static tab-lg:order-none;
 }

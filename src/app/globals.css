@@ -33,6 +33,7 @@
   --spacing-sideWrapper-tab: 1.5rem;
   --spacing-sideWrapper-lap: 3rem;
   /* ---- DIMENSIONS ---- */
+  --w-scrollbar: 7px;
   --h-workNav-mobile: 90px;
   --h-workNav: 90px;
   --h-workNav-linkContainer-mobile: calc(100% - var(--h-workNav-mobile));
@@ -41,8 +42,8 @@
   --min-w-articleImg: calc(300px - 2rem);
   --min-h-articleWrapper: 80vh;
   --min-w-carousel: 300px;
-  --w-articleImg-mobile: calc(100vw - (var(--spacing-sideWrapper-mobile) * 2));
-  --w-articleImg-tab: calc(100vw - (var(--spacing-sideWrapper-tab) * 2));
+  --w-articleImg-mobile: calc(100vw - ((var(--spacing-sideWrapper-mobile) * 2) + var(--w-scrollbar)));
+  --w-articleImg-tab: calc(100vw - ((var(--spacing-sideWrapper-tab) * 2) + var(--w-scrollbar)));
   /* ---- BORDER RADIUS ----- */
   --b-radius-articleImg: 29px;
 }
@@ -58,6 +59,20 @@ body {
   @apply px-wrapper-side-mobile
   tab:px-wrapper-side-tab
   lap:px-wrapper-side-lap;
+}
+
+/*  ---- SCROLLBAR ----  */
+
+::-webkit-scrollbar {
+  width: var(--w-scrollbar);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-lightgrey);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pink);
 }
 
 /*  ---- TYPOGRAPHY ----  */

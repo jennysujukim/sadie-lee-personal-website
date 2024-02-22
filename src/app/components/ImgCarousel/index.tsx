@@ -3,12 +3,17 @@
 import Image from 'next/image'
 import { projects } from '@/_data/projects'
 import { useRef, useState, useEffect } from 'react'
+import useResponsive from '@/app/utils/useResponsive'
+import Dimensions from '@/types/constants/Dimensions'
+import { BreakpointType } from '@/types/enums/BreakpointType'
 // assets
 import arrowRight from '@/app/assets/slide-arrow-right.svg'
 import arrowLeft from '@/app/assets/slide-arrow-left.svg'
 import dotImg from '@/app/assets/slide-dot.svg'
 import selectedDotImg from '@/app/assets/slide-dot-coloured.svg'
 import mobileModalBtn from '@/app/assets/modal-btn-mobile.svg'
+// components
+import ImgsModal from '../ImgsModal'
 // styles
 import styles from './ImgCarousel.module.css'
 
@@ -18,6 +23,8 @@ type ImgCarouselProps = {
 
 export default function ImgCarousel({ projectId }: ImgCarouselProps) {
 
+  const isResponsive = useResponsive();
+
   const project = projects.find(project => project.id === projectId);
   const images = project?.images ?? [];
   const imageLength = project?.images.filter(index => index).length ?? 0;
@@ -25,12 +32,20 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
   const [ currIndex, setCurrIndex ] = useState<number>(0);
   const carousel = useRef<HTMLDivElement>(null);
   const selectedCarousel = carousel.current;
-
+  const imgContainer = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
-    if(selectedCarousel) {
-      selectedCarousel.style.transform = `translateX(-${currIndex * 300}px)`
+    if(selectedCarousel && imgContainer.current) {
+      if (isResponsive === BreakpointType.Mobile) {
+        selectedCarousel.style.transform = `translateX(-${currIndex * imgContainer.current.offsetWidth}px)`
+      } else if (isResponsive === BreakpointType.Tablet) {
+        selectedCarousel.style.transform = `translateX(-${currIndex * imgContainer.current.offsetWidth}px)`
+      } else {
+        selectedCarousel.style.transform = `translateX(-${currIndex * Dimensions.carouselImgWidth_Desktop}px)`
+      }
     }
-  }, [currIndex, selectedCarousel])
+  }, [currIndex, selectedCarousel, imgContainer.current, isResponsive])
+
 
   const prevSlide = () => {
     setCurrIndex((prevSlide) => (prevSlide - 1 + imageLength) % imageLength)
@@ -70,7 +85,36 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
 
   const handleTouchEnd = () => {
     setStartX(null)
+  } 
+  
+  // mobile version mouse event handlers
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setStartX(e.clientX);
+  }
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if(startX === null) return ;
+
+    const currentX = e.clientX;
+    const deltaX = currentX - startX;
+
+    if(Math.abs(deltaX) > 50) {
+      if(deltaX > 0) {
+        prevSlide()
+      } else {
+        nextSlide()
+      }
+      setStartX(null)
+    }
+  }
+
+  const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+    setStartX(null)
   }  
+
+  const handleModalBtnClick = () => {
+    console.log('clicked')
+  }
 
   return (
     <>
@@ -84,7 +128,10 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
               className={styles.arrowBtn} 
               onClick={() => prevSlide()}
             >
-              <Image src={arrowLeft} alt="left arrow" />
+              <Image 
+                src={arrowLeft} 
+                alt="left arrow"
+              />
             </button>
             <div className={styles.dotsContainer}>
               {dots.map((index) => ( index === currIndex ? 
@@ -116,10 +163,14 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
                 alt="right arrow"
               />
             </button>
-            <button className={styles.mobileModalBtn}>
+            <button 
+              className={styles.mobileModalBtn}
+              onClick={handleModalBtnClick}
+            >
               <Image 
                 src={mobileModalBtn}
                 alt="Mobile modal button"
+                className={styles.mobileModalBtnImg}
               />
             </button>
           </div>
@@ -130,14 +181,22 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
+              onMouseUp={handleMouseUp}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
               onClick={nextSlide}
             >
               {images.map((image, index) => (
                 <div 
                   key={index} 
                   className={styles.imgContainer}
+                  ref={imgContainer}
                 >
-                  <Image src={image} alt={`Images of ${project.title}`} className={styles.img} />
+                  <Image 
+                    src={image} 
+                    alt={`Images of ${project.title}`}
+                    className={styles.img} 
+                  />
                 </div>
               ))}
             </div>
