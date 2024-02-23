@@ -22,7 +22,8 @@
   /* ---- FONT SIZES ---- */
   --fs-h1: 2rem;
   --fs-h1-tab-lg: 2rem;
-  --fs-h2: 1.3rem;
+  --fs-h2: 2rem;
+  --fs-h2-tab-lg: 2.5rem;
   --fs-p: 1rem;
   --fs-workNav-link: 1.2rem;
   --fs-workNav-link-mobile: 1.6rem;
@@ -46,6 +47,7 @@
   --w-articleImg-tab: calc(100vw - ((var(--spacing-sideWrapper-tab) * 2) + var(--w-scrollbar)));
   /* ---- BORDER RADIUS ----- */
   --b-radius-articleImg: 29px;
+  --b-radius-descriptionContainer: 22px;
 }
 
 body {
@@ -87,7 +89,7 @@ h1 {
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--fs-h2);
 }
 
@@ -100,5 +102,9 @@ p {
   h1 {
     font-size: var(--fs-h1-tab-lg);
     letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: var(--fs-h2-tab-lg);
   }
 }

@@ -25,7 +25,7 @@
 .navContainer {
   @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
   tab:px-wrapper-side-tab
-  tab-lg:px-0 tab-lg:static tab-lg:order-none;
+  tab-lg:px-0 tab-lg:static tab-lg:order-none tab-lg:flex tab-lg:justify-center tab-lg:items-start;
 }
 
 .descriptionsContainer {

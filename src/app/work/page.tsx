@@ -18,7 +18,6 @@ export default function WorkPage() {
           <ArticleMobile />
         </div>
       </div>
-
       <div className={styles.wrapper}>
         <div className={styles.imgsContainer}>
           <ArticleImgs />

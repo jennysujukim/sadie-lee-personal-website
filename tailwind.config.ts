@@ -61,6 +61,7 @@ const config: Config = {
       },
       borderRadius: {
         'articleImg': 'var(--b-radius-articleImg)',
+        'descriptionContainer': 'var(--b-radius-descriptionContainer)',
       },
       boxShadow: {
         'workNav-hover-thumbnail': 'var(--color-pink) 0px 5px 15px',

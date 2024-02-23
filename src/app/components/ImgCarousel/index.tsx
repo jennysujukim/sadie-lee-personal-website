@@ -44,7 +44,7 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
         selectedCarousel.style.transform = `translateX(-${currIndex * Dimensions.carouselImgWidth_Desktop}px)`
       }
     }
-  }, [currIndex, selectedCarousel, imgContainer.current, isResponsive])
+  }, [currIndex, selectedCarousel, imgContainer, isResponsive])
 
 
   const prevSlide = () => {

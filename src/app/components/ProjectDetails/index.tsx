@@ -30,9 +30,12 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
                 </React.Fragment>
               ))}
             </div>
+            <span className={styles.divider}>|</span>
+            <p>{project.type}</p>
+            <span className={styles.divider}>|</span>
             <p className={styles.year}>{project.year}</p>
           </div>
-          <div>
+          <div className={styles.descriptionContainer}>
             {project.description?.map((paragraph, index) => (
               <p 
                 key={index}
