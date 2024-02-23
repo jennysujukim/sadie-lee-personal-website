@@ -2,16 +2,16 @@
   @apply min-h-articleWrapper;
 }
 
-.title {
-  @apply text-right;
+.subContainer {
+  @apply mt-2 mb-8 flex flex-wrap;
 }
 
-.subContainer {
-  @apply flex justify-end mt-2 mb-8;
+.divider {
+  @apply mx-2;
 }
 
 .keywords {
-  @apply flex justify-end;
+  @apply flex;
 }
 
 .comma {
@@ -22,6 +22,14 @@
   @apply pl-1;
 }
 
+.descriptionContainer {
+  @apply bg-white border border-black rounded-descriptionContainer p-6;
+}
+
 .description {
   @apply mb-8;
+}
+
+.description:last-child {
+  @apply mb-0;
 }

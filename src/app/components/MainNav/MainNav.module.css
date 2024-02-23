@@ -1,14 +1,17 @@
 .wrapper { 
-  @apply flex flex-col items-center w-mainNav-width; 
+  @apply flex justify-between items-center py-[2rem] gap-2
+  tab-lg:gap-0 tab-lg:flex-col tab-lg:w-mainNav-width tab-lg:my-0 tab-lg:mx-0 tab-lg:sticky tab-lg:top-workNav-height; 
 }
 
 /* ---- GRIP ---- */
 .gripContainer {
-  @apply flex justify-center items-center w-mainNav-width mb-[2rem];
+  @apply hidden
+  tab-lg:flex tab-lg:justify-center tab-lg:items-center tab-lg:w-mainNav-width tab-lg:mb-[2rem];
 }
 
 .grip {
-  @apply px-[0.5rem] cursor-move;
+  @apply hidden
+  tab-lg:block tab-lg:px-[0.5rem] tab-lg:cursor-col-resize;
 }
 
 .arrowLeft, .arrowRight {
@@ -19,17 +22,23 @@
   @apply opacity-100;
 }
 
-/* ---- 'SADIE LEE' TITLE ---- */
-.titleContainer {
-  @apply flex justify-center items-center border-[1px] border-pink rounded-[40px] bg-white py-[2rem] px-[0.8rem] mb-[2rem];
+/* ---- 'SADIE LEE' LOGO ---- */
+.logoContainer {
+  @apply flex justify-center items-center border-[1.5px] border-pink bg-white rounded-[40px] py-[1rem] px-[1.2rem]
+  tab-lg:w-[70px] tab-lg:h-[270px] tab-lg:p-0;
 }
 
-.title {
-  writing-mode: vertical-rl;
-  @apply rotate-180 translate-x-[-2.5px];
+.logo {
+  @apply max-w-[150px]
+  tab:max-w-none
+  tab-lg:rotate-90;
 }
 
 /* ---- NAV ---- */
+.navContainer {
+  @apply tab-lg:mt-[2rem];
+}
+
 .link {
   @apply flex items-center;
 }
@@ -42,10 +51,15 @@
   @apply absolute top-[-5px] left-0 z-10 opacity-0;
 }
 
-.active {
+.check.active {
   @apply opacity-100;
 }
 
 .linkText {
-  @apply font-sansita font-bold italic text-[1.2rem] pl-1;
+  @apply font-sansita font-bold italic text-mainNav-link-mobile pl-1
+  tab-lg:text-mainNav-link;
+}
+
+.linkText.active {
+  @apply text-pink;
 }

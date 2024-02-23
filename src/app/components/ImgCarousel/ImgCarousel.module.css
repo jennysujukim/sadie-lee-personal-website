@@ -1,26 +1,42 @@
 .wrapper { 
-  @apply min-w-articleImg min-h-articleWrapper;
+  @apply mb-[2rem]
+  tab-lg:mb-0 tab-lg:min-w-articleImg tab-lg:min-h-articleWrapper;
 }
-
+/* ---- BUTTONS ---- */
 .btnsContainer {
-  @apply bg-lightpink flex items-center justify-between;
+  @apply relative bg-lightpink flex items-center justify-center
+  tab-lg:justify-between tab-lg:mb-6;
 }
 
 .arrowBtn {
-  @apply w-[100px];
+  @apply hidden
+  tab-lg:block tab-lg:w-[100px];
 }
 
 .dotsContainer {
-  @apply flex justify-center items-center px-2;
+  @apply flex justify-center items-center px-2 py-4
+  tab-lg:py-0;
 }
 
 .dots {
-  @apply px-[0.2rem] w-[0.8rem] h-[0.8rem];
+  @apply px-[0.2rem] w-[1.2rem] h-[1.2rem]
+  tab-lg:w-[0.8rem] tab-lg:h-[0.8rem];
 }
 
-.carouselContainer {
-  @apply flex justify-start overflow-x-hidden w-carousel-min-width;
+.mobileModalBtn {
+  @apply absolute right-[1rem] bottom-[-1rem] z-10
+  tab:right-[2rem] tab:bottom-[-1.5rem]
+  tab-lg:hidden;
+}
 
+.mobileModalBtnImg {
+  @apply tab:w-[65px];
+}
+
+/* ---- CAROUSEL ---- */
+.carouselContainer {
+  @apply flex justify-start overflow-x-hidden
+  tab-lg:w-carousel-min-width;
 }
 
 .carousel {
@@ -28,9 +44,13 @@
 }
 
 .imgContainer {
-  @apply bg-lightpink h-fit rounded-b-articleImg w-carousel-min-width;
+  @apply bg-lightpink h-fit rounded-b-articleImg w-articleImg-mobile
+  tab:w-articleImg-tab
+  tab-lg:w-carousel-min-width;
 }
 
 .img {
-  @apply rounded-articleImg w-carousel-min-width;
+  @apply rounded-articleImg w-articleImg-mobile
+  tab:w-articleImg-tab
+  tab-lg:w-carousel-min-width;
 }
