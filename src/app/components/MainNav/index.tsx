@@ -13,7 +13,11 @@ import logo from '@/app/assets/logo.svg'
 // styles
 import styles from './MainNav.module.css'
 
-export default function MainNav() {
+type MainNavProps = {
+  handleMouseDown?: (e: React.MouseEvent<HTMLDivElement>) => void
+}
+
+export default function MainNav({ handleMouseDown }: MainNavProps ) {
 
   const navLinks = [ { text: 'about', link: '/about' }, { text: 'work', link: '/work' } ];
   const pathname = usePathname();
@@ -30,6 +34,8 @@ export default function MainNav() {
           className={styles.grip} 
           src={grip} 
           alt="Grip graphic"
+          onMouseDown={handleMouseDown}
+          draggable="false"
         />
         <Image 
           className={styles.arrowRight}

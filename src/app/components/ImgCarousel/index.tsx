@@ -19,9 +19,10 @@ import styles from './ImgCarousel.module.css'
 
 type ImgCarouselProps = {
   projectId: string;
+  imgContainerWidth?: number;
 }
 
-export default function ImgCarousel({ projectId }: ImgCarouselProps) {
+export default function ImgCarousel({ projectId, imgContainerWidth }: ImgCarouselProps) {
 
   const isResponsive = useResponsive();
 
@@ -60,6 +61,12 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
     dots.push(i)
   }
 
+  const handleCarouselClick = () => {
+    if(isResponsive === BreakpointType.Mobile || isResponsive === BreakpointType.Tablet) {
+      nextSlide()
+    } else return;
+  }
+
   const [ startX, setStartX ] = useState<number | null>(null);
   
   // mobile version touch event handlers
@@ -89,27 +96,33 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
   
   // mobile version mouse event handlers
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    setStartX(e.clientX);
+    if(isResponsive === BreakpointType.Mobile || isResponsive === BreakpointType.Tablet){
+      setStartX(e.clientX);
+    } else return;
   }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if(startX === null) return ;
+    if(isResponsive === BreakpointType.Mobile || isResponsive === BreakpointType.Tablet){
+      if(startX === null) return ;
 
-    const currentX = e.clientX;
-    const deltaX = currentX - startX;
+      const currentX = e.clientX;
+      const deltaX = currentX - startX;
 
-    if(Math.abs(deltaX) > 50) {
-      if(deltaX > 0) {
-        prevSlide()
-      } else {
-        nextSlide()
+      if(Math.abs(deltaX) > 50) {
+        if(deltaX > 0) {
+          prevSlide()
+        } else {
+          nextSlide()
+        }
+        setStartX(null)
       }
-      setStartX(null)
-    }
+    } else return;
   }
 
   const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
-    setStartX(null)
+    if(isResponsive === BreakpointType.Mobile || isResponsive === BreakpointType.Tablet){
+      setStartX(null)
+    }
   }  
 
   const handleModalBtnClick = () => {
@@ -174,7 +187,7 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
               />
             </button>
           </div>
-          <div className={styles.carouselContainer}>
+          <div className={styles.carouselContainer} style={{ width: imgContainerWidth, maxWidth: 700 }}>
             <div 
               className={styles.carousel} 
               ref={carousel}
@@ -184,18 +197,20 @@ export default function ImgCarousel({ projectId }: ImgCarouselProps) {
               onMouseUp={handleMouseUp}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
-              onClick={nextSlide}
+              onClick={handleCarouselClick}
             >
               {images.map((image, index) => (
                 <div 
                   key={index} 
                   className={styles.imgContainer}
                   ref={imgContainer}
+                  style={{ width: imgContainerWidth, maxWidth: 700 }}
                 >
                   <Image 
                     src={image} 
                     alt={`Images of ${project.title}`}
                     className={styles.img} 
+                    style={{ width: imgContainerWidth, maxWidth: 700 }}
                   />
                 </div>
               ))}

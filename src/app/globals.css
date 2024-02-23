@@ -42,7 +42,7 @@
   --w-mainNav: 130px;
   --min-w-articleImg: calc(300px - 2rem);
   --min-h-articleWrapper: 80vh;
-  --min-w-carousel: 300px;
+  --min-w-carousel: 35vw;
   --w-articleImg-mobile: calc(100vw - ((var(--spacing-sideWrapper-mobile) * 2) + var(--w-scrollbar)));
   --w-articleImg-tab: calc(100vw - ((var(--spacing-sideWrapper-tab) * 2) + var(--w-scrollbar)));
   /* ---- BORDER RADIUS ----- */

@@ -45,7 +45,7 @@
 .header {
   @apply 
   hidden
-  tab-lg:block tab-lg:fixed tab-lg:w-full tab-lg:z-20 tab-lg:bg-gradient-workNav tab-lg:min-h-workNav tab-lg:py-3;
+  tab-lg:block tab-lg:fixed tab-lg:w-full tab-lg:z-50 tab-lg:bg-gradient-workNav tab-lg:min-h-workNav tab-lg:py-3;
 }
 
 .nav {
