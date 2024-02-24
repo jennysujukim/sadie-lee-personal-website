@@ -1,0 +1,138 @@
+.main {
+  @apply mx-auto bg-lightpink
+  tab-lg:overflow-hidden tab-lg:h-screen
+  desk-lg:max-w-constraint;
+}
+
+/* ---- HEADING ---- */
+
+.headingContainer {
+  @apply text-center
+  tab-lg:min-h-[7rem] tab-lg:my-6;
+}
+
+.heading {
+  @apply text-[3.5rem];
+}
+
+/* ---- CONTENT ---- */
+
+.wrapper {
+  height: calc(100vh - 7rem);
+  @apply flex justify-center;
+}
+
+/* ---- LEFT IMAGE COL ---- */
+
+.profileContainer {
+  @apply flex-1 tab-lg:px-10;
+  width: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.35);
+  max-width: 600px;
+}
+
+.profileImg {
+  border-radius: var(--b-radius-articleImg);
+  width: 100%;
+}
+
+.navContainer {
+  @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
+  tab:px-wrapper-side-tab
+  tab-lg:px-0 tab-lg:mx-[2rem] tab-lg:mt-[4rem] tab-lg:static tab-lg:order-none tab-lg:flex tab-lg:justify-center tab-lg:items-start tab-lg:max-w-[100px];
+}
+
+/* ---- RIGHT TEXT COL ---- */
+.textWrapper {
+  @apply relative px-[2.5rem];
+  width: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.65);
+}
+
+/* ---- CTA ---- */
+.cvCtaContainer {
+  @apply absolute top-0 right-[4rem] flex justify-center items-center;
+}
+
+.cvCtaText {
+  @apply absolute text-white font-medium text-[1.5rem];
+}
+
+.cvCtaBackground {
+  @apply fill-pink;
+}
+
+.cvCtaContainer:hover .cvCtaText {
+  @apply text-pink;
+}
+
+.cvCtaContainer:hover .cvCtaBackground {
+  @apply fill-white stroke-pink stroke-[1.5px];
+}
+
+.emailCtaContainer, .igCtaContainer {
+  @apply w-fit absolute top-0;
+}
+
+.emailCtaContainer {
+  @apply left-[4rem];
+}
+
+.igCtaContainer {
+  @apply left-[15rem];
+}
+
+.emailCta, .cta {
+  @apply relative w-fit;
+}
+
+.emailCtaBackground {
+  @apply -rotate-3;
+}
+
+.igCtaBackground {
+  @apply rotate-3;
+}
+
+.emailCtaLink, .igCtaLink {
+  @apply absolute top-0 bottom-0 h-[35px] text-center text-pink font-medium bg-white px-3 py-1 rounded-3xl border-pink border-[1.5px]
+  hover:bg-pink hover:text-white;
+}
+
+.emailCtaLink {
+  @apply left-0 right-0 mx-auto w-[90px] top-12 rotate-6; 
+}
+
+.igCtaLink {
+  @apply left-0 right-0 mx-auto top-10 -rotate-12;
+}
+
+.emailSpan, .igSpan {
+  @apply underline text-sm leading-4;
+}
+
+.emailSpan {
+  @apply absolute top-0 right-[-50px];
+}
+
+.igSpan {
+  @apply absolute top-6 right-[-110px];
+}
+
+/* ---- TEXT CONTAINER ---- */
+
+.textContainer {
+  @apply bg-white border border-black rounded-descriptionContainer px-10 py-16 mt-[4rem];
+  max-height: calc(100vh - ((7rem * 2) + 4rem));
+  overflow: scroll;
+}
+
+.textContainer::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.subHeading {
+  @apply uppercase font-medium mt-10 mb-6 ;
+}
+
+.listText {
+  @apply mb-6;
+}

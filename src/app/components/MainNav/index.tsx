@@ -24,25 +24,27 @@ export default function MainNav({ handleMouseDown }: MainNavProps ) {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.gripContainer}>
-        <Image 
-          className={styles.arrowLeft}
-          src={arrowLeft} 
-          alt="Left arrow icon"
-        />
-        <Image
-          className={styles.grip} 
-          src={grip} 
-          alt="Grip graphic"
-          onMouseDown={handleMouseDown}
-          draggable="false"
-        />
-        <Image 
-          className={styles.arrowRight}
-          src={arrowRight} 
-          alt="Right arrow icon"
-        />
+      {pathname !== '/about' && 
+        <div className={styles.gripContainer}>
+          <Image 
+            className={styles.arrowLeft}
+            src={arrowLeft} 
+            alt="Left arrow icon"
+          />
+          <Image
+            className={styles.grip} 
+            src={grip} 
+            alt="Grip graphic"
+            onMouseDown={handleMouseDown}
+            draggable="false"
+          />
+          <Image 
+            className={styles.arrowRight}
+            src={arrowRight} 
+            alt="Right arrow icon"
+          />
       </div>
+      }
       <Link
         href={'/'} 
         className={styles.logoContainer}

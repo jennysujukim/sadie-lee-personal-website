@@ -6,8 +6,8 @@ type AboutLayoutProps = {
 
 export default function AboutLayout({ children }: AboutLayoutProps) {
   return (
-    <div className="wrapper">
+    <>
       {children}
-    </div>
+    </>
   )
 }
