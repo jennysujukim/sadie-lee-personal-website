@@ -76,9 +76,7 @@ export default function WorkPage() {
         <div className={styles.imgsContainer} ref={imgsContainerRef}>
           <ArticleImgs containerWidth={imgsContainerWidth} />
         </div>
-        <div 
-          className={styles.navContainer} 
-        >
+        <div className={styles.navContainer}>
           <MainNav handleMouseDown={handleMouseDown}/>
         </div>
         <div 

@@ -1,5 +1,7 @@
 .main {
-  @apply tab-lg:pt-[7rem] desk-lg:max-w-constraint desk-lg:mx-auto;
+  @apply mx-auto bg-lightpink
+  tab-lg:pt-[7rem] 
+  desk-lg:max-w-constraint;
 }
 
 .mobileWrapper {
@@ -26,7 +28,7 @@
 .navContainer {
   @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
   tab:px-wrapper-side-tab
-  tab-lg:px-0 tab-lg:static tab-lg:order-none tab-lg:flex tab-lg:justify-center tab-lg:items-start tab-lg:max-w-[200px];
+  tab-lg:px-0 tab-lg:static tab-lg:order-none tab-lg:flex tab-lg:justify-center tab-lg:items-start tab-lg:max-w-[100px];
 }
 
 .descriptionsContainer {

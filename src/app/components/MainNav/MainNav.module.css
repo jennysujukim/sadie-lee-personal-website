@@ -1,6 +1,6 @@
 .wrapper { 
   @apply flex justify-between items-center py-[2rem] gap-2
-  tab-lg:gap-0 tab-lg:flex-col tab-lg:w-mainNav-width tab-lg:my-0 tab-lg:mx-0 tab-lg:sticky tab-lg:top-workNav-height; 
+  tab-lg:gap-0 tab-lg:flex-col tab-lg:justify-start tab-lg:w-mainNav-width tab-lg:py-0 tab-lg:mx-0 tab-lg:sticky tab-lg:top-workNav-height; 
 }
 
 /* ---- GRIP ---- */
@@ -31,7 +31,7 @@
 .logo {
   @apply max-w-[150px]
   tab:max-w-none
-  tab-lg:rotate-90;
+  tab-lg:-rotate-90;
 }
 
 /* ---- NAV ---- */
