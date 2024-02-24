@@ -73,7 +73,10 @@ export default function WorkPage() {
         </div>
       </div>
       <div className={styles.wrapper}>
-        <div className={styles.imgsContainer} ref={imgsContainerRef}>
+        <div 
+          className={styles.imgsContainer}
+          ref={imgsContainerRef}
+        >
           <ArticleImgs containerWidth={imgsContainerWidth} />
         </div>
         <div className={styles.navContainer}>

@@ -1,5 +1,5 @@
 .container {
-  @apply min-h-articleWrapper;
+  @apply min-h-articleWrapper tab-lg:mb-[10rem];
 }
 
 .subContainer {
