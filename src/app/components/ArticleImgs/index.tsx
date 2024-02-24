@@ -9,7 +9,7 @@ export default function ArticleImgs({ containerWidth }: ArticleImgsProps) {
   return (
     <>
       {projects.map((project) => (
-        <div key={project.id}>
+        <div key={project.id} style={{ marginBottom: '10rem' }}>
           <ImgCarousel 
             projectId={project.id}
             imgContainerWidth={containerWidth}

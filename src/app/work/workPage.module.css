@@ -28,9 +28,10 @@
 .navContainer {
   @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
   tab:px-wrapper-side-tab
-  tab-lg:px-0 tab-lg:static tab-lg:order-none tab-lg:flex tab-lg:justify-center tab-lg:items-start tab-lg:max-w-[100px];
+  tab-lg:px-0 tab-lg:mx-[2rem] tab-lg:static tab-lg:order-none tab-lg:flex tab-lg:justify-center tab-lg:items-start tab-lg:max-w-[100px];
 }
 
 .descriptionsContainer {
-  @apply tab-lg:px-10 tab-lg:max-w-[541px];
+  @apply tab-lg:px-10 ;
+  max-width: calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.65);
 }
