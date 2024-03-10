@@ -3,7 +3,6 @@ import Link from 'next/link'
 // assets
 import profileImg from '@/app/assets/about/profile.jpg'
 import starBackground from '@/app/assets/about/cta-background-star.svg'
-import cvBackground from '@/app/assets/about/cv-background.svg'
 // components
 import MainNav from '@/app/components/MainNav'
 // styles

@@ -9,53 +9,51 @@ import checkbox from '@/app/assets/checkbox.svg'
 import check from '@/app/assets/check.svg'
 import arrowLeft from '@/app/assets/grip-arrow-left.svg'
 import arrowRight from '@/app/assets/grip-arrow-right.svg'
-import logo from '@/app/assets/logo.svg'
 // styles
 import styles from './MainNav.module.css'
+import Logo from '../Logo'
 
 type MainNavProps = {
   handleMouseDown?: (e: React.MouseEvent<HTMLDivElement>) => void
+  isNavOnly?: boolean;
 }
 
-export default function MainNav({ handleMouseDown }: MainNavProps ) {
+export default function MainNav({ 
+  handleMouseDown,
+  isNavOnly }: MainNavProps ) {
 
   const navLinks = [ { text: 'about', link: '/about' }, { text: 'work', link: '/work' } ];
   const pathname = usePathname();
 
   return (
     <div className={styles.wrapper}>
-      {pathname !== '/about' && 
-        <div className={styles.gripContainer}>
-          <Image 
-            className={styles.arrowLeft}
-            src={arrowLeft} 
-            alt="Left arrow icon"
-          />
-          <Image
-            className={styles.grip} 
-            src={grip} 
-            alt="Grip graphic"
-            onMouseDown={handleMouseDown}
-            draggable="false"
-          />
-          <Image 
-            className={styles.arrowRight}
-            src={arrowRight} 
-            alt="Right arrow icon"
-          />
-      </div>
+      {!isNavOnly &&
+        <>
+          {pathname !== '/about' && 
+            <div className={styles.gripContainer}>
+              <Image 
+                className={styles.arrowLeft}
+                src={arrowLeft} 
+                alt="Left arrow icon"
+              />
+              <Image
+                className={styles.grip} 
+                src={grip} 
+                alt="Grip graphic"
+                onMouseDown={handleMouseDown}
+                draggable="false"
+              />
+              <Image 
+                className={styles.arrowRight}
+                src={arrowRight} 
+                alt="Right arrow icon"
+              />
+            </div>
+          }
+          <Logo isLink={true} />
+        </>
       }
-      <Link
-        href={'/'} 
-        className={styles.logoContainer}
-      >
-        <Image 
-          className={styles.logo}
-          src={logo}
-          alt="Sadie Lee logo"
-        />
-      </Link>
-      <nav className={styles.navContainer}>
+      <nav className={isNavOnly ? styles.navContainer_Only : styles.navContainer}>
         <ul>
           {navLinks.map((navLink, index) => (
             <li key={index}>
