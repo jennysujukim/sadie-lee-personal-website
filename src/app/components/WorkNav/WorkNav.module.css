@@ -2,7 +2,7 @@
 
 .mobileHeader {
   @apply 
-  fixed w-full z-20 bottom-0 bg-gradient-workNav-mobile h-workNav-height-mobile
+  fixed w-full z-40 bottom-0 bg-gradient-workNav-mobile h-workNav-height-mobile
   tab-lg:hidden;
 }
 

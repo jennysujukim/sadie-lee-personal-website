@@ -22,18 +22,6 @@
   @apply opacity-100;
 }
 
-/* ---- 'SADIE LEE' LOGO ---- */
-.logoContainer {
-  @apply flex justify-center items-center border-[1.5px] border-pink bg-white rounded-[40px] py-[1rem] px-[1.2rem]
-  tab-lg:w-[70px] tab-lg:h-[270px] tab-lg:p-0;
-}
-
-.logo {
-  @apply max-w-[150px]
-  tab:max-w-none
-  tab-lg:-rotate-90;
-}
-
 /* ---- NAV ---- */
 .navContainer {
   @apply tab-lg:mt-[2rem];

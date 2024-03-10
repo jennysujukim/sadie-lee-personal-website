@@ -9,9 +9,9 @@ import checkbox from '@/app/assets/checkbox.svg'
 import check from '@/app/assets/check.svg'
 import arrowLeft from '@/app/assets/grip-arrow-left.svg'
 import arrowRight from '@/app/assets/grip-arrow-right.svg'
-import logo from '@/app/assets/logo.svg'
 // styles
 import styles from './MainNav.module.css'
+import Logo from '../Logo'
 
 type MainNavProps = {
   handleMouseDown?: (e: React.MouseEvent<HTMLDivElement>) => void
@@ -45,16 +45,7 @@ export default function MainNav({ handleMouseDown }: MainNavProps ) {
           />
       </div>
       }
-      <Link
-        href={'/'} 
-        className={styles.logoContainer}
-      >
-        <Image 
-          className={styles.logo}
-          src={logo}
-          alt="Sadie Lee logo"
-        />
-      </Link>
+      <Logo isLink={true} />
       <nav className={styles.navContainer}>
         <ul>
           {navLinks.map((navLink, index) => (

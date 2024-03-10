@@ -6,8 +6,8 @@ type HomeLayoutProps = {
 
 export default function layout({ children }: HomeLayoutProps) {
   return (
-    <div className="wrapper">
+    <>
       {children}
-    </div>
+    </>
   )
 }

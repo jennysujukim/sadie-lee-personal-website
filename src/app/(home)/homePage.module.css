@@ -1,0 +1,9 @@
+.main {
+  @apply mx-auto bg-lightgrey
+  tab-lg:overflow-hidden tab-lg:h-screen
+  desk-lg:max-w-constraint;
+}
+
+.lineBackground {
+  @apply absolute top-0 left-0 w-full h-full;
+}
