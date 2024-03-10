@@ -27,6 +27,10 @@
   @apply tab-lg:mt-[2rem];
 }
 
+.navContainer_Only {
+  @apply tab-lg:mt-0;
+}
+
 .link {
   @apply flex items-center;
 }

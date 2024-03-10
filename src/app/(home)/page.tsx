@@ -8,6 +8,7 @@ import lineBackground from '@/app/assets/home/home-line-background.svg'
 // components
 import DragMove from '../components/DragMove'
 import Logo from '../components/Logo'
+import MainNav from '../components/MainNav'
 // styles
 import styles from './homePage.module.css'
 
@@ -36,7 +37,7 @@ export default function HomePage() {
         src={lineBackground}
         alt=""
       />
-      <DragMove 
+      {/* <DragMove 
         onDragMove={handleDragMove}
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
@@ -51,7 +52,8 @@ export default function HomePage() {
           }}
         />
       </DragMove>
-      <DragMove        onDragMove={handleDragMove}
+      <DragMove
+        onDragMove={handleDragMove}
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
         onPointerMove={handlePointerMove}>
@@ -59,7 +61,10 @@ export default function HomePage() {
           isLink={false} 
           style={{ transform: `translate(${translate.x}px, ${translate.y}px)`, }} 
         />
-      </DragMove>
+      </DragMove> */}
+      <div className={styles.mainNav_Container}>
+        <MainNav isNavOnly />
+      </div>
     </main>
   )
 }
