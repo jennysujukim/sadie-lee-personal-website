@@ -187,7 +187,7 @@ export default function ImgCarousel({ projectId, imgContainerWidth }: ImgCarouse
               />
             </button>
           </div>
-          <div className={styles.carouselContainer} style={{ width: imgContainerWidth, maxWidth: 700 }}>
+          <div className={styles.carouselContainer} style={{ width: imgContainerWidth }}>
             <div 
               className={styles.carousel} 
               ref={carousel}
@@ -199,21 +199,27 @@ export default function ImgCarousel({ projectId, imgContainerWidth }: ImgCarouse
               onMouseMove={handleMouseMove}
               onClick={handleCarouselClick}
             >
-              {images.map((image, index) => (
+              <Image 
+                src={images[currIndex]} 
+                alt={`Images of ${project.title}`}
+                className={styles.img} 
+                style={{ width: imgContainerWidth }}
+              />
+              {/* {images.map((image, index) => (
                 <div 
                   key={index} 
                   className={styles.imgContainer}
                   ref={imgContainer}
-                  style={{ width: imgContainerWidth, maxWidth: 700 }}
+                  style={{ width: imgContainerWidth }}
                 >
                   <Image 
                     src={image} 
                     alt={`Images of ${project.title}`}
                     className={styles.img} 
-                    style={{ width: imgContainerWidth, maxWidth: 700 }}
+                    style={{ width: imgContainerWidth }}
                   />
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

@@ -1,32 +1,32 @@
 .wrapper { 
   @apply mb-[2rem]
-  tab-lg:mb-0 tab-lg:min-w-articleImg tab-lg:min-h-articleWrapper;
+  lap:mb-0 lap:min-w-articleImg lap:min-h-articleWrapper;
 }
 /* ---- BUTTONS ---- */
 .btnsContainer {
   @apply relative bg-lightpink flex items-center justify-center
-  tab-lg:justify-between tab-lg:mb-6;
+  lap:justify-between lap:mb-6;
 }
 
 .arrowBtn {
   @apply hidden
-  tab-lg:block tab-lg:w-[100px];
+  lap:block lap:w-[100px];
 }
 
 .dotsContainer {
   @apply flex justify-center items-center px-2 py-4
-  tab-lg:py-0;
+  lap:py-0;
 }
 
 .dots {
   @apply px-[0.2rem] w-[1.2rem] h-[1.2rem]
-  tab-lg:w-[0.8rem] tab-lg:h-[0.8rem];
+  lap:w-[0.8rem] lap:h-[0.8rem];
 }
 
 .mobileModalBtn {
   @apply absolute right-[1rem] bottom-[-1rem] z-10
   tab:right-[2rem] tab:bottom-[-1.5rem]
-  tab-lg:hidden;
+  lap:hidden;
 }
 
 .mobileModalBtnImg {
@@ -36,7 +36,7 @@
 /* ---- CAROUSEL ---- */
 .carouselContainer {
   @apply flex justify-start overflow-x-hidden
-  tab-lg:w-carousel-min-width;
+  lap:w-carousel-min-width;
 }
 
 .carousel {
@@ -46,11 +46,11 @@
 .imgContainer {
   @apply bg-lightpink h-fit rounded-b-articleImg w-articleImg-mobile
   tab:w-articleImg-tab
-  tab-lg:w-carousel-min-width;
+  lap:w-carousel-min-width;
 }
 
 .img {
   @apply rounded-articleImg w-articleImg-mobile
   tab:w-articleImg-tab
-  tab-lg:w-carousel-min-width;
+  lap:w-carousel-min-width;
 }
