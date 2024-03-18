@@ -1,5 +1,5 @@
 // components
-import MatterJSBridge from '@/app/components/MatterJSBridge'
+import Hero from '../components/Hero'
 // styles
 import styles from './homePage.module.css'
 
@@ -8,7 +8,7 @@ export default function HomePage() {
 
   return (
     <main className={styles.main}>
-      <MatterJSBridge />
+      <Hero />
     </main>
   )
 }
