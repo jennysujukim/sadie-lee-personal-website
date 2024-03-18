@@ -1,23 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Matter from 'matter-js';
 import { Composite, Runner, Composites, MouseConstraint, Mouse, Body, Constraint } from 'matter-js';
 // styles
-import styles from './MatterJSBridge.module.css'
+import styles from './MatterJSBridgeMobile.module.css'
 
-const THICCNESS = 60;
-const RATIO = 0.11;
+const MatterJSBridgeMobile = ({ ratio }) => {
 
-const MatterJSBridge = () => {
+  const THICCNESS = 60;
 
   const boxRef = useRef(null);
   const canvasRef = useRef(null);
+  const [ RATIO, setRATIO ] = useState(0.2);
 
   useEffect(() => {
 
     const canvasWidth = canvasRef.current.clientWidth;
     const canvasHeight = canvasRef.current.clientHeight;
+    setRATIO(ratio);
 
     const standardPixel = 300;
     const scaleFactor = (canvasWidth * RATIO) / standardPixel;
@@ -86,28 +87,6 @@ const MatterJSBridge = () => {
       render: {
           visible: false,
           fillStyle: '#FFD8DF'
-      }
-    });
-
-    const leftBridgePost = Bodies.rectangle( 0 + (canvasWidth * RATIO / 2), canvasHeight - (canvasHeight * RATIO), canvasWidth * (RATIO * 2.3), canvasHeight * (RATIO * 3.3), { 
-      isStatic: true,
-      render: {
-        sprite: {
-          texture: 'wall.png',
-          xScale: scaleFactor,
-          yScale: scaleFactor,
-        }
-      }
-    });
-
-    const rightBridgePost = Bodies.rectangle( canvasWidth - (canvasWidth * RATIO / 2), canvasHeight - (canvasHeight * RATIO), canvasWidth * (RATIO * 2.3), canvasHeight * (RATIO * 3.3), { 
-      isStatic: true,
-      render: {
-        sprite: {
-          texture: 'wall.png',
-          xScale: scaleFactor,
-          yScale: scaleFactor,
-        }
       }
     });
 
@@ -294,30 +273,28 @@ const MatterJSBridge = () => {
       }
     })
 
-    
-
-    World.add(engine.world, [ground, leftWall, rightWall, bridge, leftBridgePost, rightBridgePost, mainCircle, leftBottomStar, leftSadieLee, leftBottomBigCircle, leftTopBigCircle, leftEndRectangle, leftTopRectangle, leftBottomRectangle, graphicDesigner, centerBigCircle, rightSmallCircleStack, rightTopStar, rightBottomStar, rightSadieLee, rightBigCircle, rightFlower, rightEndBottomFlower, rightEndTopFlower,
-      Constraint.create({ 
-          pointA: { x: 0 + ((canvasWidth * RATIO / 2) * 2.4), y: canvasHeight - ((canvasHeight * RATIO) * 2.9) }, 
-          bodyB: bridge.bodies[0], 
-          pointB: { x: -50, y: 0 },
-          length: 5,
-          stiffness: 0.9,
-          render: {
-            strokeStyle: '#FF4567'
-          }
-      }),
-      Constraint.create({ 
-          pointA: { x: canvasWidth - ((canvasWidth * RATIO / 2) * 2.4), y: canvasHeight - ((canvasHeight * RATIO * 2.9)) }, 
-          bodyB: bridge.bodies[bridge.bodies.length - 1], 
-          pointB: { x: 50, y: 0 },
-          length: 5,
-          stiffness: 0.9,
-          render: {
-            strokeStyle: '#FF4567'
-          }
-      })
-    ]);
+      World.add(engine.world, [ground, leftWall, rightWall, bridge, mainCircle, leftBottomStar, leftSadieLee, leftBottomBigCircle, leftTopBigCircle, leftEndRectangle, leftTopRectangle, leftBottomRectangle, graphicDesigner, centerBigCircle, rightSmallCircleStack, rightTopStar, rightBottomStar, rightSadieLee, rightBigCircle, rightFlower, rightEndBottomFlower, rightEndTopFlower,
+        Constraint.create({ 
+            pointA: { x: 0 + ((canvasWidth * RATIO / 2) * 2.4), y: canvasHeight - ((canvasHeight * RATIO) * 2.9) }, 
+            bodyB: bridge.bodies[0], 
+            pointB: { x: -50, y: 0 },
+            length: 5,
+            stiffness: 0.9,
+            render: {
+              strokeStyle: '#FF4567'
+            }
+        }),
+        Constraint.create({ 
+            pointA: { x: canvasWidth - ((canvasWidth * RATIO / 2) * 2.4), y: canvasHeight - ((canvasHeight * RATIO * 2.9)) }, 
+            bodyB: bridge.bodies[bridge.bodies.length - 1], 
+            pointB: { x: 50, y: 0 },
+            length: 5,
+            stiffness: 0.9,
+            render: {
+              strokeStyle: '#FF4567'
+            }
+        })
+      ]);
 
     Runner.run(engine);
     Render.run(render);
@@ -337,34 +314,14 @@ const MatterJSBridge = () => {
     Composite.add(engine.world, mouseConstraint);
     render.mouse = mouse;
 
-    // const handleResize = () => {
-    //   render.canvas.width = boxRef.current.clientWidth;
-    //   render.canvas.height = boxRef.current.clientHeight;
-    //   render.bounds.max.x = window.innerWidth;
-    //   render.bounds.max.y = window.innerHeight;
-    //   render.options.width = window.innerWidth;
-    //   render.options.height = window.innerHeight;
-
-    //   Matter.Render.setPixelRatio(render, window.devicePixelRatio);
-    //   Matter.Body.setPosition(ground, Matter.Vector.create(boxRef.current.clientWidth / 2, boxRef.current.clientHeight + THICCNESS / 2));
-    //   Matter.Body.setPosition(rightWall, Matter.Vector.create(boxRef.current.clientWidth + THICCNESS / 2, boxRef.current.clientHeight / 2));
-    //   Matter.Body.setPosition(leftBridgePost, Matter.Vector.create(0 + (boxRef.current.clientWidth * RATIO), boxRef.current.clientHeight - (boxRef.current.clientHeight * RATIO)));
-    //   Matter.Body.setPosition(rightBridgePost, Matter.Vector.create(boxRef.current.clientWidth - (boxRef.current.clientWidth * RATIO), boxRef.current.clientHeight - (boxRef.current.clientHeight * RATIO)));
-    //   Matter.Body.setPosition(bridge.bodies[0], Matter.Vector.create(0 + (boxRef.current.clientWidth * RATIO), 100));
-    //   Matter.Body.setPosition(bridge.bodies[bridge.bodies.length - 1], Matter.Vector.create(boxRef.current.clientWidth - (boxRef.current.clientWidth * RATIO), 100));
-
-    // }
-    // window.addEventListener('resize', handleResize);
-
     return () => {
       Runner.stop(engine);
       Render.stop(render);
       World.clear(engine.world);
       Engine.clear(engine);
-      // window.removeEventListener('resize', handleResize);
     };
 
-  }, []);
+  }, [RATIO, setRATIO, ratio]);
 
   return (
     <div 
@@ -380,4 +337,4 @@ const MatterJSBridge = () => {
   )
 };
 
-export default MatterJSBridge;
+export default MatterJSBridgeMobile;
