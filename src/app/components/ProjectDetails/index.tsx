@@ -4,16 +4,15 @@ import { projects } from '@/_data/projects'
 import styles from './ProjectDetails.module.css'
 
 type ProjectDetailsProps = {
-  projectId: string;
+  projectId: any;
 }
 
-export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
+export default async function ProjectDetails({ projectId }: ProjectDetailsProps) {
 
-  const project = projects.find(project => project.id === projectId)
 
   return (
     <>
-      {project && 
+      {/* {project && 
         <article 
           id={project.title}
           className={styles.container}
@@ -46,7 +45,8 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
             ))}
           </div>
         </article>
-      }
+      } */}
+      <p>{projectId}</p>
     </>
   )
 }

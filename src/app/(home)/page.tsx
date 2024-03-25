@@ -3,8 +3,7 @@ import Hero from '../components/Hero'
 // styles
 import styles from './homePage.module.css'
 
-export default function HomePage() {
-
+export default async function HomePage() {
 
   return (
     <main className={styles.main}>

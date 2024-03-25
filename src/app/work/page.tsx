@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -73,12 +73,12 @@ export default function WorkPage() {
         </div>
       </div>
       <div className={styles.wrapper}>
-        <div 
+        {/* <div 
           className={styles.imgsContainer}
           ref={imgsContainerRef}
         >
           <ArticleImgs containerWidth={imgsContainerWidth} />
-        </div>
+        </div> */}
         <div className={styles.navContainer}>
           <MainNav handleMouseDown={handleMouseDown}/>
         </div>
