@@ -1,5 +1,8 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+
+import { useState, useRef, useEffect } from 'react'
+import { useQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+import { GETQUERY } from '@/query/schema';
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -9,6 +12,16 @@ import ArticleImgs from '../components/ArticleImgs'
 import styles from './workPage.module.css'
 
 export default function WorkPage() {
+
+  const [works, setWorks] = useState<[]>([]);
+  const { loading, error, data } = useQuery(GETQUERY, { fetchPolicy: "no-cache" });
+
+  useEffect(() => {
+    setWorks(data?.works?.data);
+    console.log(works)
+  }, [data, works]);
+
+  // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
   const targetRef = useRef<HTMLDivElement>(null);
 
