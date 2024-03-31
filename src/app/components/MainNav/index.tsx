@@ -1,17 +1,18 @@
-'use client'
+"use client"
 
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+// components
+import Logo from '../Logo'
 // assets
 import grip from '@/app/assets/grip.svg'
 import checkbox from '@/app/assets/checkbox.svg'
-import check from '@/app/assets/check.svg'
 import arrowLeft from '@/app/assets/grip-arrow-left.svg'
 import arrowRight from '@/app/assets/grip-arrow-right.svg'
 // styles
 import styles from './MainNav.module.css'
-import Logo from '../Logo'
+
 
 type MainNavProps = {
   handleMouseDown?: (e: React.MouseEvent<HTMLDivElement>) => void
@@ -22,8 +23,9 @@ export default function MainNav({
   handleMouseDown,
   isNavOnly }: MainNavProps ) {
 
-  const navLinks = [ { text: 'about', link: '/about' }, { text: 'work', link: '/work' } ];
-  const pathname = usePathname();
+  const pathname = usePathname()
+  const pathText = pathname.slice(1)
+  const navLink = { text: pathText, link: pathname }
 
   return (
     <div className={styles.wrapper}>
@@ -55,29 +57,22 @@ export default function MainNav({
       }
       <nav className={isNavOnly ? styles.navContainer_Only : styles.navContainer}>
         <ul>
-          {navLinks.map((navLink, index) => (
-            <li key={index}>
-              <Link
-                href={navLink.link}
-                className={styles.link}
-              >
-                <div className={styles.checkboxContainer}>
-                  <Image
-                    className={pathname === navLink.link ? `${styles.check} ${styles.active}` : `${styles.check}`} 
-                    src={check} 
-                    alt="Check icon"
-                  />
-                  <Image 
-                    src={checkbox} 
-                    alt="Checkbox icon"
-                  />
-                </div>
-                <p className={pathname === navLink.link ? `${styles.linkText} ${styles.active}` : styles.linkText }>
-                  {navLink.text}
-                </p>
-              </Link>
-            </li>
-          ))}
+          <li>
+            <Link
+              href={navLink.link}
+              className={styles.link}
+            >
+              <div className={styles.checkboxContainer}>
+                <Image 
+                  src={checkbox} 
+                  alt="Checkbox icon"
+                />
+              </div>
+              <p className={styles.linkText}>
+                {navLink.text}
+              </p>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

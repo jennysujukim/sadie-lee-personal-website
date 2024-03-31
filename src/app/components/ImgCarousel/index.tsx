@@ -1,9 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useState, useEffect } from 'react'
+import { useState } from 'react'
 import useResponsive from '@/app/utils/useResponsive'
-import Dimensions from '@/types/constants/Dimensions'
 import { BreakpointType } from '@/types/enums/BreakpointType'
 // assets
 import arrowRight from '@/app/assets/slide-arrow-right.svg'

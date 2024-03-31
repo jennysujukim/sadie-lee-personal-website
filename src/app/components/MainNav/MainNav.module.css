@@ -39,19 +39,7 @@
   @apply relative w-[20px];
 }
 
-.check {
-  @apply absolute top-[-5px] left-0 z-10 opacity-0;
-}
-
-.check.active {
-  @apply opacity-100;
-}
-
 .linkText {
-  @apply font-sansita font-bold italic text-mainNav-link-mobile pl-1
+  @apply text-pink font-sansita font-bold italic text-mainNav-link-mobile pl-1
   tab-lg:text-mainNav-link;
-}
-
-.linkText.active {
-  @apply text-pink;
 }

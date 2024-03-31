@@ -34,10 +34,6 @@
 }
 
 /* ---- CAROUSEL ---- */
-.carouselContainer {
-  @apply flex justify-start overflow-x-hidden;
-}
-
 .carousel {
   @apply flex justify-start transition-all duration-500 ease-in-out;
 }
