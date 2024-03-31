@@ -35,8 +35,7 @@
 
 /* ---- CAROUSEL ---- */
 .carouselContainer {
-  @apply flex justify-start overflow-x-hidden
-  tab-lg:w-carousel-min-width;
+  @apply flex justify-start overflow-x-hidden;
 }
 
 .carousel {
@@ -45,12 +44,10 @@
 
 .imgContainer {
   @apply bg-lightpink h-fit rounded-b-articleImg w-articleImg-mobile
-  tab:w-articleImg-tab
-  tab-lg:w-carousel-min-width;
+  tab:w-articleImg-tab;
 }
 
 .img {
   @apply rounded-articleImg w-articleImg-mobile
-  tab:w-articleImg-tab
-  tab-lg:w-carousel-min-width;
+  tab:w-articleImg-tab;
 }

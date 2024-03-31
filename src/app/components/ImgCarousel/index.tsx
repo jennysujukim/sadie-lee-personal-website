@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { projects } from '@/_data/projects'
 import { useRef, useState, useEffect } from 'react'
 import useResponsive from '@/app/utils/useResponsive'
 import Dimensions from '@/types/constants/Dimensions'
@@ -17,36 +16,42 @@ import ImgsModal from '../ImgsModal'
 // styles
 import styles from './ImgCarousel.module.css'
 
+type ImageDataProps = {
+  data: {
+    attributes: {
+      ext: string;
+      url: string;
+      width: number;
+      height: number;
+    }
+  }[]
+}
+
 type ImgCarouselProps = {
+  works: {
+    id: string;
+    attributes: {
+      title: string;
+      type: string;
+      year: string;
+      keywords: string;
+      description: string;
+      slug: string;
+      images: ImageDataProps;
+    }
+  }[];
   projectId: string;
   imgContainerWidth?: number;
 }
 
-export default function ImgCarousel({ projectId, imgContainerWidth }: ImgCarouselProps) {
+export default function ImgCarousel({ works, projectId, imgContainerWidth }: ImgCarouselProps) {
 
   const isResponsive = useResponsive();
 
-  const project = projects.find(project => project.id === projectId);
-  const images = project?.images ?? [];
-  const imageLength = project?.images.filter(index => index).length ?? 0;
+  const project = works?.find(work => work.id === projectId);
+  const imageLength = project?.attributes.images.data.filter(index => index).length ?? 0;
 
   const [ currIndex, setCurrIndex ] = useState<number>(0);
-  const carousel = useRef<HTMLDivElement>(null);
-  const selectedCarousel = carousel.current;
-  const imgContainer = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    if(selectedCarousel && imgContainer.current) {
-      if (isResponsive === BreakpointType.Mobile) {
-        selectedCarousel.style.transform = `translateX(-${currIndex * imgContainer.current.offsetWidth}px)`
-      } else if (isResponsive === BreakpointType.Tablet) {
-        selectedCarousel.style.transform = `translateX(-${currIndex * imgContainer.current.offsetWidth}px)`
-      } else {
-        selectedCarousel.style.transform = `translateX(-${currIndex * Dimensions.carouselImgWidth_Desktop}px)`
-      }
-    }
-  }, [currIndex, selectedCarousel, imgContainer, isResponsive])
-
 
   const prevSlide = () => {
     setCurrIndex((prevSlide) => (prevSlide - 1 + imageLength) % imageLength)
@@ -133,7 +138,7 @@ export default function ImgCarousel({ projectId, imgContainerWidth }: ImgCarouse
     <>
       {project && (
         <div 
-          id={project.title} 
+          id={project.attributes.title} 
           className={styles.wrapper}
         >
           <div className={styles.btnsContainer}>
@@ -187,34 +192,22 @@ export default function ImgCarousel({ projectId, imgContainerWidth }: ImgCarouse
               />
             </button>
           </div>
-          <div className={styles.carouselContainer} style={{ width: imgContainerWidth, maxWidth: 700 }}>
-            <div 
-              className={styles.carousel} 
-              ref={carousel}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onMouseUp={handleMouseUp}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onClick={handleCarouselClick}
-            >
-              {images.map((image, index) => (
-                <div 
-                  key={index} 
-                  className={styles.imgContainer}
-                  ref={imgContainer}
-                  style={{ width: imgContainerWidth, maxWidth: 700 }}
-                >
-                  <Image 
-                    src={image} 
-                    alt={`Images of ${project.title}`}
-                    className={styles.img} 
-                    style={{ width: imgContainerWidth, maxWidth: 700 }}
-                  />
-                </div>
-              ))}
-            </div>
+          <div 
+            className={styles.carousel} 
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseUp={handleMouseUp}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onClick={handleCarouselClick}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={`http://localhost:1337${project.attributes.images.data[currIndex].attributes.url}`}
+              alt={`Images of ${project.attributes.title}`}
+              className={styles.img} 
+            />
           </div>
         </div>
       )}

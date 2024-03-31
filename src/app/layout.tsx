@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Sansita } from 'next/font/google'
 import localFont from 'next/font/local'
-import { ApolloWrapper } from '@/lib/client'
 // styles
 import './globals.css'
 
@@ -35,9 +34,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${sansita.variable} ${clashDisplay.variable}`}
       >
-        <ApolloWrapper>
-          {children}
-        </ApolloWrapper>
+        {children}
       </body>
     </html>
   )

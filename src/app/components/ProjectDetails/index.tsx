@@ -12,7 +12,7 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
   const project = projects.find(project => project.id === projectId)
 
   return (
-    <>
+    <>  
       {project && 
         <article 
           id={project.title}

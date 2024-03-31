@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { useQuery } from "@apollo/experimental-nextjs-app-support/ssr";
-import { GETQUERY } from '@/query/schema';
+import { getData } from '../lib/route'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -13,13 +12,13 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  const [works, setWorks] = useState<[]>([]);
-  const { loading, error, data } = useQuery(GETQUERY, { fetchPolicy: "no-cache" });
+  const [ works, setWorks ] = useState()
 
   useEffect(() => {
-    setWorks(data?.works?.data);
-    console.log(works)
-  }, [data, works]);
+    getData().then(data => { 
+      setWorks(data.data)
+    }).catch((error) => console.error(error))
+  }, [])
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
@@ -76,32 +75,42 @@ export default function WorkPage() {
   const [ imgsContainerWidth, setImgsContainerWidth ] = useState<number | undefined>();
 
   return (
-    <main className={styles.main}>
-      <div className={styles.mobileWrapper}>
-        <div className={styles.navContainer}>
-          <MainNav />
-        </div>
-        <div className={styles.mobileArticlesContainer}>
-          <ArticleMobile />
-        </div>
-      </div>
-      <div className={styles.wrapper}>
-        <div 
-          className={styles.imgsContainer}
-          ref={imgsContainerRef}
-        >
-          <ArticleImgs containerWidth={imgsContainerWidth} />
-        </div>
-        <div className={styles.navContainer}>
-          <MainNav handleMouseDown={handleMouseDown}/>
-        </div>
-        <div 
-          className={styles.descriptionsContainer} 
-          ref={targetRef}
-        >
-          <ArticleDescriptions width={navContainerWidth}/>
-        </div>
-      </div>
-    </main>
+    <>
+      {works &&
+        <main className={styles.main}>
+          <div className={styles.mobileWrapper}>
+            <div className={styles.navContainer}>
+              <MainNav />
+            </div>
+            <div className={styles.mobileArticlesContainer}>
+              <ArticleMobile />
+            </div>
+          </div>
+          <div className={styles.wrapper}>
+            <div 
+              className={styles.imgsContainer}
+              ref={imgsContainerRef}
+            >
+              <ArticleImgs 
+                containerWidth={imgsContainerWidth} 
+                works={works}
+              />
+            </div>
+            <div className={styles.navContainer}>
+              <MainNav handleMouseDown={handleMouseDown}/>
+            </div>
+            <div 
+              className={styles.descriptionsContainer} 
+              ref={targetRef}
+            >
+              <ArticleDescriptions 
+                width={navContainerWidth} 
+                works={works}
+              />
+            </div>
+          </div>
+        </main>
+      }
+    </>
   )
 }
