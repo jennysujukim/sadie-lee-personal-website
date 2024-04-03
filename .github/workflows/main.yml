@@ -20,11 +20,12 @@ jobs:
         NEXT_PUBLIC_STRAPI_API_TOKEN: ${{ secrets.NEXT_PUBLIC_STRAPI_API_TOKEN }}
         NEXT_PUBLIC_STRAPI_API_URL: ${{ secrets.NEXT_PUBLIC_STRAPI_API_URL }}
       run: |
+        cd frontend/
         npm install
         npm run build
     
     - name: List output files
-      run: find frontend/out/ -print
+      run: find out/ -print
       
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
@@ -32,4 +33,4 @@ jobs:
         server: ftp.sadielee-design.com
         username: portfolio-ftp@sadielee-design.com
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: frontend/
+        local-dir: ./
