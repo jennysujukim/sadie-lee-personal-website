@@ -30,4 +30,5 @@ jobs:
         server: ftp.sadielee-design.com
         username: portfolio-ftp@sadielee-design.com
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
+        local-dir: /out
+        server-dir: '/'
