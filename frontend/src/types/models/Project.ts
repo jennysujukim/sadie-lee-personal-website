@@ -1,9 +1,10 @@
 export type Project = {
-  id: string;
+  id: number;
   title: string;
-  keywords: string[];
+  keywords: string;
   type: string;
   year: string;
   description: string[];
   images: any[];
+  slug: string;
 }
