@@ -28,7 +28,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
         server: ftp.sadielee-design.com
-        username: portfolio-ftp@sadielee-design.com
+        username: portfolio@sadielee-design.com
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: frontend/out/
         server-dir: '/'
