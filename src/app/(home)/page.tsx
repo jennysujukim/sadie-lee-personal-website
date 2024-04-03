@@ -1,3 +1,4 @@
+import Link from 'next/link'
 // components
 import Hero from '../components/Hero'
 // styles
@@ -7,8 +8,12 @@ export default function HomePage() {
 
 
   return (
+    <>
+    <Link href="/about">About</Link>
+    <Link href="/work">Work</Link>
     <main className={styles.main}>
       <Hero />
     </main>
+    </>
   )
 }
