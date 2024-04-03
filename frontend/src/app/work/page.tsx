@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { getData } from '@/app/lib/getData'
+//import { getData } from '@/app/lib/getData'
+import { projects } from '@/_data/projects'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -12,13 +13,13 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  const [ works, setWorks ] = useState<any[]>([])
+  // const [ works, setWorks ] = useState<any[]>([])
 
-  useEffect(() => {
-    getData().then(data => { 
-      setWorks(data.data)
-    }).catch((error) => console.error(error))
-  }, [])
+  // useEffect(() => {
+  //   getData().then(data => { 
+  //     setWorks(data.data)
+  //   }).catch((error) => console.error(error))
+  // }, [])
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
@@ -66,7 +67,37 @@ export default function WorkPage() {
 
   return (
     <>
-      {works &&
+      <main className={styles.main}>
+        <div className={styles.mobileWrapper}>
+          <div className={styles.navContainer}>
+            <MainNav />
+          </div>
+          <div className={styles.mobileArticlesContainer}>
+            <ArticleMobile works={projects} />
+          </div>
+        </div>
+        <div className={styles.wrapper}>
+          <div 
+            className={styles.imgsContainer}
+            ref={imgsContainerRef}
+          >
+            <ArticleImgs works={projects} />
+          </div>
+          <div className={styles.navContainer}>
+            <MainNav handleMouseDown={handleMouseDown}/>
+          </div>
+          <div 
+            className={styles.descriptionsContainer} 
+            ref={targetRef}
+          >
+            <ArticleDescriptions 
+              width={navContainerWidth} 
+              works={projects}
+            />
+          </div>
+        </div>
+      </main>
+      {/* {works &&
         <main className={styles.main}>
           <div className={styles.mobileWrapper}>
             <div className={styles.navContainer}>
@@ -97,7 +128,7 @@ export default function WorkPage() {
             </div>
           </div>
         </main>
-      }
+      } */}
     </>
   )
 }
