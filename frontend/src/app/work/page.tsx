@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { getData } from '../lib/route'
+import { getData } from '@/app/lib/route'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -12,7 +12,7 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  const [ works, setWorks ] = useState()
+  const [ works, setWorks ] = useState<any[]>([])
 
   useEffect(() => {
     getData().then(data => { 
@@ -26,22 +26,15 @@ export default function WorkPage() {
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const ele = targetRef.current;
-    if (!ele) {
-        return;
-    }
+    if (!ele) { return; }
 
     const startPos = {
-        x: e.clientX,
-        y: e.clientY,
+      x: e.clientX,
+      y: e.clientY,
     };
+    
     const styles = window.getComputedStyle(ele);
     const w = parseInt(styles.width, 10);
-
-    const handleResize = () => {
-      if (imgsContainerRef.current) {
-        setImgsContainerWidth(imgsContainerRef.current.offsetWidth - 40);
-      } else return;
-    }
 
     const handleMouseMove = (e: MouseEvent) => {
         const dx = e.clientX - startPos.x;
@@ -52,13 +45,11 @@ export default function WorkPage() {
     const handleMouseUp = () => {
         window.removeEventListener('mousemove', handleMouseMove);
         window.addEventListener('mouseup', handleMouseUp);
-        window.removeEventListener('resize', handleResize);
         resetCursor();
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
-    window.addEventListener('resize', handleResize);
   }
 
   const updateCursor = () => {
@@ -72,7 +63,6 @@ export default function WorkPage() {
   }
 
   const imgsContainerRef = useRef<HTMLDivElement>(null);
-  const [ imgsContainerWidth, setImgsContainerWidth ] = useState<number | undefined>();
 
   return (
     <>
@@ -83,7 +73,7 @@ export default function WorkPage() {
               <MainNav />
             </div>
             <div className={styles.mobileArticlesContainer}>
-              <ArticleMobile />
+              <ArticleMobile works={works} />
             </div>
           </div>
           <div className={styles.wrapper}>
@@ -91,10 +81,7 @@ export default function WorkPage() {
               className={styles.imgsContainer}
               ref={imgsContainerRef}
             >
-              <ArticleImgs 
-                containerWidth={imgsContainerWidth} 
-                works={works}
-              />
+              <ArticleImgs works={works} />
             </div>
             <div className={styles.navContainer}>
               <MainNav handleMouseDown={handleMouseDown}/>

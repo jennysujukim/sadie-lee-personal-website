@@ -40,10 +40,9 @@ type ImgCarouselProps = {
     }
   }[];
   projectId: string;
-  imgContainerWidth?: number;
 }
 
-export default function ImgCarousel({ works, projectId, imgContainerWidth }: ImgCarouselProps) {
+export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
 
   const isResponsive = useResponsive();
 
@@ -203,7 +202,7 @@ export default function ImgCarousel({ works, projectId, imgContainerWidth }: Img
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
-              src={`http://localhost:1337${project.attributes.images.data[currIndex].attributes.url}`}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${project.attributes.images.data[currIndex].attributes.url}`}
               alt={`Images of ${project.attributes.title}`}
               className={styles.img} 
             />

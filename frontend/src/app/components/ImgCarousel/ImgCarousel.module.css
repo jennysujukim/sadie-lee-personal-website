@@ -44,6 +44,6 @@
 }
 
 .img {
-  @apply rounded-articleImg w-articleImg-mobile
+  @apply w-articleImg-mobile
   tab:w-articleImg-tab;
 }

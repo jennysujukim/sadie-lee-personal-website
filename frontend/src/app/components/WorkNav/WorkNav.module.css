@@ -76,7 +76,7 @@
 }
 
 .hoverThumbnail {
-  @apply absolute top-[2rem] left-0 right-0 mx-auto w-[100px] hidden shadow-workNav-hover-thumbnail z-10;
+  @apply absolute top-[2rem] left-0 right-0 mx-auto w-[100px] min-w-[100px] hidden shadow-workNav-hover-thumbnail z-10;
 }
 
 .linkContainer:hover .hoverThumbnail {

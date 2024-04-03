@@ -12,7 +12,6 @@ type ImageDataProps = {
 }
 
 type ArticleImgsProps = {
-  containerWidth: number | undefined;
   works: {
     id: string;
     attributes: {
@@ -27,7 +26,7 @@ type ArticleImgsProps = {
   }[];
 }
 
-export default function ArticleImgs({ containerWidth, works }: ArticleImgsProps) {
+export default function ArticleImgs({ works }: ArticleImgsProps) {
   return (
     <>
       {works && works.map((work, index) => (
@@ -35,7 +34,6 @@ export default function ArticleImgs({ containerWidth, works }: ArticleImgsProps)
           <ImgCarousel 
             works={works}
             projectId={work.id}
-            imgContainerWidth={containerWidth}
           />
         </div>
       ))}

@@ -1,6 +1,5 @@
 import React from 'react';
 // styles
-import Image from 'next/image';
 import styles from './ArticleDescriptions.module.css'
 
 type ImageDataProps = {
@@ -34,13 +33,13 @@ export default function ArticleDescriptions({ width, works }: ArticleDescription
   
   return (
     <>
-      {works && works.map((work) => (
-        <div key={work.id} style={{ width: width, minWidth: 300, maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.5)' }}>
-          {/* <ProjectDetails projectId={work.id} /> */}
-          <article 
-            id={work.attributes.title}
-            className={styles.container}
-          >
+      {works && works.map((work, index) => (
+        <div 
+          key={index} 
+          style={{ width: width, minWidth: 300, maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.5)' }}
+          id={work.attributes.slug}
+        >
+          <article className={styles.container}>
             <h2 className={styles.title}>{work.attributes.title}</h2>
             <div className={styles.subContainer}>
               <p className={styles.keywords}>

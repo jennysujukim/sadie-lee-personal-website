@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
-import { projects } from '@/_data/projects'
+import { useState, useEffect } from 'react'
+import { getData } from '@/app/lib/route'
 // assets
 import star from '@/app/assets/nav-star.svg'
 import arrowTop from '@/app/assets/nav-mobile-arrow-top.svg'
@@ -13,6 +13,23 @@ import styles from './WorkNav.module.css'
 export default function HeaderNav() {
 
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState<boolean>(false)
+  const [ works, setWorks ] = useState<any[]>([])
+
+  useEffect(() => {
+    getData().then(data => { 
+      setWorks(data.data)
+    }).catch((error) => console.error(error))
+  }, [])
+
+  const onClickScroll = (id: any) => {
+    const target = document.getElementById(id)
+
+    if(target){
+      const targetTop = target.offsetTop - 100
+      window.scrollTo({ top: targetTop, behavior: 'smooth' })
+    }
+
+  }
 
   return (
     <>
@@ -26,17 +43,17 @@ export default function HeaderNav() {
         <nav className={styles.mobileNav}>
           {isMobileNavOpen &&
             <ul>
-              {projects.map((project) => (
+              {works && works.map((work, index) => (
                 <li 
+                  key={index}
                   className={styles.mobileLinkContainer}
-                  key={project.id}
                 >
                   <Link 
+                    href={`#${work.attributes.slug}`}
                     className={styles.mobileLink}
-                    href={`#${project.title}`}
                     onClick={() => setIsMobileNavOpen(false)}
                   >
-                    {project.title}
+                    {work.attributes.title}
                   </Link>
                 </li>
               ))}
@@ -47,30 +64,33 @@ export default function HeaderNav() {
       <header className={styles.header}>
         <nav className={styles.nav}>
           <ul className={styles.links}>
-            {projects.map((project, index) => (
-              <li
-                className={styles.linkContainer} 
-                key={project.id}
-              >
-                <Link 
-                  className={styles.link}
-                  href={`#${project.title}`}
+            {works && works.map((work, index)=> (
+              <>
+                <li 
+                  key={index}
+                  className={styles.linkContainer} 
                 >
-                  {project.title}
-                  <Image 
-                    className={styles.hoverThumbnail}
-                    src={project.images[0]} 
-                    alt={`Thumbnail of ${project.title} project` }
-                  />
-                </Link>
-                {index !== projects.length - 1 && 
+                  <div 
+                    className={styles.link}
+                    onClick={() => onClickScroll(`${work.attributes.slug}`)}
+                  >
+                    {work.attributes.title}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      className={styles.hoverThumbnail}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${work.attributes.images.data[0].attributes.url}`}
+                      alt={`Thumbnail of ${work.attributes.title} project`}
+                    />
+                  </div>
+                </li>
+                {index !== works.length - 1 &&
                   <Image 
                     className={styles.star}
                     src={star}
                     alt="Star icon"
                   />
                 }
-              </li>
+              </>
             ))}
           </ul>
         </nav>
