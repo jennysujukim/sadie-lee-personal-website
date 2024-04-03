@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { getData } from '@/app/lib/route'
+import { getData } from '@/app/lib/getData'
 // assets
 import star from '@/app/assets/nav-star.svg'
 import arrowTop from '@/app/assets/nav-mobile-arrow-top.svg'
