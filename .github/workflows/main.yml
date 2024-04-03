@@ -23,9 +23,6 @@ jobs:
         cd frontend/
         npm install
         npm run build
-    
-    - name: List output files
-      run: find out/ -print
       
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
