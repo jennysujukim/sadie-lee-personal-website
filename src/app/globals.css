@@ -38,13 +38,17 @@
   --h-workNav-mobile: 90px;
   --h-workNav: 90px;
   --h-workNav-linkContainer-mobile: calc(100% - var(--h-workNav-mobile));
+  --h-aboutPage-lap: calc(100vh - 7rem);
   --max-h-workNav: 100px;
+  --max-h-aboutPageTextContainer-lap: calc(100vh - ((7rem * 2) + 4rem));
   --w-mainNav: 130px;
   --min-w-articleImg: calc(300px - 2rem);
   --min-h-articleWrapper: 80vh;
   --min-w-carousel: 35vw;
   --w-articleImg-mobile: calc(100vw - ((var(--spacing-sideWrapper-mobile) * 2) + var(--w-scrollbar)));
   --w-articleImg-tab: calc(100vw - ((var(--spacing-sideWrapper-tab) * 2) + var(--w-scrollbar)));
+  --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.35);
+  --w-aboutPageTextWrapper-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.65);
   /* ---- BORDER RADIUS ----- */
   --b-radius-articleImg: 29px;
   --b-radius-descriptionContainer: 22px;
