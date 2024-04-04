@@ -48,6 +48,8 @@ const config: Config = {
         'carousel-min-width': 'var(--min-w-carousel)',
         'articleImg-mobile': 'var(--w-articleImg-mobile)',
         'articleImg-tab': 'var(--w-articleImg-tab)',
+        'profileImg-lap': 'var(--w-profileImg-lap)',
+        'aboutPage-height': 'var(--h-aboutPage-lap)'
       },
       minHeight: {
         'workNav': 'var(--h-workNav)',

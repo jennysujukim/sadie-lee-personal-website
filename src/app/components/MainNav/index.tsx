@@ -8,6 +8,7 @@ import Logo from '../Logo'
 // assets
 import grip from '@/app/assets/grip.svg'
 import checkbox from '@/app/assets/checkbox.svg'
+import check from '@/app/assets/check.svg'
 import arrowLeft from '@/app/assets/grip-arrow-left.svg'
 import arrowRight from '@/app/assets/grip-arrow-right.svg'
 // styles
@@ -24,7 +25,7 @@ export default function MainNav({
   isNavOnly }: MainNavProps ) {
 
   const pathname = usePathname()
-  const pathText = pathname.slice(1)
+  const pathText = pathname.trim().replace(/^\/+|\/+$/g, '')
   const navLink = { text: pathText, link: pathname }
 
   return (
@@ -63,6 +64,11 @@ export default function MainNav({
               className={styles.link}
             >
               <div className={styles.checkboxContainer}>
+                <Image 
+                  src={check} 
+                  alt="Check icon"
+                  className={styles.check}
+                />
                 <Image 
                   src={checkbox} 
                   alt="Checkbox icon"

@@ -11,6 +11,9 @@ import styles from './aboutPage.module.css'
 export default function AboutPage() {
   return (
     <main className={styles.main}>
+      <div className={`${styles.navContainer} ${styles.mobile}`}>
+        <MainNav />
+      </div>
       <section className={styles.headingContainer}>
         <h2 className={styles.heading}>London-based multi-disciplinary graphic designer</h2>
       </section>
@@ -22,11 +25,10 @@ export default function AboutPage() {
             alt="Image of the author"
           />
         </section>
-        <div className={styles.navContainer}>
+        <div className={`${styles.navContainer} ${styles.laptop}`}>
           <MainNav />
         </div>
         <section className={styles.textWrapper}>
-
           <div className={styles.emailCtaContainer}>
             <div className={styles.emailCta}>
               <Image
