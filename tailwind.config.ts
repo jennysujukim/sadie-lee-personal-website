@@ -49,11 +49,15 @@ const config: Config = {
         'articleImg-mobile': 'var(--w-articleImg-mobile)',
         'articleImg-tab': 'var(--w-articleImg-tab)',
         'profileImg-lap': 'var(--w-profileImg-lap)',
-        'aboutPage-height': 'var(--h-aboutPage-lap)'
+        'aboutPage-height': 'var(--h-aboutPage-lap)',
+        'aboutTextWrapper': 'var(--w-aboutPageTextWrapper-lap)',
       },
       minHeight: {
         'workNav': 'var(--h-workNav)',
         'articleWrapper': 'var(--min-h-articleWrapper)',
+      },
+      maxHeight: {
+        'aboutTextContainer': 'var(--max-h-aboutPageTextContainer-lap)',
       },
       minWidth: {
         'articleImg': 'var(--min-w-articleImg)',

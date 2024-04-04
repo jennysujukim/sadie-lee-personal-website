@@ -12,22 +12,22 @@
 }
 
 .heading {
-  @apply text-[3.5rem];
+  @apply text-[3.5rem] leading-none lap:px-wrapper-side-lap;
 }
 
 /* ---- CONTENT ---- */
 
 .wrapper {
-  @apply flex flex-col items-center px-wrapper-side-mobile
+  @apply flex flex-col items-center px-wrapper-side-mobile py-16
   tab:px-wrapper-side-tab
-  lap:px-wrapper-side-lap lap:flex-row lap:h-aboutPage-height lap:justify-center lap:items-start;
+  lap:py-0 lap:px-wrapper-side-lap lap:flex-row lap:h-aboutPage-height lap:justify-center lap:items-start;
 }
 
 /* ---- LEFT IMAGE COL ---- */
 
 .profileContainer {
-  @apply flex-1 w-full max-w-[500px]
-  lap:px-10 lap:w-profileImg-lap;
+  @apply flex-1 w-full max-w-[500px] relative
+  lap:static lap:w-profileImg-lap;
 }
 
 .profileImg {
@@ -51,13 +51,18 @@
 
 /* ---- RIGHT TEXT COL ---- */
 .textWrapper {
-  @apply relative px-[2.5rem];
-  width: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.65);
+  @apply lap:relative lap:px-[2.5rem] lap:w-aboutTextWrapper;
 }
 
 /* ---- CTA ---- */
 .cvCtaContainer {
-  @apply absolute top-0 right-[4rem] flex justify-center items-center;
+  @apply hidden
+  lap:flex lap:absolute lap:top-0 lap:right-[4rem] lap:justify-center lap:items-center;
+}
+
+.cvCtaContainer.mobile {
+  @apply flex absolute -bottom-14 right-0 justify-center items-center
+  lap:hidden;
 }
 
 .cvCtaText {
@@ -77,15 +82,27 @@
 }
 
 .emailCtaContainer, .igCtaContainer {
-  @apply w-fit absolute top-0;
+  @apply hidden
+  lap:block lap:w-fit lap:absolute lap:top-0;
 }
 
 .emailCtaContainer {
   @apply left-[4rem];
 }
 
+.emailCtaContainer.mobile {
+  @apply block w-fit absolute -top-14 left-0
+  lap:hidden;
+}
+
 .igCtaContainer {
-  @apply left-[15rem];
+  @apply tab:left-[15rem]
+  desk-lg:left-[20rem];
+}
+
+.igCtaContainer.mobile {
+  @apply block w-fit absolute -top-14 right-[30px]
+  lap:hidden;
 }
 
 .emailCta, .cta {
@@ -93,11 +110,13 @@
 }
 
 .emailCtaBackground {
-  @apply -rotate-3;
+  @apply w-[85px] -rotate-3
+  tab:w-[120px];
 }
 
 .igCtaBackground {
-  @apply rotate-3;
+  @apply w-[85px] rotate-3
+  tab:w-[120px];
 }
 
 .emailCtaLink, .igCtaLink {
@@ -106,11 +125,13 @@
 }
 
 .emailCtaLink {
-  @apply left-0 right-0 mx-auto w-[90px] top-12 rotate-6; 
+  @apply left-0 right-0 mx-auto text-sm w-[70px] h-[30px] top-7 rotate-6
+  tab:text-lg tab:w-[90px] tab:h-[35px] tab:top-10;
 }
 
 .igCtaLink {
-  @apply left-0 right-0 mx-auto top-10 -rotate-12;
+  @apply -left-[5px] right-0 mx-auto top-7 -rotate-12 text-sm w-[100px] h-[30px]
+  tab:text-lg tab:left-0 tab:top-10 tab:w-[120px] tab:h-[35px];
 }
 
 .emailSpan, .igSpan {
@@ -118,19 +139,20 @@
 }
 
 .emailSpan {
-  @apply absolute top-0 right-[-50px];
+  @apply absolute text-xs -top-[13px] right-[-38px]
+  tab:text-sm tab:top-0 tab:right-[-55px];
 }
 
 .igSpan {
-  @apply absolute top-6 right-[-110px];
+  @apply absolute -top-[15px] right-[-30px] text-xs
+  tab:text-sm tab:top-[3px] tab:right-[-70px];
 }
 
 /* ---- TEXT CONTAINER ---- */
 
 .textContainer {
-  @apply bg-white border border-black rounded-descriptionContainer px-10 py-16 mt-[4rem];
-  max-height: calc(100vh - ((7rem * 2) + 4rem));
-  overflow: scroll;
+  @apply bg-white border border-black rounded-descriptionContainer px-8 py-8 mt-[2rem]
+  lap:px-10 lap:py-16 lap:mt-[4rem] lap:overflow-scroll lap:max-h-aboutTextContainer;
 }
 
 .textContainer::-webkit-scrollbar {
