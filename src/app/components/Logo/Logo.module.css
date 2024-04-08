@@ -4,7 +4,7 @@
 }
 
 .logo {
-  @apply max-w-[150px]
-  tab:max-w-none
+  @apply max-w-[120px]
+  tab-lg:max-w-none
   lap:-rotate-90;
 }

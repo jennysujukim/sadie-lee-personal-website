@@ -49,8 +49,10 @@ const config: Config = {
         'articleImg-mobile': 'var(--w-articleImg-mobile)',
         'articleImg-tab': 'var(--w-articleImg-tab)',
         'profileImg-lap': 'var(--w-profileImg-lap)',
+        'profileImg-desk': 'var(--w-profileImg-desk)',
         'aboutPage-height': 'var(--h-aboutPage-lap)',
-        'aboutTextWrapper': 'var(--w-aboutPageTextWrapper-lap)',
+        'aboutTextWrapper-lap': 'var(--w-aboutPageTextWrapper-lap)',
+        'aboutTextWrapper-desk': 'var(--w-aboutPageTextWrapper-desk)',
       },
       minHeight: {
         'workNav': 'var(--h-workNav)',

@@ -32,7 +32,7 @@ export default function MainNav({
     <div className={styles.wrapper}>
       {!isNavOnly &&
         <>
-          {pathname !== '/about' && 
+          {pathname !== '/about/' && 
             <div className={styles.gripContainer}>
               <Image 
                 className={styles.arrowLeft}

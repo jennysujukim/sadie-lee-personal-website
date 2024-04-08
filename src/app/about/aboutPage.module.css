@@ -8,7 +8,7 @@
 
 .headingContainer {
   @apply hidden
-  lap:block lap:text-center lap:min-h-[7rem] lap:my-6;
+  lap:flex lap:items-center lap:justify-center lap:text-center lap:min-h-[7rem] lap:my-6;
 }
 
 .heading {
@@ -20,14 +20,15 @@
 .wrapper {
   @apply flex flex-col items-center px-wrapper-side-mobile py-16
   tab:px-wrapper-side-tab
-  lap:py-0 lap:px-wrapper-side-lap lap:flex-row lap:h-aboutPage-height lap:justify-center lap:items-start;
+  lap:py-0 lap:px-wrapper-side-lap lap:flex-row lap:justify-center lap:items-center;
 }
 
 /* ---- LEFT IMAGE COL ---- */
 
 .profileContainer {
   @apply flex-1 w-full max-w-[500px] relative
-  lap:static lap:w-profileImg-lap;
+  lap:static lap:w-profileImg-lap
+  desk:w-profileImg-desk;
 }
 
 .profileImg {
@@ -38,7 +39,7 @@
 .navContainer {
   @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
   tab:px-wrapper-side-tab
-  lap:px-0 lap:mx-[2rem] lap:mt-[4rem] lap:static lap:order-none lap:flex lap:justify-center lap:items-start lap:max-w-[100px];
+  lap:px-0 lap:mx-[2rem] lap:static lap:order-none lap:flex lap:justify-center lap:items-start lap:max-w-[100px];
 }
 
 .navContainer.mobile {
@@ -51,13 +52,15 @@
 
 /* ---- RIGHT TEXT COL ---- */
 .textWrapper {
-  @apply lap:relative lap:px-[2.5rem] lap:w-aboutTextWrapper;
+  @apply lap:relative lap:w-aboutTextWrapper-lap
+  desk:w-aboutTextWrapper-desk;
 }
 
 /* ---- CTA ---- */
 .cvCtaContainer {
   @apply hidden
-  lap:flex lap:absolute lap:top-0 lap:right-[4rem] lap:justify-center lap:items-center;
+  lap:flex lap:absolute lap:-bottom-[45px] lap:right-[1rem] lap:justify-center lap:items-center
+  desk:bottom-auto desk:top-0 desk:right-[2rem];
 }
 
 .cvCtaContainer.mobile {
@@ -87,7 +90,7 @@
 }
 
 .emailCtaContainer {
-  @apply left-[4rem];
+  @apply left-[1rem];
 }
 
 .emailCtaContainer.mobile {
@@ -140,7 +143,8 @@
 
 .emailSpan {
   @apply absolute text-xs -top-[13px] right-[-38px]
-  tab:text-sm tab:top-0 tab:right-[-55px];
+  tab:text-sm tab:top-0 tab:right-[-55px]
+  desk:-top-[10px] desk:-right-[65px];
 }
 
 .igSpan {
