@@ -34,7 +34,13 @@ export default function AboutPage() {
                 E-mail
               </Link>
             </div>
-            <span className={styles.emailSpan}>sadielee.art<br/>@gmail.com</span>
+            <Link 
+              href="mailto:sadielee.art@gmail.com" 
+              target='_blank' 
+              className={styles.emailSpan}
+            >
+              sadielee.art<br/>@gmail.com
+            </Link>
           </div>
           <div className={`${styles.igCtaContainer} ${styles.mobile}`}>
             <div className={styles.cta}>
@@ -51,11 +57,17 @@ export default function AboutPage() {
                 Instagram
               </Link>
             </div>
-            <span className={styles.igSpan}>@sadie.designs_</span>
+            <Link 
+              href="mailto:sadielee.art@gmail.com" 
+              target='_blank' 
+              className={styles.igSpan}
+            >
+              @sadie.designs_
+            </Link>
           </div>
           <Link
             className={`${styles.cvCtaContainer} ${styles.mobile}`} 
-            href="https://google.com"
+            href="https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:d0140fae-ad6f-39fe-8b82-410feaf17ecd"
             target='_blank'
           >
             <svg 
@@ -98,7 +110,13 @@ export default function AboutPage() {
                 E-mail
               </Link>
             </div>
-            <span className={styles.emailSpan}>sadielee.art<br/>@gmail.com</span>
+            <Link 
+              href="mailto:sadielee.art@gmail.com" 
+              target='_blank' 
+              className={styles.emailSpan}
+            >
+              sadielee.art<br/>@gmail.com
+            </Link>
           </div>
           <div className={styles.igCtaContainer}>
             <div className={styles.cta}>
@@ -115,11 +133,17 @@ export default function AboutPage() {
                 Instagram
               </Link>
             </div>
-            <span className={styles.igSpan}>@sadie.designs_</span>
+            <Link 
+              href="mailto:sadielee.art@gmail.com" 
+              target='_blank' 
+              className={styles.igSpan}
+            >
+              @sadie.designs_
+            </Link>
           </div>
           <Link
             className={styles.cvCtaContainer} 
-            href="https://google.com"
+            href="https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:d0140fae-ad6f-39fe-8b82-410feaf17ecd"
             target='_blank'
           >
             <svg 

@@ -1,6 +1,6 @@
 .wrapper { 
-  @apply flex justify-between items-center py-[2rem] gap-2
-  lap:gap-0 lap:flex-col lap:justify-start lap:w-mainNav-width lap:py-0 lap:mx-0 lap:sticky lap:top-workNav-height; 
+  @apply flex justify-between items-center py-[2rem] px-[0.5rem] gap-2
+  lap:gap-0 lap:flex-col lap:justify-start lap:py-0 lap:px-0 lap:mx-0 lap:sticky lap:top-workNav-height; 
 }
 
 /* ---- GRIP ---- */
