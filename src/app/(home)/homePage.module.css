@@ -1,5 +1,5 @@
 .main {
-  @apply mx-auto bg-lightgrey relative
+  @apply mx-auto bg-lightgrey relative w-screen
   overflow-hidden h-screen
   desk-lg:max-w-constraint;
 }
@@ -8,6 +8,16 @@
   @apply absolute top-0 left-0 w-full h-full;
 }
 
-.mainNav_Container {
-  @apply absolute top-[50%] left-[50%];
+.linksWrapper {
+  @apply absolute z-50 left-[50%] translate-x-[-50%] bottom-[15vh];
+}
+
+.linksContainer {
+  @apply flex flex-col
+  tab:flex-row;
+}
+
+.link {
+  @apply my-2
+  tab:mx-2;
 }
