@@ -15,7 +15,7 @@ export default function Logo({ isLink, style }: LogoProps) {
     <>
       {isLink ? (
         <Link
-          href={'/'} 
+          href='/'
           className={styles.logoContainer}
         >
           <Image 
