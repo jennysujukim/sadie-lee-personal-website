@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 // components
 import Logo from '../Logo'
+import NavLink from '../NavLink'
 // assets
 import grip from '@/app/assets/grip.svg'
 import checkbox from '@/app/assets/checkbox.svg'
@@ -59,25 +60,10 @@ export default function MainNav({
       <nav className={isNavOnly ? styles.navContainer_Only : styles.navContainer}>
         <ul>
           <li>
-            <Link
-              href={navLink.link}
-              className={styles.link}
-            >
-              <div className={styles.checkboxContainer}>
-                <Image 
-                  src={check} 
-                  alt="Check icon"
-                  className={styles.check}
-                />
-                <Image 
-                  src={checkbox} 
-                  alt="Checkbox icon"
-                />
-              </div>
-              <p className={styles.linkText}>
-                {navLink.text}
-              </p>
-            </Link>
+            <NavLink 
+              link={navLink.link}
+              text={navLink.text}
+            />
           </li>
         </ul>
       </nav>

@@ -65,8 +65,8 @@ const MatterJSBridgeMobile = ({ ratio }) => {
 
     const group = Body.nextGroup(true);
 
-    const bridge = Composites.stack(100, 100, 9, 1, 0, 1, function(x, y) {
-      return Bodies.rectangle(x - 10, y, canvasWidth - ((canvasWidth * (RATIO * 2)) * 3), 40, { 
+    const bridge = Composites.stack(100, 100, 5, 1, 0, 1, function(x, y) {
+      return Bodies.rectangle(x - 10, y, canvasWidth - ((canvasWidth * (RATIO)) * 2), 20, { 
           collisionFilter: { group: group },
           chamfer: 7,
           density: 0.2,
@@ -82,7 +82,7 @@ const MatterJSBridgeMobile = ({ ratio }) => {
     });
 
     Composites.chain(bridge, 0.1, 0, -0.1, 0, { 
-      stiffness: 0.9,
+      stiffness: 1.5,
       length: 2,
       render: {
           visible: false,
@@ -100,7 +100,20 @@ const MatterJSBridgeMobile = ({ ratio }) => {
       }
     })
 
-    const leftBottomStar = Bodies.rectangle((canvasWidth / 2) - 160, 50, scaleFactor * 120, scaleFactor * 120, {
+    const leftSmallCircleStack = Composites.stack((canvasWidth / 2) - 120, 0, 2, 2, 0, 0, function(x, y) {
+
+      return Bodies.rectangle(x, y, scaleFactor * 120, scaleFactor * 120, {
+        render: {
+        sprite: {
+          texture: 'small-circle.png',
+          xScale: scaleFactor / 1.2,
+          yScale: scaleFactor / 1.2,
+          }
+        }
+      })
+    });
+
+    const leftLeftStar = Bodies.rectangle((canvasWidth / 2) - 100, 80 - 80, scaleFactor * 130, scaleFactor * 130, {
       render: {
         sprite: {
           texture: 'star.png',
@@ -110,7 +123,17 @@ const MatterJSBridgeMobile = ({ ratio }) => {
       }
     })
 
-    const leftSadieLee = Bodies.rectangle((canvasWidth / 2) - 90, 50 - 10, scaleFactor * 400, scaleFactor * 120, {
+    const leftRightStar = Bodies.rectangle((canvasWidth / 2) - 70, 80 - 80, scaleFactor * 130, scaleFactor * 130, {
+      render: {
+        sprite: {
+          texture: 'star.png',
+          xScale: scaleFactor / 1.2,
+          yScale: scaleFactor / 1.2,
+        }
+      }
+    })
+
+    const sadieLee = Bodies.rectangle((canvasWidth / 2) - 100, 80 - 150, scaleFactor * 420, scaleFactor * 130, {
       render: {
         sprite: {
           texture: 'sadie-lee.png',
@@ -120,37 +143,7 @@ const MatterJSBridgeMobile = ({ ratio }) => {
       }
     })
 
-    const leftTopRectangle = Bodies.rectangle((canvasWidth / 2) - 100, 80 - 20, scaleFactor * 140, scaleFactor * 120, {
-      render: {
-        sprite: {
-          texture: 'rectangle.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-    const leftBottomRectangle = Bodies.rectangle((canvasWidth / 2) - 130, 50 - 30, scaleFactor * 140, scaleFactor * 120, {
-      render: {
-        sprite: {
-          texture: 'rectangle.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-    const leftBottomBigCircle = Bodies.circle((canvasWidth / 2) - 150, 50 - 20, scaleFactor * 100, {
-      render: {
-        sprite: {
-          texture: 'big-circle.png',
-          xScale: scaleFactor / 1.3,
-          yScale: scaleFactor / 1.3,
-        }
-      }
-    });
-
-    const leftTopBigCircle = Bodies.circle((canvasWidth / 2) - 150, 50 - 20, scaleFactor * 100, {
+    const leftBigCircle = Bodies.circle((canvasWidth / 2), 80 - 120, scaleFactor * 120, {
       render: {
         sprite: {
           texture: 'big-circle.png',
@@ -160,17 +153,7 @@ const MatterJSBridgeMobile = ({ ratio }) => {
       }
     })
 
-    const leftEndRectangle = Bodies.rectangle((canvasWidth / 2) - 200, 50, scaleFactor * 80, scaleFactor * 80, {
-      render: {
-        sprite: {
-          texture: 'rectangle.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-    const centerBigCircle = Bodies.rectangle(canvasWidth / 2, 50 - 20, scaleFactor * 210, scaleFactor * 210, {
+    const rightBigCircle = Bodies.circle((canvasWidth / 2) + 40, 80 - 120, scaleFactor * 120, {
       render: {
         sprite: {
           texture: 'big-circle.png',
@@ -180,7 +163,47 @@ const MatterJSBridgeMobile = ({ ratio }) => {
       }
     })
 
-    const graphicDesigner = Bodies.rectangle((canvasWidth / 2) - 80, 50 - 40, scaleFactor * 400, scaleFactor * 150, {
+    const rightBottomFlower = Bodies.rectangle((canvasWidth / 2) + 70, 80, scaleFactor * 150, scaleFactor * 150, {
+      render: {
+        sprite: {
+          texture: 'flower.png',
+          xScale: scaleFactor / 1.2,
+          yScale: scaleFactor / 1.2,
+        }
+      }
+    })
+
+    const rightBottomRectangle = Bodies.rectangle((canvasWidth / 2) + 70, 80 - 50, scaleFactor * 140, scaleFactor * 120, {
+      render: {
+        sprite: {
+          texture: 'rectangle.png',
+          xScale: scaleFactor / 1.2,
+          yScale: scaleFactor / 1.2,
+        }
+      }
+    })
+
+    const rightTopFlower = Bodies.rectangle((canvasWidth / 2) + 100, 80, scaleFactor * 150, scaleFactor * 150, {
+      render: {
+        sprite: {
+          texture: 'flower.png',
+          xScale: scaleFactor / 1.2,
+          yScale: scaleFactor / 1.2,
+        }
+      }
+    })
+
+    const rightTopRectangle = Bodies.rectangle((canvasWidth / 2) + 100, 80 - 50, scaleFactor * 140, scaleFactor * 120, {
+      render: {
+        sprite: {
+          texture: 'rectangle.png',
+          xScale: scaleFactor / 1.2,
+          yScale: scaleFactor / 1.2,
+        }
+      }
+    })
+
+    const graphicDesigner = Bodies.rectangle((canvasWidth / 2) + 50, 80 - 150, scaleFactor * 450, scaleFactor * 150, {
       render: {
         sprite: {
           texture: 'graphic-designer.png',
@@ -190,106 +213,23 @@ const MatterJSBridgeMobile = ({ ratio }) => {
       }
     })
 
-    const rightSmallCircleStack = Composites.stack((canvasWidth / 2) + 100, 50, 2, 2, 0, 0, function(x, y) {
-
-      return Bodies.rectangle(x, y, scaleFactor * 100, scaleFactor * 100, {
-        render: {
-        sprite: {
-          texture: 'small-circle.png',
-          xScale: scaleFactor / 1.3,
-          yScale: scaleFactor / 1.3,
-          }
-        }
-      })
-    });
-
-    const rightTopStar = Bodies.rectangle((canvasWidth / 2) + 80, 50 - 40, scaleFactor * 130, scaleFactor * 130, {
-      render: {
-        sprite: {
-          texture: 'star.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-    const rightBottomStar = Bodies.rectangle((canvasWidth / 2) + 100, 50 - 40, scaleFactor * 130, scaleFactor * 130, {
-      render: {
-        sprite: {
-          texture: 'star.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-    const rightFlower = Bodies.rectangle((canvasWidth / 2) + 250, 50, scaleFactor * 150, scaleFactor * 150, {
-      render: {
-        sprite: {
-          texture: 'flower.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-    
-    const rightSadieLee = Bodies.rectangle((canvasWidth / 2) + 260, 80 - 10, scaleFactor * 400, scaleFactor * 120, {
-      render: {
-        sprite: {
-          texture: 'sadie-lee.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-    const rightBigCircle = Bodies.circle((canvasWidth / 2) + 250, 50 - 30, scaleFactor * 100, {
-      render: {
-        sprite: {
-          texture: 'big-circle.png',
-          xScale: scaleFactor / 1.3,
-          yScale: scaleFactor / 1.3,
-        }
-      }
-    })
-
-    const rightEndBottomFlower = Bodies.rectangle((canvasWidth / 2) + 390, 50, scaleFactor * 150, scaleFactor * 150, {
-      render: {
-        sprite: {
-          texture: 'flower.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-    const rightEndTopFlower = Bodies.rectangle((canvasWidth / 2) + 380, 50 - 10, scaleFactor * 150, scaleFactor * 150, {
-      render: {
-        sprite: {
-          texture: 'flower.png',
-          xScale: scaleFactor / 1.2,
-          yScale: scaleFactor / 1.2,
-        }
-      }
-    })
-
-      World.add(engine.world, [ground, leftWall, rightWall, bridge, mainCircle, leftBottomStar, leftSadieLee, leftBottomBigCircle, leftTopBigCircle, leftEndRectangle, leftTopRectangle, leftBottomRectangle, graphicDesigner, centerBigCircle, rightSmallCircleStack, rightTopStar, rightBottomStar, rightSadieLee, rightBigCircle, rightFlower, rightEndBottomFlower, rightEndTopFlower,
+      World.add(engine.world, [ground, leftWall, rightWall, bridge, mainCircle, leftSmallCircleStack, leftLeftStar, leftRightStar, sadieLee, leftBigCircle, rightBigCircle, rightBottomFlower, rightBottomRectangle, rightTopFlower, rightTopRectangle, graphicDesigner,
         Constraint.create({ 
-            pointA: { x: 0 + ((canvasWidth * RATIO / 2) * 2.4), y: canvasHeight - ((canvasHeight * RATIO) * 2.9) }, 
+            pointA: { x: 5, y: canvasHeight - ((canvasHeight * RATIO) * 1.8) }, 
             bodyB: bridge.bodies[0], 
             pointB: { x: -50, y: 0 },
-            length: 5,
-            stiffness: 0.9,
+            length: 10,
+            stiffness: 1,
             render: {
               strokeStyle: '#FF4567'
             }
         }),
         Constraint.create({ 
-            pointA: { x: canvasWidth - ((canvasWidth * RATIO / 2) * 2.4), y: canvasHeight - ((canvasHeight * RATIO * 2.9)) }, 
+            pointA: { x: canvasWidth - 5, y: canvasHeight - ((canvasHeight * RATIO * 1.8)) }, 
             bodyB: bridge.bodies[bridge.bodies.length - 1], 
             pointB: { x: 50, y: 0 },
-            length: 5,
-            stiffness: 0.9,
+            length: 10,
+            stiffness: 1,
             render: {
               strokeStyle: '#FF4567'
             }
