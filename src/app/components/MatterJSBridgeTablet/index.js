@@ -7,17 +7,18 @@ import { Composite, Runner, Composites, MouseConstraint, Mouse, Body, Constraint
 import styles from './MatterJSTablet.module.css'
 
 const THICCNESS = 60;
-const RATIO = 0.11;
 
-const MatterJSBridgeTablet = () => {
+const MatterJSBridgeTablet = ({ ratio }) => {
 
   const boxRef = useRef(null);
   const canvasRef = useRef(null);
+  const [ RATIO, setRATIO ] = useState(0.2);
 
   useEffect(() => {
 
     const canvasWidth = canvasRef.current.clientWidth;
     const canvasHeight = canvasRef.current.clientHeight;
+    setRATIO(ratio);
 
     const standardPixel = 300;
     const scaleFactor = (canvasWidth * RATIO) / standardPixel;
@@ -320,7 +321,7 @@ const MatterJSBridgeTablet = () => {
       Engine.clear(engine);
     };
 
-  }, []);
+  }, [RATIO, setRATIO, ratio]);
 
   return (
     <div 
