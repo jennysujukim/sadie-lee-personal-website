@@ -17,12 +17,14 @@ export default function HomePage() {
             <NavLink 
               link="/work"
               text="Work"
+              isHome
             />
           </li>
           <li className={styles.link}>
             <NavLink 
               link="/about"
               text="About"
+              isHome
             />
           </li>
         </ul>

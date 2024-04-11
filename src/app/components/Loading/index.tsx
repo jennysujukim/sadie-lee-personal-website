@@ -3,7 +3,10 @@ import styles from './Loading.module.css'
 export default function Loading() {
   return (
     <div className={styles.container}>
-      Loading ...
+      <div className={styles.loader}>
+        <div className={styles.animation}></div>
+        <p>Resizing Screen...</p>
+      </div>
     </div>
   )
 }

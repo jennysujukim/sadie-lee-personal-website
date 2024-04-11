@@ -1,6 +1,5 @@
 "use client"
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 // components
@@ -8,8 +7,6 @@ import Logo from '../Logo'
 import NavLink from '../NavLink'
 // assets
 import grip from '@/app/assets/grip.svg'
-import checkbox from '@/app/assets/checkbox.svg'
-import check from '@/app/assets/check.svg'
 import arrowLeft from '@/app/assets/grip-arrow-left.svg'
 import arrowRight from '@/app/assets/grip-arrow-right.svg'
 // styles
