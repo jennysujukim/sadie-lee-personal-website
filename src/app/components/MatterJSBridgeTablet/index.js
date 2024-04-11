@@ -1,24 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 import { Composite, Runner, Composites, MouseConstraint, Mouse, Body, Constraint } from 'matter-js';
 // styles
 import styles from './MatterJSBridgeTablet.module.css'
 
-const MatterJSBridgeTablet = ({ ratio }) => {
+const THICCNESS = 60;
+const RATIO = 0.11;
 
-  const THICCNESS = 60;
+const MatterJSBridgeTablet = () => {
 
   const boxRef = useRef(null);
   const canvasRef = useRef(null);
-  const [ RATIO, setRATIO ] = useState(0.2);
 
   useEffect(() => {
 
     const canvasWidth = canvasRef.current.clientWidth;
     const canvasHeight = canvasRef.current.clientHeight;
-    setRATIO(ratio);
 
     const standardPixel = 300;
     const scaleFactor = (canvasWidth * RATIO) / standardPixel;
@@ -66,7 +65,7 @@ const MatterJSBridgeTablet = ({ ratio }) => {
     const group = Body.nextGroup(true);
 
     const bridge = Composites.stack(100, 100, 9, 1, 0, 1, function(x, y) {
-      return Bodies.rectangle(x - 10, y, canvasWidth - ((canvasWidth * (RATIO * 2)) * 3), 40, { 
+      return Bodies.rectangle(x - 10, y, canvasWidth - ((canvasWidth * (RATIO * 2)) * 3.5), 40, { 
           collisionFilter: { group: group },
           chamfer: 7,
           density: 0.2,
@@ -275,20 +274,20 @@ const MatterJSBridgeTablet = ({ ratio }) => {
 
       World.add(engine.world, [ground, leftWall, rightWall, bridge, mainCircle, leftBottomStar, leftSadieLee, leftBottomBigCircle, leftTopBigCircle, leftEndRectangle, leftTopRectangle, leftBottomRectangle, graphicDesigner, centerBigCircle, rightSmallCircleStack, rightTopStar, rightBottomStar, rightSadieLee, rightBigCircle, rightFlower, rightEndBottomFlower, rightEndTopFlower,
         Constraint.create({ 
-            pointA: { x: 0 + (canvasWidth * RATIO / 2), y: canvasHeight - ((canvasHeight * RATIO) * 2.5) }, 
+            pointA: { x: 20, y: canvasHeight - ((canvasHeight * RATIO) * 3.5) }, 
             bodyB: bridge.bodies[0], 
             pointB: { x: -50, y: 0 },
-            length: 10,
+            length: 5,
             stiffness: 0.9,
             render: {
               strokeStyle: '#FF4567'
             }
         }),
         Constraint.create({ 
-            pointA: { x: canvasWidth - (canvasWidth * RATIO / 2), y: canvasHeight - ((canvasHeight * RATIO * 2.5)) }, 
+            pointA: { x: canvasWidth - 20, y: canvasHeight - ((canvasHeight * RATIO) * 3.5) }, 
             bodyB: bridge.bodies[bridge.bodies.length - 1], 
             pointB: { x: 50, y: 0 },
-            length: 10,
+            length: 5,
             stiffness: 0.9,
             render: {
               strokeStyle: '#FF4567'
@@ -321,7 +320,7 @@ const MatterJSBridgeTablet = ({ ratio }) => {
       Engine.clear(engine);
     };
 
-  }, [RATIO, setRATIO, ratio]);
+  }, []);
 
   return (
     <div 
