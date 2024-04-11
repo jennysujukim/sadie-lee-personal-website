@@ -9,9 +9,10 @@ import styles from './NavLink.module.css'
 type NavLinkProps = {
   link: string;
   text: string;
+  isHome?: boolean;
 }
 
-export default function NavLink({ link, text }: NavLinkProps) {
+export default function NavLink({ link, text, isHome }: NavLinkProps) {
   return (
     <Link
       href={link}
@@ -21,14 +22,14 @@ export default function NavLink({ link, text }: NavLinkProps) {
         <Image 
           src={check} 
           alt="Check icon"
-          className={styles.check}
+          className={isHome ? `${styles.check} ${styles.isHome}` : styles.check}
         />
         <Image 
           src={checkbox} 
           alt="Checkbox icon"
         />
       </div>
-      <p className={styles.linkText}>
+      <p className={isHome ? `${styles.linkText} ${styles.isHome}`: styles.linkText}>
         {text}
       </p>
     </Link>

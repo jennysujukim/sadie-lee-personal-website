@@ -13,11 +13,10 @@
 }
 
 .linksContainer {
-  @apply flex flex-col
-  tab:flex-row;
+  @apply flex;
 }
 
 .link {
-  @apply my-2
-  tab:mx-2;
+  @apply my-2 mx-2
+  lap:mx-4;
 }
