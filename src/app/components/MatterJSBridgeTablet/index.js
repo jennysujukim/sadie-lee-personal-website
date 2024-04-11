@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 import { Composite, Runner, Composites, MouseConstraint, Mouse, Body, Constraint } from 'matter-js';
 // styles
-import styles from './MatterJSBridgeTablet.module.css'
+import styles from './MatterJSTablet.module.css'
 
 const THICCNESS = 60;
 const RATIO = 0.11;
