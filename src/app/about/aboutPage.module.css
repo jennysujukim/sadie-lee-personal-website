@@ -1,0 +1,172 @@
+.main {
+  @apply mx-auto bg-lightpink
+  lap:overflow-hidden lap:h-screen
+  desk-lg:max-w-constraint;
+}
+
+/* ---- HEADING ---- */
+
+.headingContainer {
+  @apply hidden
+  lap:flex lap:items-center lap:justify-center lap:text-center lap:min-h-[7rem] lap:my-6;
+}
+
+.heading {
+  @apply text-[3.5rem] leading-none lap:px-wrapper-side-lap;
+}
+
+/* ---- CONTENT ---- */
+
+.wrapper {
+  @apply flex flex-col items-center px-wrapper-side-mobile py-16
+  tab:px-wrapper-side-tab
+  lap:py-0 lap:px-wrapper-side-lap lap:flex-row lap:justify-center lap:items-center;
+}
+
+/* ---- LEFT IMAGE COL ---- */
+
+.profileContainer {
+  @apply flex-1 w-full max-w-[500px] relative
+  lap:static lap:w-profileImg-lap
+  desk:w-profileImg-desk;
+}
+
+.profileImg {
+  border-radius: var(--b-radius-articleImg);
+  width: 100%;
+}
+
+.navContainer {
+  @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
+  tab:px-wrapper-side-tab
+  lap:px-0 lap:mx-[2rem] lap:static lap:order-none lap:flex lap:justify-center lap:items-start lap:max-w-[100px];
+}
+
+.navContainer.mobile {
+  @apply lap:hidden;
+}
+
+.navContainer.laptop {
+  @apply hidden lap:block;
+}
+
+/* ---- RIGHT TEXT COL ---- */
+.textWrapper {
+  @apply lap:relative lap:w-aboutTextWrapper-lap
+  desk:w-aboutTextWrapper-desk;
+}
+
+/* ---- CTA ---- */
+.cvCtaContainer {
+  @apply hidden
+  lap:flex lap:absolute lap:-bottom-[45px] lap:right-[1rem] lap:justify-center lap:items-center
+  desk:bottom-auto desk:top-0 desk:right-[2rem];
+}
+
+.cvCtaContainer.mobile {
+  @apply flex absolute -bottom-14 right-0 justify-center items-center
+  lap:hidden;
+}
+
+.cvCtaText {
+  @apply absolute text-white font-medium text-[1.5rem];
+}
+
+.cvCtaBackground {
+  @apply fill-pink;
+}
+
+.cvCtaContainer:hover .cvCtaText {
+  @apply text-pink;
+}
+
+.cvCtaContainer:hover .cvCtaBackground {
+  @apply fill-white stroke-pink stroke-[1.5px];
+}
+
+.emailCtaContainer, .igCtaContainer {
+  @apply hidden
+  lap:block lap:w-fit lap:absolute lap:top-0;
+}
+
+.emailCtaContainer {
+  @apply left-[1rem];
+}
+
+.emailCtaContainer.mobile {
+  @apply block w-fit absolute -top-14 left-0
+  lap:hidden;
+}
+
+.igCtaContainer {
+  @apply tab:left-[15rem]
+  desk-lg:left-[20rem];
+}
+
+.igCtaContainer.mobile {
+  @apply block w-fit absolute -top-14 right-[30px]
+  lap:hidden;
+}
+
+.emailCta, .cta {
+  @apply relative w-fit;
+}
+
+.emailCtaBackground {
+  @apply w-[85px] -rotate-3
+  tab:w-[120px];
+}
+
+.igCtaBackground {
+  @apply w-[85px] rotate-3
+  tab:w-[120px];
+}
+
+.emailCtaLink, .igCtaLink {
+  @apply absolute top-0 bottom-0 h-[35px] text-center text-pink font-medium bg-white px-3 py-1 rounded-3xl border-pink border-[1.5px]
+  hover:bg-pink hover:text-white;
+}
+
+.emailCtaLink {
+  @apply left-0 right-0 mx-auto text-sm w-[70px] h-[30px] top-7 rotate-6
+  tab:text-lg tab:w-[90px] tab:h-[35px] tab:top-10;
+}
+
+.igCtaLink {
+  @apply -left-[5px] right-0 mx-auto top-7 -rotate-12 text-sm w-[100px] h-[30px]
+  tab:text-lg tab:left-0 tab:top-10 tab:w-[120px] tab:h-[35px];
+}
+
+.emailSpan, .igSpan {
+  @apply underline text-sm leading-4;
+}
+
+.emailSpan {
+  @apply absolute text-xs -top-[13px] right-[-38px]
+  tab:text-sm tab:top-0 tab:right-[-55px]
+  desk:-top-[10px] desk:-right-[65px];
+}
+
+.igSpan {
+  @apply absolute -top-[15px] right-[-30px] text-xs
+  tab:text-sm tab:top-[3px] tab:right-[-70px];
+}
+
+/* ---- TEXT CONTAINER ---- */
+
+.textContainer {
+  @apply bg-white border border-black rounded-descriptionContainer px-8 py-8 mt-[2rem]
+  lap:px-10 lap:py-16 lap:mt-[4rem] lap:overflow-scroll lap:max-h-aboutTextContainer;
+}
+
+.textContainer::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.subHeading {
+  @apply uppercase font-medium mt-10 mb-6 ;
+}
+
+.listText {
+  @apply mb-6;
+}

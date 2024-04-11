@@ -1,0 +1,49 @@
+.wrapper { 
+  @apply flex justify-between items-center py-[2rem] px-[0.5rem] gap-2
+  lap:gap-0 lap:flex-col lap:justify-start lap:py-0 lap:px-0 lap:mx-0 lap:sticky lap:top-workNav-height; 
+}
+
+/* ---- GRIP ---- */
+.gripContainer {
+  @apply hidden
+  lap:flex lap:justify-center lap:items-center lap:w-mainNav-width lap:mb-[2rem];
+}
+
+.grip {
+  @apply hidden
+  lap:block lap:px-[0.5rem] lap:cursor-col-resize;
+}
+
+.arrowLeft, .arrowRight {
+  @apply opacity-0 transition-all duration-100 ease-in-out;
+}
+
+.gripContainer:hover .arrowLeft, .gripContainer:hover .arrowRight {
+  @apply opacity-100;
+}
+
+/* ---- NAV ---- */
+.navContainer {
+  @apply lap:mt-[2rem];
+}
+
+.navContainer_Only {
+  @apply lap:mt-0;
+}
+
+.link {
+  @apply flex items-center;
+}
+
+.checkboxContainer {
+  @apply relative;
+}
+
+.check {
+  @apply absolute -top-1 left-0;
+}
+
+.linkText {
+  @apply text-pink font-sansita font-bold italic text-mainNav-link-mobile pl-1
+  lap:text-mainNav-link;
+}

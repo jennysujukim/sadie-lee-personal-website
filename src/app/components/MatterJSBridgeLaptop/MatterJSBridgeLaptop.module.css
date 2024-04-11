@@ -1,0 +1,11 @@
+.canvasContainer {
+  @apply absolute top-0 left-0 w-full h-full flex justify-center items-center;
+}
+
+/* .navContainer {
+  @apply absolute top-[50%] left-[50%];
+} */
+
+.canvas {
+  @apply w-full h-full;
+}

@@ -1,0 +1,35 @@
+.container {
+  @apply min-h-articleWrapper tab-lg:mb-[10rem];
+}
+
+.subContainer {
+  @apply mt-2 mb-8 flex flex-wrap;
+}
+
+.divider {
+  @apply mx-2;
+}
+
+.keywords {
+  @apply flex;
+}
+
+.comma {
+  @apply pr-1;
+}
+
+.year {
+  @apply pl-1;
+}
+
+.descriptionContainer {
+  @apply bg-white border border-black rounded-descriptionContainer p-6;
+}
+
+.description {
+  @apply mb-8;
+}
+
+.description:last-child {
+  @apply mb-0;
+}

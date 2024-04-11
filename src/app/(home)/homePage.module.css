@@ -1,0 +1,23 @@
+.main {
+  @apply mx-auto bg-lightgrey relative w-screen
+  overflow-hidden h-screen
+  desk-lg:max-w-constraint;
+}
+
+.lineBackground {
+  @apply absolute top-0 left-0 w-full h-full;
+}
+
+.linksWrapper {
+  @apply absolute z-50 left-[50%] translate-x-[-50%] bottom-[15vh]
+  tab:bottom-[17vh];
+}
+
+.linksContainer {
+  @apply flex;
+}
+
+.link {
+  @apply my-2 mx-2
+  lap:mx-4;
+}

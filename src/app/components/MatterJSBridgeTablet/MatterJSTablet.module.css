@@ -1,0 +1,7 @@
+.canvasContainer {
+  @apply absolute top-0 left-0 w-full h-full flex justify-center items-center;
+}
+
+.canvas {
+  @apply w-full h-full;
+}
