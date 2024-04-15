@@ -13,6 +13,7 @@ import selectedDotImg from '@/app/assets/slide-dot-coloured.svg'
 import mobileModalBtn from '@/app/assets/modal-btn-mobile.svg'
 // components
 import ImgsModal from '../ImgsModal'
+import VideoContainer from '../VideoContainer'
 // styles
 import styles from './ImgCarousel.module.css'
 
@@ -225,6 +226,8 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
                 src={project.images[currIndex]}
                 alt={`Images of ${project.title}`}
                 className={styles.img} 
+                width={100}
+                height={100}
               />
             </div>
           </div>
