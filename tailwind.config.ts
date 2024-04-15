@@ -21,6 +21,7 @@ const config: Config = {
         pink: 'var(--color-pink)',
         lightpink: 'var(--color-lightpink)',
         lightgrey: 'var(--color-lightgrey)',
+        pinkTransparent: 'var(--color-pink-transparent)',
       },
       fontFamily: {
         sansita: ['var(--font-sansita)'],

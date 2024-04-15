@@ -1,37 +1,37 @@
 .main {
   @apply mx-auto bg-lightpink
-  tab-lg:pt-[7rem] 
+  lap:pt-[7rem] 
   desk-lg:max-w-constraint;
 }
 
 .mobileWrapper {
   @apply relative 
-  tab-lg:hidden;
+  lap:hidden;
 }
 
 .mobileArticlesContainer {
   @apply px-wrapper-side-mobile 
   tab:px-wrapper-side-tab
-  tab-lg:px-0;
+  lap:px-0;
 }
 
 .wrapper {
   @apply hidden
-  tab-lg:flex;
+  lap:flex;
 }
 
 .imgsContainer {
   @apply
-  tab-lg:px-10 tab-lg:flex-1;
+  lap:px-10 lap:flex-1;
 }
 
 .navContainer {
   @apply sticky top-0 z-30 w-full -order-1 px-wrapper-side-mobile
   tab:px-wrapper-side-tab
-  tab-lg:px-0 tab-lg:mx-[2rem] tab-lg:static tab-lg:order-none tab-lg:flex tab-lg:justify-center tab-lg:items-start tab-lg:max-w-[100px];
+  lap:px-0 lap:mx-[2rem] lap:static lap:order-none lap:flex lap:justify-center lap:items-start lap:max-w-[100px];
 }
 
 .descriptionsContainer {
-  @apply tab-lg:px-10 ;
+  @apply lap:px-10 ;
   max-width: calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.65);
 }

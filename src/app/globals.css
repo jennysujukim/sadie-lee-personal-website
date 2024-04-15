@@ -15,6 +15,7 @@
   --color-pink: #ff4566;
   --color-lightpink: #FFF2F2;
   --color-lightgrey: #f3f3f3;
+  --color-pink-transparent: rgba(255, 69, 102, 0.7);
   /* ---- GRADIENTS ---- */
   --bg-gradient-workNav-mobile: linear-gradient(180deg, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 70%);
   --bg-gradient-workNav-mobile-open: linear-gradient(180deg, rgba(248,248,248,0.7) 0%, rgba(248,248,248,1) 25%);

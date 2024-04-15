@@ -1,11 +1,3 @@
-.navContainer {
-  @apply lap:mt-[2rem];
-}
-
-.navContainer_Only {
-  @apply lap:mt-0;
-}
-
 .link {
   @apply flex items-center;
 }

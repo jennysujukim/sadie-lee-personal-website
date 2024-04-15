@@ -49,9 +49,9 @@ type ImgCarouselProps = {
 }
 
 export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
-//export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
 
   const isResponsive = useResponsive();
+  const [ isOpen, setIsOpen ] = useState<boolean>(false);
 
   const project = works?.find(work => work.id === projectId);
   // const imageLength = project?.attributes.images.data.filter(index => index).length ?? 0;
@@ -75,7 +75,9 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
   const handleCarouselClick = () => {
     if(isResponsive === BreakpointType.Mobile || isResponsive === BreakpointType.Tablet) {
       nextSlide()
-    } else return;
+    } else {
+      setIsOpen(true)
+    };
   }
 
   const [ startX, setStartX ] = useState<number | null>(null);
@@ -136,85 +138,97 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
     }
   }  
 
-  const handleModalBtnClick = () => {
-    console.log('clicked')
+
+  // handle Modal feature event
+  const handleCloseModal = () => {
+    setIsOpen(!isOpen)
   }
+
 
   return (
     <>
       {project && (
-        <div 
-          id={project.slug} 
-          className={styles.wrapper}
-        >
-          <div className={styles.btnsContainer}>
-            <button 
-              className={styles.arrowBtn} 
-              onClick={() => prevSlide()}
-            >
-              <Image 
-                src={arrowLeft} 
-                alt="left arrow"
-              />
-            </button>
-            <div className={styles.dotsContainer}>
-              {dots.map((index) => ( index === currIndex ? 
-                (
-                  <Image 
-                    key={index} 
-                    src={selectedDotImg} 
-                    alt="Selected dot icon" 
-                    className={styles.dots} 
-                  />
-                ) 
-                : 
-                (
-                  <Image 
-                    key={index} 
-                    src={dotImg} 
-                    alt="Dot icon" 
-                    className={styles.dots} 
-                  />
-                )
-              ))}
-            </div>
-            <button 
-              className={styles.arrowBtn} 
-              onClick={() => nextSlide()}
-            >
-              <Image 
-                src={arrowRight} 
-                alt="right arrow"
-              />
-            </button>
-            <button 
-              className={styles.mobileModalBtn}
-              onClick={handleModalBtnClick}
-            >
-              <Image 
-                src={mobileModalBtn}
-                alt="Mobile modal button"
-                className={styles.mobileModalBtnImg}
-              />
-            </button>
-          </div>
-          <div 
-            className={styles.carousel} 
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onMouseUp={handleMouseUp}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onClick={handleCarouselClick}
-          >
-            <Image 
+        <>
+          {isOpen &&
+            <ImgsModal 
               src={project.images[currIndex]}
-              alt={`Images of ${project.title}`}
-              className={styles.img} 
+              title={project.title}
+              handleClose={setIsOpen}
             />
+          }
+          <div 
+            id={project.slug} 
+            className={styles.wrapper}
+          >
+            <div className={styles.btnsContainer}>
+              <button 
+                className={styles.arrowBtn} 
+                onClick={() => prevSlide()}
+              >
+                <Image 
+                  src={arrowLeft} 
+                  alt="left arrow"
+                />
+              </button>
+              <div className={styles.dotsContainer}>
+                {dots.map((index) => ( index === currIndex ? 
+                  (
+                    <Image 
+                      key={index} 
+                      src={selectedDotImg} 
+                      alt="Selected dot icon" 
+                      className={styles.dots} 
+                    />
+                  ) 
+                  : 
+                  (
+                    <Image 
+                      key={index} 
+                      src={dotImg} 
+                      alt="Dot icon" 
+                      className={styles.dots} 
+                    />
+                  )
+                ))}
+              </div>
+              <button 
+                className={styles.arrowBtn} 
+                onClick={() => nextSlide()}
+              >
+                <Image 
+                  src={arrowRight} 
+                  alt="right arrow"
+                />
+              </button>
+              <button 
+                className={styles.mobileModalBtn}
+                onClick={handleCloseModal}
+              >
+                <Image 
+                  src={mobileModalBtn}
+                  alt="Mobile modal button"
+                  className={styles.mobileModalBtnImg}
+                />
+              </button>
+            </div>
+            <div 
+              className={styles.carousel} 
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseUp={handleMouseUp}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onClick={handleCarouselClick}
+            >
+              <Image 
+                src={project.images[currIndex]}
+                alt={`Images of ${project.title}`}
+                className={styles.img} 
+              />
+            </div>
           </div>
-        </div>
+        </>
       )}
       {/* {project && (
         <div 
