@@ -5,11 +5,11 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: `${process.env.NEXT_PUBLIC_SANITY_TITLE}`,
+  title: `${process.env.SANITY_TITLE}`,
 
-  projectId: `${process.env.NEXT_PUBLIC_SANITY_PROJECTID}`,
-  dataset: `${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
-  basePath: `${process.env.NEXT_PUBLIC_SANITY_BASEPATH}`,
+  projectId: `${process.env.SANITY_PROJECTID}`,
+  dataset: `${process.env.SANITY_DATASET}`,
+  basePath: `${process.env.SANITY_BASEPATH}`,
 
   // plugins: [structureTool(), visionTool()],
   plugins: [structureTool()],
