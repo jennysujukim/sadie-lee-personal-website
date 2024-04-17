@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react'
 //import { getData } from '@/app/lib/getData'
 import { projects } from '@/_data/projects'
+import { getWork } from '../../../sanity/sanity.query'
+import { WorkType } from '@/types/models/Work'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -13,13 +15,18 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  // const [ works, setWorks ] = useState<any[]>([])
+  //const works: WorkType[] = await getWork();
 
-  // useEffect(() => {
-  //   getData().then(data => { 
-  //     setWorks(data.data)
-  //   }).catch((error) => console.error(error))
-  // }, [])
+  const [ works, setWorks ] = useState<WorkType[]>([])
+
+  useEffect(() => {
+    getWork().then(data => { 
+      setWorks(data)
+    }).catch((error) => console.error(error))
+  }, [])
+
+
+  console.log(works)
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
