@@ -11,12 +11,5 @@ export type WorkType = {
   year: string;
   keywords: string[];
   descriptions: PortableTextBlock[];
-  images: {
-    _type: string;
-    alt: string;
-    asset: {
-      _type: string;
-      url: string;
-    }
-  }[];
+  images: string[];
 }

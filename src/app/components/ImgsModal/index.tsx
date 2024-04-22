@@ -22,6 +22,8 @@ export default function ImgsModal({ src, title, handleClose }: ImgsModal) {
         src={src}
         alt={title}
         className={styles.image}
+        width={300}
+        height={300}
       />
     </div>
   )

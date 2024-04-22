@@ -1,38 +1,10 @@
-import React from 'react';
+import { WorkType } from '@/types/models/Work';
 // styles
 import styles from './ArticleDescriptions.module.css'
-import { Project } from '@/types/models/Project';
-
-// type ImageDataProps = {
-//   data: {
-//     attributes: {
-//       ext: string;
-//       url: string;
-//       width: number;
-//       height: number;
-//     }
-//   }[]
-// }
-
-// type ArticleDescriptionsProps = {
-//   width: number | undefined;
-//   works: {
-//     id: string;
-//     attributes: {
-//       title: string;
-//       type: string;
-//       year: string;
-//       keywords: string;
-//       description: string;
-//       slug: string;
-//       images: ImageDataProps;
-//     }
-//   }[];
-// }
 
 type ArticleDescriptionsProps = {
   width: number | undefined;
-  works: Project[];
+  works: WorkType[];
 }
 
 export default function ArticleDescriptions({ width, works }: ArticleDescriptionsProps) {
@@ -43,7 +15,7 @@ export default function ArticleDescriptions({ width, works }: ArticleDescription
         <div 
           key={index} 
           style={{ width: width, minWidth: 300, maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.5)' }}
-          id={work.slug}
+          id={work.slug.current}
         >
           <article className={styles.container}>
             <h2 className={styles.title}>{work.title}</h2>
@@ -56,11 +28,11 @@ export default function ArticleDescriptions({ width, works }: ArticleDescription
               <span className={styles.divider}>|</span>
               <p className={styles.year}>{work.year}</p>
             </div>
-            <div className={styles.descriptionContainer}>
+            {/* <div className={styles.descriptionContainer}>
               {work.description.map((sentence, index) => (
                 <p key={index}>{sentence}</p>
               ))}
-            </div>
+            </div> */}
           </article>
         </div>
       ))}

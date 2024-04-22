@@ -11,7 +11,7 @@ export async function getWork() {
       year,
       keywords,
       descriptions,
-      "imageUrls": images[].asset->url
+      "images": images[].asset->url
     }`
   );
 }

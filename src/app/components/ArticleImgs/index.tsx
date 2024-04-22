@@ -1,34 +1,8 @@
-import { Project } from "@/types/models/Project"
+import { WorkType } from "@/types/models/Work";
 import ImgCarousel from "../ImgCarousel"
 
-// type ImageDataProps = {
-//   data: {
-//     attributes: {
-//       ext: string;
-//       url: string;
-//       width: number;
-//       height: number;
-//     }
-//   }[]
-// }
-
-// type ArticleImgsProps = {
-//   works: {
-//     id: string;
-//     attributes: {
-//       title: string;
-//       type: string;
-//       year: string;
-//       keywords: string;
-//       description: string;
-//       slug: string;
-//       images: ImageDataProps;
-//     }
-//   }[];
-// }
-
 type ArticleImgsProps = {
-  works: Project[];
+  works: WorkType[];
 }
 
 export default function ArticleImgs({ works }: ArticleImgsProps) {
@@ -38,7 +12,7 @@ export default function ArticleImgs({ works }: ArticleImgsProps) {
         <div key={index} style={{ marginBottom: '10rem' }}>
           <ImgCarousel 
             works={works}
-            projectId={work.id}
+            projectId={work._id}
           />
         </div>
       ))}
