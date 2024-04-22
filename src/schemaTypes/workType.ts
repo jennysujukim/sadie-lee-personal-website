@@ -50,7 +50,7 @@ export const workType = defineType({
             name: 'alt',
             type: 'string',
             title: 'Alternative text',
-          },
+          }
         ]
        }]
     }),

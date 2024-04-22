@@ -12,7 +12,11 @@ export type WorkType = {
   keywords: string[];
   descriptions: PortableTextBlock[];
   images: {
+    _type: string;
     alt: string;
-    imageUrl: string;
+    asset: {
+      _type: string;
+      url: string;
+    }
   }[];
 }
