@@ -61,26 +61,24 @@ export default function HeaderNav() {
       <header className={styles.header}>
         <nav className={styles.nav}>
           <ul className={styles.links}>
-            {works && works.map((work, index)=> (
-              <React.Fragment key={index}>
-                <li 
-                  key={index}
-                  className={styles.linkContainer} 
-                  onClick={() => onClickScroll(work.slug.current)}
+            {works.map((work, index)=> (
+              <li 
+                key={index}
+                className={styles.linkContainer} 
+                onClick={() => onClickScroll(work.slug.current)}
+              >
+                <div 
+                  className={styles.link}
                 >
-                  <div 
-                    className={styles.link}
-                  >
-                    {work.title}
-                    <Image 
-                      className={styles.hoverThumbnail}
-                      src={work.images[0]}
-                      alt={`Thumbnail of ${work.title} project`}
-                      width={100}
-                      height={100}
-                    />
-                  </div>
-                </li>
+                  {work.title}
+                  <Image 
+                    className={styles.hoverThumbnail}
+                    src={work.images[0]}
+                    alt={`Thumbnail of ${work.title} project`}
+                    width={100}
+                    height={80}
+                  />
+                </div>
                 {index !== works.length - 1 &&
                   <Image 
                     className={styles.star}
@@ -88,7 +86,7 @@ export default function HeaderNav() {
                     alt="Star icon"
                   />
                 }
-              </React.Fragment>
+              </li>
             ))}
           </ul>
         </nav>
