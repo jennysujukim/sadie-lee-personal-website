@@ -12,7 +12,7 @@ type ArticleMobileProps = {
 export default function ArticleMobile({ works }: ArticleMobileProps) {
   return (
     <>
-      {works && works.map((work, index) => (
+      {works.map((work, index) => (
         <div key={index}>
           <ImgCarousel 
             works={works}

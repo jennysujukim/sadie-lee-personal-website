@@ -1,0 +1,5 @@
+.main {
+  @apply mx-auto bg-lightpink w-screen h-screen
+  lap:pt-[7rem] 
+  desk-lg:max-w-constraint;
+}

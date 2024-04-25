@@ -60,38 +60,36 @@ export default function WorkPage() {
 
   return (
     <>
-      {works &&
-        <main className={styles.main}>
-          <div className={styles.mobileWrapper}>
-            <div className={styles.navContainer}>
-              <MainNav />
-            </div>
-            <div className={styles.mobileArticlesContainer}>
-              <ArticleMobile works={works} />
-            </div>
+      <main className={styles.main}>
+        <div className={styles.mobileWrapper}>
+          <div className={styles.navContainer}>
+            <MainNav />
           </div>
-          <div className={styles.wrapper}>
-            <div 
-              className={styles.imgsContainer}
-              ref={imgsContainerRef}
-            >
-              <ArticleImgs works={works} />
-            </div>
-            <div className={styles.navContainer}>
-              <MainNav handleMouseDown={handleMouseDown}/>
-            </div>
-            <div 
-              className={styles.descriptionsContainer} 
-              ref={targetRef}
-            >
-              <ArticleDescriptions 
-                width={navContainerWidth} 
-                works={works}
-              />
-            </div>
+          <div className={styles.mobileArticlesContainer}>
+            <ArticleMobile works={works} />
           </div>
-        </main>
-      }
+        </div>
+        <div className={styles.wrapper}>
+          <div 
+            className={styles.imgsContainer}
+            ref={imgsContainerRef}
+          >
+            <ArticleImgs works={works} />
+          </div>
+          <div className={styles.navContainer}>
+            <MainNav handleMouseDown={handleMouseDown}/>
+          </div>
+          <div 
+            className={styles.descriptionsContainer} 
+            ref={targetRef}
+          >
+            <ArticleDescriptions 
+              width={navContainerWidth} 
+              works={works}
+            />
+          </div>
+        </div>
+      </main>
     </>
   )
 }
