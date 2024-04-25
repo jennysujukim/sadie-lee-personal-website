@@ -1,8 +1,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-//import { getData } from '@/app/lib/getData'
-import { projects } from '@/_data/projects'
 import { getWork } from '../../../sanity/sanity.query'
 import { WorkType } from '@/types/models/Work'
 // components
@@ -15,8 +13,6 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  //const works: WorkType[] = await getWork();
-
   const [ works, setWorks ] = useState<WorkType[]>([])
 
   useEffect(() => {
@@ -24,7 +20,6 @@ export default function WorkPage() {
       setWorks(data)
     }).catch((error) => console.error(error))
   }, [])
-
 
   console.log(works)
 
@@ -74,37 +69,7 @@ export default function WorkPage() {
 
   return (
     <>
-      <main className={styles.main}>
-        <div className={styles.mobileWrapper}>
-          <div className={styles.navContainer}>
-            <MainNav />
-          </div>
-          <div className={styles.mobileArticlesContainer}>
-            <ArticleMobile works={projects} />
-          </div>
-        </div>
-        <div className={styles.wrapper}>
-          <div 
-            className={styles.imgsContainer}
-            ref={imgsContainerRef}
-          >
-            <ArticleImgs works={projects} />
-          </div>
-          <div className={styles.navContainer}>
-            <MainNav handleMouseDown={handleMouseDown}/>
-          </div>
-          <div 
-            className={styles.descriptionsContainer} 
-            ref={targetRef}
-          >
-            <ArticleDescriptions 
-              width={navContainerWidth} 
-              works={projects}
-            />
-          </div>
-        </div>
-      </main>
-      {/* {works &&
+      {works &&
         <main className={styles.main}>
           <div className={styles.mobileWrapper}>
             <div className={styles.navContainer}>
@@ -135,7 +100,7 @@ export default function WorkPage() {
             </div>
           </div>
         </main>
-      } */}
+      }
     </>
   )
 }

@@ -1,5 +1,3 @@
-import { PortableTextBlock } from "sanity";
-
 export type WorkType = {
   _id: string;
   title: string;
@@ -10,9 +8,6 @@ export type WorkType = {
   type: string;
   year: string;
   keywords: string[];
-  descriptions: PortableTextBlock[];
-  images: {
-    alt: string;
-    imageUrl: string;
-  }[];
+  descriptions: string[];
+  images: string[];
 }

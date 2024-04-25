@@ -61,13 +61,14 @@
 
 .linkContainer {
   @apply hidden
-  lap:text-center lap:leading-tight lap:flex lap:justify-center lap:items-center lap:mr-3;
+  lap:text-center lap:leading-tight lap:flex lap:justify-center lap:items-center lap:mr-3 lap:cursor-pointer;
 }
 
 .link {
   @apply hidden 
   lap:block lap:relative lap:font-light lap:text-workNav-link lap:mr-3
-  lap:hover:line-through lap:hover:decoration-pink lap:hover:decoration-4;
+  lap:hover:line-through lap:hover:decoration-pink lap:hover:decoration-4
+  lap:cursor-pointer;
 }
 
 .star {
