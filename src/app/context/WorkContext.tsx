@@ -29,6 +29,8 @@ export const WorkContextProvider = ({children}: WorkContextProviderProps) => {
     }).catch((error) => console.error(error))
   }, [])
 
+  console.log(works)
+
     return (
         <WorkContext.Provider value={{ works }}> 
             {children}

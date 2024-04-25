@@ -1,5 +1,5 @@
 export type WorkType = {
-  _id: string;
+  id: number;
   title: string;
   slug: {
     _type: string;
