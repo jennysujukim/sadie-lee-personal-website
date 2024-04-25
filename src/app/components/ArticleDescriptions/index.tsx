@@ -12,7 +12,7 @@ export default function ArticleDescriptions({ width, works }: ArticleDescription
   
   return (
     <>
-      {works && works.map((work, index) => (
+      {works.map((work, index) => (
         <div 
           key={index} 
           style={{ width: width, minWidth: 300, maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.5)' }}

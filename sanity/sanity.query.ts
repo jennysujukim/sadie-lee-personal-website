@@ -4,7 +4,7 @@ import client from "./sanity.client";
 export async function getWork() {
   return client.fetch(
     groq`*[_type == "work"]{
-      _id,
+      id,
       title,
       slug { current },
       type,

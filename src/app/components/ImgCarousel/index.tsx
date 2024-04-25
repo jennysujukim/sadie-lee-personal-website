@@ -18,7 +18,7 @@ import styles from './ImgCarousel.module.css'
 
 type ImgCarouselProps = {
   works: WorkType[];
-  projectId: string;
+  projectId: number;
 }
 
 export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
@@ -26,7 +26,8 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
   const isResponsive = useResponsive();
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
 
-  const project = works?.find(work => work._id === projectId);
+  const project = works?.find(work => work.id === projectId);
+  const projectImages = project && project.images
   const imageLength = project && project.images ? project.images.filter(index => index).length : 0;
 
   const [ currIndex, setCurrIndex ] = useState<number>(0);
@@ -190,13 +191,15 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
               onMouseMove={handleMouseMove}
               onClick={handleCarouselClick}
             >
-              {project.images &&
+              {projectImages &&
                 <Image 
+                  className={styles.img} 
                   src={project.images[currIndex]}
                   alt={`Images of ${project.title}`}
-                  width={300}
-                  height={300}
-                  className={styles.img} 
+                  width={1000}
+                  height={1000}
+                  placeholder="blur"
+                  blurDataURL={project.images[currIndex]}
                 />
               }
             </div>

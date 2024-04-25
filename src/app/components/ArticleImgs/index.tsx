@@ -16,7 +16,7 @@ export default function ArticleImgs({ works }: ArticleImgsProps) {
         >
           <ImgCarousel 
             works={works}
-            projectId={work._id}
+            projectId={work.id}
           />
         </div>
       ))}

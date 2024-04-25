@@ -3,9 +3,8 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { getWork } from '../../../../sanity/sanity.query'
-import { projects } from '@/_data/projects'
+import { useState } from 'react'
+import { useWorkContext } from '@/app/utils/useWorkContext'
 // assets
 import star from '@/app/assets/nav-star.svg'
 import arrowTop from '@/app/assets/nav-mobile-arrow-top.svg'
@@ -16,13 +15,7 @@ import styles from './WorkNav.module.css'
 export default function HeaderNav() {
 
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState<boolean>(false)
-  const [ works, setWorks ] = useState<any[]>([])
-
-  useEffect(() => {
-    getWork().then(data => { 
-      setWorks(data)
-    }).catch((error) => console.error(error))
-  }, [])
+  const { works } = useWorkContext()
 
   const onClickScroll = (id: any) => {
     const target = document.getElementById(id)
@@ -88,7 +81,7 @@ export default function HeaderNav() {
                     />
                   </div>
                 </li>
-                {index !== projects.length - 1 &&
+                {index !== works.length - 1 &&
                   <Image 
                     className={styles.star}
                     src={star}
