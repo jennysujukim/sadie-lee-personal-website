@@ -194,8 +194,8 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
                 <Image 
                   src={project.images[currIndex]}
                   alt={`Images of ${project.title}`}
-                  width={300}
-                  height={300}
+                  width={1000}
+                  height={1000}
                   className={styles.img} 
                 />
               }

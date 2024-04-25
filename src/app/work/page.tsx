@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import { getWork } from '../../../sanity/sanity.query'
-import { WorkType } from '@/types/models/Work'
+import { useState, useRef } from 'react'
+import { useWorkContext } from '@/app/utils/useWorkContext'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -13,15 +12,7 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  const [ works, setWorks ] = useState<WorkType[]>([])
-
-  useEffect(() => {
-    getWork().then(data => { 
-      setWorks(data)
-    }).catch((error) => console.error(error))
-  }, [])
-
-  console.log(works)
+  const { works } = useWorkContext()
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
