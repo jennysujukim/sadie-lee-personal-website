@@ -67,8 +67,7 @@
 .link {
   @apply hidden 
   lap:block lap:relative lap:font-light lap:text-workNav-link lap:mr-3
-  lap:hover:line-through lap:hover:decoration-pink lap:hover:decoration-4
-  lap:cursor-pointer;
+  lap:hover:line-through lap:hover:decoration-pink lap:hover:decoration-4 lap:min-w-[100px];
 }
 
 .star {
