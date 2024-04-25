@@ -18,7 +18,7 @@ import styles from './ImgCarousel.module.css'
 
 type ImgCarouselProps = {
   works: WorkType[];
-  projectId: string;
+  projectId: number;
 }
 
 export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
@@ -26,7 +26,7 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
   const isResponsive = useResponsive();
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
 
-  const project = works?.find(work => work._id === projectId);
+  const project = works?.find(work => work.id === projectId);
   const imageLength = project && project.images ? project.images.filter(index => index).length : 0;
 
   const [ currIndex, setCurrIndex ] = useState<number>(0);

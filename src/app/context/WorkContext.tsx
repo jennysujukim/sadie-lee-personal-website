@@ -25,9 +25,11 @@ export const WorkContextProvider = ({children}: WorkContextProviderProps) => {
 
   useEffect(() => {
     getWork().then(data => { 
-      setWorks(data)
+      const sortRes = data.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id)
+      setWorks(sortRes)
     }).catch((error) => console.error(error))
   }, [])
+
 
   console.log(works)
 
