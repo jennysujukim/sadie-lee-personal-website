@@ -21,6 +21,8 @@ export default function WorkPage() {
     }).catch((error) => console.error(error))
   }, [])
 
+  console.log(works)
+
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
   const targetRef = useRef<HTMLDivElement>(null);

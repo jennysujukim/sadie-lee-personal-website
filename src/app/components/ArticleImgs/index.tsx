@@ -9,7 +9,11 @@ export default function ArticleImgs({ works }: ArticleImgsProps) {
   return (
     <>
       {works && works.map((work, index) => (
-        <div key={index} style={{ marginBottom: '10rem' }}>
+        <div 
+          key={index} 
+          id={work.slug.current}
+          style={{ marginBottom: '10rem' }}
+        >
           <ImgCarousel 
             works={works}
             projectId={work._id}

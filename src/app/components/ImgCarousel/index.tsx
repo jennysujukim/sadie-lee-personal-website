@@ -128,10 +128,7 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
               handleClose={setIsOpen}
             />
           }
-          <div 
-            id={project.slug.current} 
-            className={styles.wrapper}
-          >
+          <div className={styles.wrapper}>
             <div className={styles.btnsContainer}>
               <button 
                 className={styles.arrowBtn} 

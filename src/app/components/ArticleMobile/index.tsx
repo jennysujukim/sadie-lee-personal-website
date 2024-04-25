@@ -36,13 +36,16 @@ export default function ArticleMobile({ works }: ArticleMobileProps) {
                 <span className={styles.divider}>|</span>
                 <p className={styles.year}>{work.year}</p>
               </div>
-              {/* <div className={styles.descriptionContainer}>
+              <div className={styles.descriptionContainer}>
                 {work.descriptions.map((description, index) => (
-                  <p key={index}>
-                    {description.children}
+                  <p 
+                    key={index}
+                    className={styles.description}
+                  >
+                    {description}
                   </p>
                 ))}
-              </div> */}
+              </div>
             </article>
           </div>
         </div>
