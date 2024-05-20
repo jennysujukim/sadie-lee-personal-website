@@ -6,8 +6,9 @@ import { WorkContextProvider } from './context/WorkContext'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Sadiee Lee Portfolio',
-  description: 'This is Sadiee Lee\'s portfolio.',
+  title: 'Sadie Lee_London-based graphic designer',
+  description: '.',
+  keywords: 'London Graphic designer, London publication, design studio, UAL designer, London graphic, London graphic studio, London designer, Graphic media design, London branding, London ux design, London UI design, London art, London art lesson, London design commision, London art commision, London logo design, London app design, London type design',
 }
 
 const sansita = Sansita({ 

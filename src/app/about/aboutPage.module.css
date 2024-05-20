@@ -8,7 +8,7 @@
 
 .headingContainer {
   @apply hidden
-  lap:flex lap:items-center lap:justify-center lap:text-center lap:min-h-[7rem] lap:my-6;
+  lap:flex lap:items-center lap:justify-center lap:text-center lap:min-h-[7rem] lap:my-8;
 }
 
 .heading {
@@ -26,7 +26,7 @@
 /* ---- LEFT IMAGE COL ---- */
 
 .profileContainer {
-  @apply flex-1 w-full max-w-[500px] relative
+  @apply flex-1 w-full max-w-[700px] relative
   lap:static lap:w-profileImg-lap
   desk:w-profileImg-desk;
 }
