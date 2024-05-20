@@ -13,16 +13,16 @@ export default function ArticleMobile({ works }: ArticleMobileProps) {
   return (
     <>
       {works.map((work, index) => (
-        <div key={index}>
+        <div 
+          key={index} 
+          id={`${work.slug.current}_mobile`}
+        >
           <ImgCarousel 
             works={works}
             projectId={work.id}
           />
           <div>
-            <article 
-              id={work.title}
-              className={styles.container}
-            >
+            <article className={styles.container}>
               <h2 className={styles.title}>{work.title}</h2>
               <div className={styles.subContainer}>
                 <p 

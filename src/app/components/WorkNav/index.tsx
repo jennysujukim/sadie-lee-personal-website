@@ -21,11 +21,21 @@ export default function HeaderNav() {
     const target = document.getElementById(id)
 
     if(target){
-      const targetTop = target.offsetTop - 100
-      console.log(targetTop)
+      const targetTop = target.offsetTop - 150
       window.scrollTo({ top: targetTop, behavior: 'smooth' })
     }
 
+  }
+
+  const onClickScrollMobile = (id: any) => {
+    const target = document.getElementById(`${id}_mobile`)
+
+    if(target){
+      const targetTop = target.offsetTop - 120
+      window.scrollTo({ top: targetTop, behavior: 'smooth' })
+    }
+
+    setIsMobileNavOpen(false)
   }
 
   return (
@@ -48,7 +58,7 @@ export default function HeaderNav() {
                   <Link 
                     href={`#${work.slug.current}`}
                     className={styles.mobileLink}
-                    onClick={() => setIsMobileNavOpen(false)}
+                    onClick={() => onClickScrollMobile(work.slug.current)}
                   >
                     {work.title}
                   </Link>

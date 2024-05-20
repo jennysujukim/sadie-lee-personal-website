@@ -37,7 +37,7 @@
   /* ---- DIMENSIONS ---- */
   --w-scrollbar: 7px;
   --h-workNav-mobile: 90px;
-  --h-workNav: 90px;
+  --h-workNav: 10rem;
   --h-workNav-linkContainer-mobile: calc(100% - var(--h-workNav-mobile));
   --h-aboutPage-lap: calc(100vh - 7rem);
   --max-h-workNav: 100px;
@@ -48,10 +48,14 @@
   --min-w-carousel: 35vw;
   --w-articleImg-mobile: calc(100vw - ((var(--spacing-sideWrapper-mobile) * 2) + var(--w-scrollbar)));
   --w-articleImg-tab: calc(100vw - ((var(--spacing-sideWrapper-tab) * 2) + var(--w-scrollbar)));
-  --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.45);
+  /* --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.45);
   --w-profileImg-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.35);
   --w-aboutPageTextWrapper-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.55);
-  --w-aboutPageTextWrapper-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.65);
+  --w-aboutPageTextWrapper-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.65); */
+  --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);
+  --w-profileImg-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.4);
+  --w-aboutPageTextWrapper-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);
+  --w-aboutPageTextWrapper-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.6);
   /* ---- BORDER RADIUS ----- */
   --b-radius-articleImg: 29px;
   --b-radius-descriptionContainer: 22px;

@@ -127,18 +127,18 @@ export default function AboutPage() {
               />
               <Link 
                 className={styles.igCtaLink}
-                href="https://www.instagram.com/sadie.designs_/" 
+                href="https://www.instagram.com/sadie.artdesign/" 
                 target='_blank'
               >
                 Instagram
               </Link>
             </div>
             <Link 
-              href="mailto:sadielee.art@gmail.com" 
+              href="https://www.instagram.com/sadie.artdesign/" 
               target='_blank' 
               className={styles.igSpan}
             >
-              @sadie.designs_
+              @sadie.artdesign
             </Link>
           </div>
           <Link
@@ -163,9 +163,9 @@ export default function AboutPage() {
           </Link>
           <div className={styles.textContainer}>
             <p>
-              HI My name is Sadie. I’m London-based multi-disciplinary graphic designer.  Multimedia, graphics and design have become increasingly important disciplines in our society. Their influence can equally be noted everywhere, from small businesses to large international companies, and have even had an effect on the modern family and individuals. The current global economic turmoil has made being able to stand out from the crowd an absolute imperative. For companies to survive and prosper they need to employ modern communication techniques, such as social media and new forms of advertising, and embrace design that breaks the mould. More than ever, these fields have the potential to play a key part in helping to kick start economic growth, and I intend to be at the forefront of these creative efforts. I am inspired by bold, cutting-edge designs.
+              I am a versatile graphic designer with an interdisciplinary background, having immersed myself in the realms of art and design. Holding a Bachelor’s degree in Art Education, I possess a comprehensive understanding of art and design theory, practical skills, and a keen artistic sensibility. Seeking deeper insights into the design field, I went to the US to study Interaction Design after graduation, and currently, I’m pursuing a Master’s degree in the UK to further explore independent and experimental studies. Throughout my academic journey, I’ve balanced studies with practical experience, serving as an art teacher or design advisor during gap years, nurturing my artistic intuition. With a unique blend of artistic flair, technical proficiency, and a drive for innovation, I consistently deliver impactful designs to tackle creative challenges.
             </p>
-            <div>
+            {/* <div>
               <h4 className={styles.subHeading}>Experience</h4>
               <div>
                 <p className={styles.listText}>
@@ -186,7 +186,7 @@ export default function AboutPage() {
                   BA, Art Education, Korea National University of Education 
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </div>
