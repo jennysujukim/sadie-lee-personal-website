@@ -19,7 +19,7 @@
   /* ---- GRADIENTS ---- */
   --bg-gradient-workNav-mobile: linear-gradient(180deg, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 70%);
   --bg-gradient-workNav-mobile-open: linear-gradient(180deg, rgba(248,248,248,0.7) 0%, rgba(248,248,248,1) 25%);
-  --bg-gradient-workNav: linear-gradient(180deg, #F8F8F8 50%, rgba(248, 248, 248, 0.00) 100%);
+  --bg-gradient-workNav: linear-gradient(180deg, #F8F8F8 0%, rgba(248, 248, 248, 0.00) 100%);
   /* ---- FONT SIZES ---- */
   --fs-h1: 2rem;
   --fs-h1-tab-lg: 2rem;
@@ -61,6 +61,7 @@ body {
   font-family: var(--font-clashDisplay);
   color: var(--color-black);
   line-height: 1.4;
+  cursor: url('/cursor.svg'), auto;
 }
 
 .globalSideWrapper {

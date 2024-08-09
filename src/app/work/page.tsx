@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-//import { getData } from '@/app/lib/getData'
-import { projects } from '@/_data/projects'
+import { useState, useRef } from 'react'
+import { useWorkContext } from '@/app/utils/useWorkContext'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -13,13 +12,7 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  // const [ works, setWorks ] = useState<any[]>([])
-
-  // useEffect(() => {
-  //   getData().then(data => { 
-  //     setWorks(data.data)
-  //   }).catch((error) => console.error(error))
-  // }, [])
+  const { works } = useWorkContext()
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
@@ -73,7 +66,7 @@ export default function WorkPage() {
             <MainNav />
           </div>
           <div className={styles.mobileArticlesContainer}>
-            <ArticleMobile works={projects} />
+            <ArticleMobile works={works} />
           </div>
         </div>
         <div className={styles.wrapper}>
@@ -81,7 +74,7 @@ export default function WorkPage() {
             className={styles.imgsContainer}
             ref={imgsContainerRef}
           >
-            <ArticleImgs works={projects} />
+            <ArticleImgs works={works} />
           </div>
           <div className={styles.navContainer}>
             <MainNav handleMouseDown={handleMouseDown}/>
@@ -92,43 +85,11 @@ export default function WorkPage() {
           >
             <ArticleDescriptions 
               width={navContainerWidth} 
-              works={projects}
+              works={works}
             />
           </div>
         </div>
       </main>
-      {/* {works &&
-        <main className={styles.main}>
-          <div className={styles.mobileWrapper}>
-            <div className={styles.navContainer}>
-              <MainNav />
-            </div>
-            <div className={styles.mobileArticlesContainer}>
-              <ArticleMobile works={works} />
-            </div>
-          </div>
-          <div className={styles.wrapper}>
-            <div 
-              className={styles.imgsContainer}
-              ref={imgsContainerRef}
-            >
-              <ArticleImgs works={works} />
-            </div>
-            <div className={styles.navContainer}>
-              <MainNav handleMouseDown={handleMouseDown}/>
-            </div>
-            <div 
-              className={styles.descriptionsContainer} 
-              ref={targetRef}
-            >
-              <ArticleDescriptions 
-                width={navContainerWidth} 
-                works={works}
-              />
-            </div>
-          </div>
-        </main>
-      } */}
     </>
   )
 }
