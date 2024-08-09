@@ -91,7 +91,7 @@ export default function WorkPage() {
           <div 
             className={styles.descriptionsContainer} 
             ref={targetRef}
-            style={{ padding: padding ? "2.5rem" : "1rem" }}
+            style={{ padding: padding ? "0 2.5rem" : "0 1rem" }}
           >
             <ArticleDescriptions 
               width={navContainerWidth} 

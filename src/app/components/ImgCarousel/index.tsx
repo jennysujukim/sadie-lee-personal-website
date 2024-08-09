@@ -126,6 +126,28 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
             />
           } */}
           <div className={styles.wrapper}>
+            <div 
+              className={styles.carousel} 
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseUp={handleMouseUp}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onClick={handleCarouselClick}
+            >
+              {projectImages &&
+                <Image 
+                  className={styles.img} 
+                  src={project.images[currIndex]}
+                  alt={`Images of ${project.title}`}
+                  width={1000}
+                  height={1000}
+                  placeholder="blur"
+                  blurDataURL={project.images[currIndex]}
+                />
+              }
+            </div>
             <div className={styles.btnsContainer}>
               <button 
                 className={styles.arrowBtn} 
@@ -176,28 +198,6 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
                   className={styles.mobileModalBtnImg}
                 />
               </button> */}
-            </div>
-            <div 
-              className={styles.carousel} 
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onMouseUp={handleMouseUp}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onClick={handleCarouselClick}
-            >
-              {projectImages &&
-                <Image 
-                  className={styles.img} 
-                  src={project.images[currIndex]}
-                  alt={`Images of ${project.title}`}
-                  width={1000}
-                  height={1000}
-                  placeholder="blur"
-                  blurDataURL={project.images[currIndex]}
-                />
-              }
             </div>
           </div>
         </>
