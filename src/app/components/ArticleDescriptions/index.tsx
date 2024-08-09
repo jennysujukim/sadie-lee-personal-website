@@ -1,4 +1,6 @@
+"use client"
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { WorkType } from '@/types/models/Work';
 // styles
 import styles from './ArticleDescriptions.module.css'
@@ -9,13 +11,27 @@ type ArticleDescriptionsProps = {
 }
 
 export default function ArticleDescriptions({ width, works }: ArticleDescriptionsProps) {
+
+  const [ hide, setHide ] = useState<boolean>(false);
+
+  useEffect(() => {
+    if(width && width < 100){
+      setHide(true)
+    } else {
+      setHide(false)
+    }
+  }, [width])
   
   return (
     <>
       {works.map((work, index) => (
         <div 
           key={index} 
-          style={{ width: width, minWidth: 300, maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.5)' }}
+          style={{ 
+            width: width, 
+            maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.30)',
+            display: hide ? "none": "block",
+          }}
           id={work.slug.current}
         >
           <article className={styles.container}>

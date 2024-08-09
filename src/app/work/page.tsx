@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useWorkContext } from '@/app/utils/useWorkContext'
 // components
 import ArticleMobile from '../components/ArticleMobile'
@@ -17,6 +17,7 @@ export default function WorkPage() {
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
   const targetRef = useRef<HTMLDivElement>(null);
+  const [padding, setPadding] = useState<boolean>(true);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const ele = targetRef.current;
@@ -58,6 +59,14 @@ export default function WorkPage() {
 
   const imgsContainerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    if(navContainerWidth && navContainerWidth < 100) {
+      setPadding(false)
+    } else {
+      setPadding(true)
+    }
+  }, [navContainerWidth])
+
   return (
     <>
       <main className={styles.main}>
@@ -82,6 +91,7 @@ export default function WorkPage() {
           <div 
             className={styles.descriptionsContainer} 
             ref={targetRef}
+            style={{ padding: padding ? "2.5rem" : "1rem" }}
           >
             <ArticleDescriptions 
               width={navContainerWidth} 
