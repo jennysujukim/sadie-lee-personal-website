@@ -61,6 +61,7 @@ body {
   font-family: var(--font-clashDisplay);
   color: var(--color-black);
   line-height: 1.4;
+  cursor: url('/cursor.svg'), auto;
 }
 
 .globalSideWrapper {
