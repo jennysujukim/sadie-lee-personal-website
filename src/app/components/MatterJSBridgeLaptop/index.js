@@ -67,7 +67,7 @@ const MatterJSBridgeLaptop = () => {
     const bridge = Composites.stack(100, 100, 9, 1, 0, 1, function(x, y) {
       return Bodies.rectangle(x - 10, y, canvasWidth - ((canvasWidth * (RATIO * 2)) * 3.5), 40, { 
           collisionFilter: { group: group },
-          chamfer: 7,
+          chamfer: 1,
           density: 0.2,
           frictionAir: 0.3,
           render: {

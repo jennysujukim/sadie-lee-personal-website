@@ -4,8 +4,16 @@
   desk-lg:max-w-constraint;
 }
 
-.lineBackground {
-  @apply absolute top-0 left-0 w-full h-full;
+.copyrightWrapper {
+  @apply absolute right-[0.5rem] top-[0.5rem] z-50;
+}
+
+.copyrightText {
+  @apply text-right text-sm;
+}
+
+.copyrightLink {
+  @apply underline;
 }
 
 .linksWrapper {
