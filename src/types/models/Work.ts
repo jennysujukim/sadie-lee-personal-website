@@ -8,6 +8,7 @@ export type WorkType = {
   type: string;
   year: string;
   keywords: string[];
+  materials: string[];
   descriptions: string[];
   images: string[];
 }
