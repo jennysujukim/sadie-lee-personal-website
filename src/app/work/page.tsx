@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { useWorkContext } from '@/app/utils/useWorkContext'
 // components
 import ArticleMobile from '../components/ArticleMobile'
@@ -18,6 +18,7 @@ export default function WorkPage() {
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
   const targetRef = useRef<HTMLDivElement>(null);
   const [padding, setPadding] = useState<boolean>(true);
+  const [articleHeights, setArticleHeights] = useState<number[] | undefined>([]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const ele = targetRef.current;
@@ -59,6 +60,10 @@ export default function WorkPage() {
 
   const imgsContainerRef = useRef<HTMLDivElement>(null);
 
+  const handleHeight = useCallback((value: number[] | undefined) => {
+    setArticleHeights(value);
+  }, []); 
+
   useEffect(() => {
     if(navContainerWidth && navContainerWidth < 100) {
       setPadding(false)
@@ -66,6 +71,7 @@ export default function WorkPage() {
       setPadding(true)
     }
   }, [navContainerWidth])
+
 
   return (
     <>
@@ -83,7 +89,7 @@ export default function WorkPage() {
             className={styles.imgsContainer}
             ref={imgsContainerRef}
           >
-            <ArticleImgs works={works} />
+            <ArticleImgs works={works} heights={articleHeights} />
           </div>
           <div className={styles.navContainer}>
             <MainNav handleMouseDown={handleMouseDown}/>
@@ -95,6 +101,7 @@ export default function WorkPage() {
           >
             <ArticleDescriptions 
               width={navContainerWidth} 
+              getHeightValue={handleHeight}
               works={works}
             />
           </div>
