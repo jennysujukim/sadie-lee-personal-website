@@ -18,7 +18,7 @@ export default function WorkPage() {
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
   const targetRef = useRef<HTMLDivElement>(null);
   const [padding, setPadding] = useState<boolean>(true);
-  const [articleHeights, setArticleHeights] = useState<number[] | undefined>([]);
+  const [articleHeights, setArticleHeights] = useState<(number | string)[] | undefined>([]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const ele = targetRef.current;
@@ -60,12 +60,12 @@ export default function WorkPage() {
 
   const imgsContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleHeight = useCallback((value: number[] | undefined) => {
+  const handleHeight = useCallback((value: (number | string)[] | undefined) => {
     setArticleHeights(value);
   }, []); 
 
   useEffect(() => {
-    if(navContainerWidth && navContainerWidth < 100) {
+    if(navContainerWidth && navContainerWidth < 150) {
       setPadding(false)
     } else {
       setPadding(true)

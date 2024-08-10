@@ -8,7 +8,7 @@ import styles from './ArticleDescriptions.module.css'
 type ArticleDescriptionsProps = {
   width: number | undefined;
   works: WorkType[];
-  getHeightValue: (value: number[] | undefined) => void;
+  getHeightValue: (value: (number | string)[] | undefined) => void;
 }
 
 export default function ArticleDescriptions({ width, works, getHeightValue }: ArticleDescriptionsProps) {
@@ -17,17 +17,16 @@ export default function ArticleDescriptions({ width, works, getHeightValue }: Ar
   const targets = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
-
     const heights = targets.current.map((target) => (
-      target ? target.clientHeight : 0
+      target && target.clientHeight !== 0 ? target.clientHeight : "auto"
     ))
     getHeightValue(heights)
 
-  }, [width, getHeightValue])
+  }, [width, works, getHeightValue])
 
   useEffect(() => {
 
-    if(width && width < 100){
+    if(width && width < 150){
       setHide(true)
     } else {
       setHide(false)
