@@ -5,7 +5,7 @@
 /* ---- BUTTONS ---- */
 .btnsContainer {
   @apply relative bg-lightpink flex items-center justify-center
-  tab-lg:justify-between tab-lg:mb-6;
+  tab-lg:justify-between tab-lg:mt-4;
 }
 
 .arrowBtn {

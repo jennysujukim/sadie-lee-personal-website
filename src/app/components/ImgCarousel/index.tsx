@@ -10,9 +10,9 @@ import arrowRight from '@/app/assets/slide-arrow-right.svg'
 import arrowLeft from '@/app/assets/slide-arrow-left.svg'
 import dotImg from '@/app/assets/slide-dot.svg'
 import selectedDotImg from '@/app/assets/slide-dot-coloured.svg'
-import mobileModalBtn from '@/app/assets/modal-btn-mobile.svg'
+// import mobileModalBtn from '@/app/assets/modal-btn-mobile.svg'
 // components
-import ImgsModal from '../ImgsModal'
+// import ImgsModal from '../ImgsModal'
 // styles
 import styles from './ImgCarousel.module.css'
 
@@ -24,7 +24,7 @@ type ImgCarouselProps = {
 export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
 
   const isResponsive = useResponsive();
-  const [ isOpen, setIsOpen ] = useState<boolean>(false);
+  // const [ isOpen, setIsOpen ] = useState<boolean>(false);
 
   const project = works?.find(work => work.id === projectId);
   const projectImages = project && project.images
@@ -46,11 +46,7 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
   }
 
   const handleCarouselClick = () => {
-    if(isResponsive === BreakpointType.Mobile || isResponsive === BreakpointType.Tablet) {
-      nextSlide()
-    } else {
-      setIsOpen(true)
-    };
+    nextSlide()
   }
 
   const [ startX, setStartX ] = useState<number | null>(null);
@@ -113,23 +109,45 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
 
 
   // handle Modal feature event
-  const handleCloseModal = () => {
-    setIsOpen(!isOpen)
-  }
+  // const handleCloseModal = () => {
+  //   setIsOpen(!isOpen)
+  // }
 
 
   return (
     <>
       {project && (
         <>
-          {isOpen &&
+          {/* {isOpen &&
             <ImgsModal 
               src={project.images[currIndex]}
               title={project.title}
               handleClose={setIsOpen}
             />
-          }
+          } */}
           <div className={styles.wrapper}>
+            <div 
+              className={styles.carousel} 
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseUp={handleMouseUp}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onClick={handleCarouselClick}
+            >
+              {projectImages &&
+                <Image 
+                  className={styles.img} 
+                  src={project.images[currIndex]}
+                  alt={`Images of ${project.title}`}
+                  width={1000}
+                  height={1000}
+                  placeholder="blur"
+                  blurDataURL={project.images[currIndex]}
+                />
+              }
+            </div>
             <div className={styles.btnsContainer}>
               <button 
                 className={styles.arrowBtn} 
@@ -170,7 +188,7 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
                   alt="right arrow"
                 />
               </button>
-              <button 
+              {/* <button 
                 className={styles.mobileModalBtn}
                 onClick={handleCloseModal}
               >
@@ -179,29 +197,7 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
                   alt="Mobile modal button"
                   className={styles.mobileModalBtnImg}
                 />
-              </button>
-            </div>
-            <div 
-              className={styles.carousel} 
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onMouseUp={handleMouseUp}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onClick={handleCarouselClick}
-            >
-              {projectImages &&
-                <Image 
-                  className={styles.img} 
-                  src={project.images[currIndex]}
-                  alt={`Images of ${project.title}`}
-                  width={1000}
-                  height={1000}
-                  placeholder="blur"
-                  blurDataURL={project.images[currIndex]}
-                />
-              }
+              </button> */}
             </div>
           </div>
         </>
