@@ -10,6 +10,7 @@ export async function getWork() {
       type,
       year,
       keywords,
+      materials,
       descriptions,
       "images": images[].asset->url
     }`

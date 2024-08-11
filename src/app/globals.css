@@ -26,7 +26,7 @@
   --fs-h2: 2rem;
   --fs-h2-tab-lg: 2.5rem;
   --fs-p: 1rem;
-  --fs-workNav-link: 1.2rem;
+  --fs-workNav-link: 1rem;
   --fs-workNav-link-mobile: 1.6rem;
   --fs-mainNav-link: 1.2rem;
   --fs-mainNav-link-mobile: 1.4rem;
@@ -48,10 +48,6 @@
   --min-w-carousel: 35vw;
   --w-articleImg-mobile: calc(100vw - ((var(--spacing-sideWrapper-mobile) * 2) + var(--w-scrollbar)));
   --w-articleImg-tab: calc(100vw - ((var(--spacing-sideWrapper-tab) * 2) + var(--w-scrollbar)));
-  /* --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.45);
-  --w-profileImg-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.35);
-  --w-aboutPageTextWrapper-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.55);
-  --w-aboutPageTextWrapper-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.65); */
   --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);
   --w-profileImg-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.4);
   --w-aboutPageTextWrapper-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);

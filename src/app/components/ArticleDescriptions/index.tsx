@@ -52,13 +52,20 @@ export default function ArticleDescriptions({ width, works, getHeightValue }: Ar
           >
             <h2 className={styles.title}>{work.title}</h2>
             <div className={styles.subContainer}>
-                {work.keywords.map((keyword, index) => (
-                  <React.Fragment key={index}>
-                    <p className={styles.keywords}>{keyword}</p>
-                    {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
-                  </React.Fragment>
-                ))}
+              {work.keywords.map((keyword, index) => (
+                <React.Fragment key={index}>
+                  <p className={styles.keywords}>{keyword}</p>
+                  {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
+                </React.Fragment>
+              ))}
               <span className={styles.divider}>|</span>
+              {work.materials && work.materials.map((material, index) => (
+                <React.Fragment key={index}>
+                  <p className={styles.keywords}>{material}</p>
+                  {index !== work.materials.length - 1 && <p className={styles.comma}>,</p>}
+                </React.Fragment>
+              ))}
+              {work.materials && <span className={styles.divider}>|</span>}
               <p>{work.type}</p>
               <span className={styles.divider}>|</span>
               <p className={styles.year}>{work.year}</p>
