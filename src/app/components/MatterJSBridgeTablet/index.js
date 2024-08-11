@@ -65,8 +65,8 @@ const MatterJSBridgeTablet = ({ ratio }) => {
 
     const group = Body.nextGroup(true);
 
-    const bridge = Composites.stack(100, 100, 9, 1, 0, 1, function(x, y) {
-      return Bodies.rectangle(x - 10, y, canvasWidth - ((canvasWidth * (RATIO * 2)) * 3.5), 40, { 
+    const bridge = Composites.stack(100, 100, 8, 1, 0, 1, function(x, y) {
+      return Bodies.rectangle(x - 10, y, canvasWidth - ((canvasWidth * (RATIO * 2)) * 3), 40, { 
           collisionFilter: { group: group },
           chamfer: 7,
           density: 0.2,
