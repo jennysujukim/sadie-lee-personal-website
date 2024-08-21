@@ -90,7 +90,7 @@ const MatterJSBridgeTablet = ({ ratio }) => {
       }
     });
 
-    const mainCircle = Bodies.rectangle(canvasWidth / 2, 50, scaleFactor * 290, scaleFactor * 290, {
+    const mainCircle = Bodies.circle(canvasWidth / 2, 50, scaleFactor * 140, {
       render: {
         sprite: {
           texture: 'main-circle.png',
@@ -98,7 +98,7 @@ const MatterJSBridgeTablet = ({ ratio }) => {
           yScale: scaleFactor / 1.2,
         }
       }
-    })
+    });
 
     const leftBottomStar = Bodies.rectangle((canvasWidth / 2) - 160, 50, scaleFactor * 120, scaleFactor * 120, {
       render: {
@@ -110,7 +110,7 @@ const MatterJSBridgeTablet = ({ ratio }) => {
       }
     })
 
-    const leftSadieLee = Bodies.rectangle((canvasWidth / 2) - 90, 50 - 10, scaleFactor * 400, scaleFactor * 120, {
+    const leftSadieLee = Bodies.rectangle((canvasWidth / 2) - 90, 50 - 30, scaleFactor * 400, scaleFactor * 120, {
       render: {
         sprite: {
           texture: 'sadie-lee.png',

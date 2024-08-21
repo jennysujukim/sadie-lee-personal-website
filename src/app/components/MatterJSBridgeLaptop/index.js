@@ -111,7 +111,7 @@ const MatterJSBridgeLaptop = () => {
       }
     });
 
-    const mainCircle = Bodies.rectangle(canvasWidth / 2, 50, scaleFactor * 290, scaleFactor * 290, {
+    const mainCircle = Bodies.circle(canvasWidth / 2, 50, scaleFactor * 140, {
       render: {
         sprite: {
           texture: 'main-circle.png',
@@ -119,7 +119,7 @@ const MatterJSBridgeLaptop = () => {
           yScale: scaleFactor / 1.2,
         }
       }
-    })
+    });
 
     const leftBottomStar = Bodies.rectangle((canvasWidth / 2) - 160, 50, scaleFactor * 120, scaleFactor * 120, {
       render: {
