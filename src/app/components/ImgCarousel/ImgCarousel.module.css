@@ -1,21 +1,11 @@
 .wrapper { 
-  @apply mb-[2rem]
+  @apply mb-[2rem] relative
   tab-lg:mb-0 tab-lg:min-w-articleImg tab-lg:min-h-articleWrapper;
 }
-/* ---- BUTTONS ---- */
-.btnsContainer {
-  @apply relative bg-lightpink flex items-center justify-center
-  tab-lg:justify-between tab-lg:mt-4;
-}
-
-.arrowBtn {
-  @apply hidden
-  tab-lg:block tab-lg:w-[100px];
-}
+/* ---- DOTS ---- */
 
 .dotsContainer {
-  @apply flex justify-center items-center px-2 py-4
-  tab-lg:py-0;
+  @apply w-full flex justify-center items-center px-2 py-4;
 }
 
 .dots {
@@ -23,19 +13,34 @@
   tab-lg:w-[0.8rem] tab-lg:h-[0.8rem];
 }
 
-.mobileModalBtn {
-  @apply absolute right-[1rem] bottom-[-1rem] z-10
-  tab:right-[2rem] tab:bottom-[-1.5rem]
-  tab-lg:hidden;
-}
-
-.mobileModalBtnImg {
-  @apply tab:w-[65px];
-}
-
 /* ---- CAROUSEL ---- */
 .carousel {
-  @apply flex justify-start transition-all duration-500 ease-in-out;
+  @apply relative flex justify-start transition-all duration-500 ease-in-out;
+}
+
+.carousel:hover .arrowBtnLeft,
+.carousel:hover .arrowBtnRight {
+  @apply opacity-100;
+}
+
+.arrowBtnLeftContainer {
+  @apply absolute w-[50%] left-0 bottom-0 top-0 my-auto
+  desk:flex desk:justify-start desk:items-center;
+}
+
+.arrowBtnLeft {
+  @apply opacity-0 hidden
+  desk:block desk:w-[2.5vw] desk:translate-x-[-1.2rem];
+}
+
+.arrowBtnRightContainer {
+  @apply absolute w-[50%] right-0 bottom-0 top-0 my-auto
+  desk:flex desk:justify-end desk:items-center;
+}
+
+.arrowBtnRight {
+  @apply opacity-0 hidden
+  desk:block desk:w-[2.5vw] desk:translate-x-[1.2rem];
 }
 
 .imgContainer {
