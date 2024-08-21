@@ -11,18 +11,16 @@ export default function HomePage() {
   return (
     <>
     <main className={styles.main}>
-      <div className={styles.copyrightWrapper}>
-        <p className={styles.copyrightText}>Designed by Sadie Lee</p>
-        <p className={styles.copyrightText}>Developed by&nbsp;
-          <Link 
-            href="https://seojeongkim.com" 
-            target='_blank'
-            className={styles.copyrightLink}
-            >
-              Jenny Kim
-          </Link>
-        </p>
-      </div>
+      <p className={styles.copyrightDesign}>Designed by Sadie Lee</p>
+      <p className={styles.copyrightDevelop}>Developed by&nbsp;
+        <Link 
+          href="https://seojeongkim.com" 
+          target='_blank'
+          className={styles.copyrightLink}
+          >
+            Jenny Kim
+        </Link>
+      </p>
       <nav className={styles.linksWrapper}>
         <ul className={styles.linksContainer}>
           <li className={styles.link}>

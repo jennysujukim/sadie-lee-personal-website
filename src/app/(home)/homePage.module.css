@@ -4,12 +4,16 @@
   desk-lg:max-w-constraint;
 }
 
-.copyrightWrapper {
-  @apply absolute right-[0.5rem] top-[0.5rem] z-50;
+.copyrightDesign {
+  @apply absolute z-50 text-right text-xs bottom-[1rem] left-[50%] translate-x-[-50%]
+  tab:text-sm tab:bottom-[0.7rem] tab:left-[2rem] tab:translate-x-[unset]
+  tab-lg:left-[20%];
 }
 
-.copyrightText {
-  @apply text-right text-sm;
+.copyrightDevelop {
+  @apply absolute z-50 text-left text-xs bottom-[2rem] left-[50%] translate-x-[-50%]
+  tab:text-sm tab:bottom-[0.7rem] tab:left-[unset] tab:right-[2rem] tab:translate-x-[unset]
+  tab-lg:right-[20%];
 }
 
 .copyrightLink {
