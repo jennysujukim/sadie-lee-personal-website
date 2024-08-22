@@ -4,21 +4,10 @@
   desk-lg:max-w-constraint;
 }
 
-/* ---- HEADING ---- */
-
-.headingContainer {
-  @apply hidden
-  lap:flex lap:items-center lap:justify-center lap:text-center lap:min-h-[7rem] lap:my-8;
-}
-
-.heading {
-  @apply text-[3.5rem] leading-none lap:px-wrapper-side-lap;
-}
-
 /* ---- CONTENT ---- */
 
 .wrapper {
-  @apply flex flex-col items-center px-wrapper-side-mobile py-16
+  @apply flex flex-col items-center px-wrapper-side-mobile py-16 h-full
   tab:px-wrapper-side-tab
   lap:py-0 lap:px-wrapper-side-lap lap:flex-row lap:justify-center lap:items-center;
 }
@@ -32,8 +21,7 @@
 }
 
 .profileImg {
-  border-radius: var(--b-radius-articleImg);
-  width: 100%;
+  @apply w-full;
 }
 
 .navContainer {
@@ -84,13 +72,14 @@
   @apply fill-white stroke-pink stroke-[1.5px];
 }
 
-.emailCtaContainer, .igCtaContainer {
+.emailCtaContainer, .igCtaContainer, .linkedinCtaContainer {
   @apply hidden
-  lap:block lap:w-fit lap:absolute lap:top-0;
+  lap:block lap:w-fit lap:absolute;
 }
 
 .emailCtaContainer {
-  @apply left-[1rem];
+  @apply lap:left-[2rem] lap:bottom-[-3.5rem]
+  desk:left-[unset] desk:right-[3rem] desk:bottom-[-3rem];
 }
 
 .emailCtaContainer.mobile {
@@ -100,6 +89,7 @@
 
 .igCtaContainer {
   @apply tab:left-[15rem]
+  lap:top-0
   desk-lg:left-[20rem];
 }
 
@@ -108,7 +98,17 @@
   lap:hidden;
 }
 
-.emailCta, .cta {
+.linkedinCtaContainer {
+  @apply lap:left-[1rem] lap:-top-[1rem]
+  desk:left-[3rem];
+}
+
+.linkedinCtaContainer.mobile {
+  @apply block w-fit absolute -bottom-[2rem] left-[1rem]
+  lap:hidden;
+}
+
+.emailCta, .cta, .linkedinCta {
   @apply relative w-fit;
 }
 
@@ -122,7 +122,12 @@
   tab:w-[120px];
 }
 
-.emailCtaLink, .igCtaLink {
+.linkedinCtaBackground {
+  @apply w-[85px] rotate-3
+  tab:w-[120px];
+}
+
+.emailCtaLink, .igCtaLink, .linkedinCtaLink {
   @apply absolute top-0 bottom-0 h-[35px] text-center text-pink font-medium bg-white px-3 py-1 rounded-3xl border-pink border-[1.5px]
   hover:bg-pink hover:text-white;
 }
@@ -137,6 +142,11 @@
   tab:text-lg tab:left-0 tab:top-10 tab:w-[120px] tab:h-[35px];
 }
 
+.linkedinCtaLink {
+  @apply left-0 right-0 mx-auto text-sm w-[90px] h-[30px] top-7 rotate-12
+  tab:text-lg tab:w-[110px] tab:h-[35px] tab:top-[2.8rem];
+}
+
 .emailSpan, .igSpan {
   @apply underline text-sm leading-4;
 }
@@ -144,7 +154,8 @@
 .emailSpan {
   @apply absolute text-xs -top-[13px] right-[-38px]
   tab:text-sm tab:top-0 tab:right-[-55px]
-  desk:-top-[10px] desk:-right-[65px];
+  lap:top-[60px] lap:-right-[65px]
+  desk:top-[80px] desk:-right-[75px];
 }
 
 .igSpan {
@@ -157,6 +168,10 @@
 .textContainer {
   @apply bg-white border border-black rounded-descriptionContainer px-8 py-8 mt-[2rem]
   lap:px-10 lap:py-16 lap:mt-[4rem] lap:overflow-scroll lap:max-h-aboutTextContainer;
+}
+
+.textContainer p {
+  @apply mb-5;
 }
 
 .textContainer::-webkit-scrollbar {

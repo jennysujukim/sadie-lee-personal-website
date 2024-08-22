@@ -14,9 +14,6 @@ export default function AboutPage() {
       <div className={`${styles.navContainer} ${styles.mobile}`}>
         <MainNav />
       </div>
-      <section className={styles.headingContainer}>
-        <h2 className={styles.heading}>London-based multi-disciplinary graphic designer</h2>
-      </section>
       <div className={styles.wrapper}>
         <section className={styles.profileContainer}>
           <div className={`${styles.emailCtaContainer} ${styles.mobile}`}>
@@ -64,6 +61,22 @@ export default function AboutPage() {
             >
               @sadie.designs_
             </Link>
+          </div>
+          <div className={`${styles.linkedinCtaContainer} ${styles.mobile}`}>
+            <div className={styles.linkedinCta}>
+              <Image
+                className={styles.linkedinCtaBackground} 
+                src={starBackground}
+                alt="star background image"
+              />
+              <Link 
+                className={styles.linkedinCtaLink}
+                href="https://www.linkedin.com/in/sadie-lee-8785a220a/" 
+                target='_blank'
+              >
+                Linked-In
+              </Link>
+            </div>
           </div>
           <Link
             className={`${styles.cvCtaContainer} ${styles.mobile}`} 
@@ -141,6 +154,22 @@ export default function AboutPage() {
               @sadie.artdesign
             </Link>
           </div>
+          <div className={styles.linkedinCtaContainer}>
+            <div className={styles.linkedinCta}>
+              <Image
+                className={styles.linkedinCtaBackground} 
+                src={starBackground}
+                alt="star background image"
+              />
+              <Link 
+                className={styles.linkedinCtaLink}
+                href="https://www.linkedin.com/in/sadie-lee-8785a220a/" 
+                target='_blank'
+              >
+                Linked-In
+              </Link>
+            </div>
+          </div>
           <Link
             className={styles.cvCtaContainer} 
             href="https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:d0140fae-ad6f-39fe-8b82-410feaf17ecd"
@@ -163,9 +192,12 @@ export default function AboutPage() {
           </Link>
           <div className={styles.textContainer}>
             <p>
-              I am a versatile graphic designer with an interdisciplinary background, having immersed myself in the realms of art and design. Holding a Bachelor’s degree in Art Education, I possess a comprehensive understanding of art and design theory, practical skills, and a keen artistic sensibility. Seeking deeper insights into the design field, I went to the US to study Interaction Design after graduation, and currently, I’m pursuing a Master’s degree in the UK to further explore independent and experimental studies. Throughout my academic journey, I’ve balanced studies with practical experience, serving as an art teacher or design advisor during gap years, nurturing my artistic intuition. With a unique blend of artistic flair, technical proficiency, and a drive for innovation, I consistently deliver impactful designs to tackle creative challenges.
+              I am a versatile graphic designer with a rich, interdisciplinary background in art and design. My journey began with a Bachelor&apos;s degree in Art Education, where I developed a strong foundation in both art theory and practice, honing my artistic sensibilities. Driven by a desire to deepen my expertise, I pursued advanced studies in Interaction Design in the U.S. and later earned a Master&apos;s degree in the UK, focusing on independent and experimental design practices.
             </p>
-            {/* <div>
+            <p>
+              Throughout my academic and professional journey, I&apos;ve seamlessly integrated theoretical knowledge with hands-on experience. During my gap years, I served as an art teacher and design advisor, further nurturing my artistic intuition and technical skills. This unique blend of creativity, technical proficiency, and innovative thinking empowers me to consistently deliver impactful designs that address diverse creative challenges.
+            </p>
+            <div>
               <h4 className={styles.subHeading}>Experience</h4>
               <div>
                 <p className={styles.listText}>
@@ -186,7 +218,7 @@ export default function AboutPage() {
                   BA, Art Education, Korea National University of Education 
                 </p>
               </div>
-            </div> */}
+            </div>
           </div>
         </section>
       </div>
