@@ -22,7 +22,7 @@
 }
 
 .mobileNav {
-  @apply py-12 px-7 text-center h-workNav-linkContainer-mobile overflow-y-auto
+  @apply px-7 text-center h-workNav-linkContainer-mobile overflow-y-auto
   lap:hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -30,6 +30,10 @@
 
 .mobileNav::-webkit-scrollbar {
   @apply hidden;
+}
+
+.mobileLinksContainer {
+  @apply pt-[10rem];
 }
 
 .mobileLinkContainer {

@@ -10,9 +10,7 @@
 }
 
 .mobileArticlesContainer {
-  @apply px-wrapper-side-mobile 
-  tab:px-wrapper-side-tab
-  lap:px-0;
+  @apply px-0;
 }
 
 .wrapper {

@@ -1,6 +1,6 @@
 .wrapper { 
-  @apply mb-[2rem] relative
-  tab-lg:mb-0 tab-lg:min-w-articleImg tab-lg:min-h-articleWrapper;
+  @apply relative flex flex-col
+  lap:mb-0 lap:min-w-articleImg lap:min-h-articleWrapper;
 }
 /* ---- DOTS ---- */
 
@@ -9,13 +9,14 @@
 }
 
 .dots {
-  @apply px-[0.2rem] w-[1.2rem] h-[1.2rem]
-  tab-lg:w-[0.8rem] tab-lg:h-[0.8rem];
+  @apply px-[0.2rem] w-[0.8rem] h-[0.8rem]
+  tab-lg:w-[1rem] tab-lg:h-[1rem];
 }
 
 /* ---- CAROUSEL ---- */
 .carousel {
-  @apply relative flex justify-start transition-all duration-500 ease-in-out;
+  @apply order-2 relative flex justify-start transition-all duration-500 ease-in-out
+  lap:-order-none;
 }
 
 .carousel:hover .arrowBtnLeft,
@@ -44,11 +45,9 @@
 }
 
 .imgContainer {
-  @apply bg-lightpink h-fit rounded-b-articleImg w-articleImg-mobile
-  tab:w-articleImg-tab;
+  @apply bg-lightpink h-fit rounded-b-articleImg w-articleImg;
 }
 
 .img {
-  @apply w-articleImg-mobile
-  tab:w-articleImg-tab;
+  @apply w-articleImg;
 }

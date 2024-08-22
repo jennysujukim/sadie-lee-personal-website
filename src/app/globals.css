@@ -18,16 +18,17 @@
   --color-pink-transparent: rgba(255, 69, 102, 0.7);
   /* ---- GRADIENTS ---- */
   --bg-gradient-workNav-mobile: linear-gradient(180deg, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 70%);
-  --bg-gradient-workNav-mobile-open: linear-gradient(180deg, rgba(248,248,248,0.7) 0%, rgba(248,248,248,1) 25%);
+  --bg-gradient-workNav-mobile-open: linear-gradient(180deg, rgba(248,248,248,0.3) 0%, rgba(248,248,248,1) 25%);
   --bg-gradient-workNav: linear-gradient(180deg, #F8F8F8 0%, rgba(248, 248, 248, 0.00) 100%);
   /* ---- FONT SIZES ---- */
   --fs-h1: 2rem;
   --fs-h1-tab-lg: 2rem;
-  --fs-h2: 2rem;
-  --fs-h2-tab-lg: 2.5rem;
-  --fs-p: 1rem;
+  --fs-h2: 1.4rem;
+  --fs-h2-lap: 2rem;
+  --fs-p: 0.8rem;
+  --fs-p-tab-lg: 1rem;
   --fs-workNav-link: 1rem;
-  --fs-workNav-link-mobile: 1.6rem;
+  --fs-workNav-link-mobile: 1.2rem;
   --fs-mainNav-link: 1.2rem;
   --fs-mainNav-link-mobile: 1.4rem;
   /* ---- SPACING ---- */
@@ -46,8 +47,7 @@
   --min-w-articleImg: calc(300px - 2rem);
   --min-h-articleWrapper: 80vh;
   --min-w-carousel: 35vw;
-  --w-articleImg-mobile: calc(100vw - ((var(--spacing-sideWrapper-mobile) * 2) + var(--w-scrollbar)));
-  --w-articleImg-tab: calc(100vw - ((var(--spacing-sideWrapper-tab) * 2) + var(--w-scrollbar)));
+  --w-articleImg: 100vw;
   --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);
   --w-profileImg-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.4);
   --w-aboutPageTextWrapper-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);
@@ -105,13 +105,20 @@ p {
   font-size: var(--fs-p);
 }
 
-@media screen and (min-width: var(--bp-tab-lg)){
+@media screen and (min-width: 768px){
   h1 {
     font-size: var(--fs-h1-tab-lg);
     letter-spacing: 2px;
   }
 
+  p {
+    font-size: var(--fs-p-tab-lg);
+  }
+}
+
+
+@media screen and (min-width: 1024px){
   h2 {
-    font-size: var(--fs-h2-tab-lg);
+    font-size: var(--fs-h2-lap);
   }
 }

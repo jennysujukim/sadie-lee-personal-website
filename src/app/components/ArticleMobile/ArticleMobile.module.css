@@ -1,5 +1,8 @@
 .container {
-  @apply min-h-articleWrapper mb-[5rem] tab-lg:mb-[10rem];
+  @apply mt-[3rem] mb-[7rem] px-wrapper-side-mobile 
+  tab:px-wrapper-side-tab
+  tab-lg:mb-[10rem]
+  lap:px-0;
 }
 
 .subContainer {

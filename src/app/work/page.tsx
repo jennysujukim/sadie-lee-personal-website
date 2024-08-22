@@ -80,9 +80,7 @@ export default function WorkPage() {
           <div className={styles.navContainer}>
             <MainNav />
           </div>
-          <div className={styles.mobileArticlesContainer}>
-            <ArticleMobile works={works} />
-          </div>
+          <ArticleMobile works={works} />
         </div>
         <div className={styles.wrapper}>
           <div 

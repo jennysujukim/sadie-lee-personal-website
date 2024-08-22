@@ -1,5 +1,6 @@
 .logoContainer {
-  @apply flex justify-center items-center border-[1.5px] border-pink bg-white rounded-[40px] py-[1rem] px-[1.2rem]
+  @apply flex justify-center items-center border-[1.5px] border-pink bg-white rounded-[40px] py-[0.7rem] px-[1rem]
+  tab-lg:py-[1rem] tab-lg:px-[1.2rem]
   lap:w-[70px] lap:h-[270px] lap:p-0;
 }
 

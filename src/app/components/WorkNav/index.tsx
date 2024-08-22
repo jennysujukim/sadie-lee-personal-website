@@ -49,7 +49,7 @@ export default function HeaderNav() {
         />
         <nav className={styles.mobileNav}>
           {isMobileNavOpen &&
-            <ul>
+            <ul className={styles.mobileLinksContainer}>
               {works && works.map((work, index) => (
                 <li 
                   key={index}
