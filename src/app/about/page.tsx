@@ -1,5 +1,8 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useDataContext } from '../utils/useDataContext'
 // assets
 import profileImg from '@/app/assets/about/profile.jpg'
 import starBackground from '@/app/assets/about/cta-background-star.svg'
@@ -9,14 +12,14 @@ import MainNav from '@/app/components/MainNav'
 import styles from './aboutPage.module.css'
 
 export default function AboutPage() {
+
+  const { about } = useDataContext()
+
   return (
     <main className={styles.main}>
       <div className={`${styles.navContainer} ${styles.mobile}`}>
         <MainNav />
       </div>
-      <section className={styles.headingContainer}>
-        <h2 className={styles.heading}>London-based multi-disciplinary graphic designer</h2>
-      </section>
       <div className={styles.wrapper}>
         <section className={styles.profileContainer}>
           <div className={`${styles.emailCtaContainer} ${styles.mobile}`}>
@@ -51,7 +54,7 @@ export default function AboutPage() {
               />
               <Link 
                 className={styles.igCtaLink}
-                href="https://www.instagram.com/sadie.designs_/" 
+                href="https://www.instagram.com/sadie.artdesign/" 
                 target='_blank'
               >
                 Instagram
@@ -62,8 +65,24 @@ export default function AboutPage() {
               target='_blank' 
               className={styles.igSpan}
             >
-              @sadie.designs_
+              @sadie.artdesign
             </Link>
+          </div>
+          <div className={`${styles.linkedinCtaContainer} ${styles.mobile}`}>
+            <div className={styles.linkedinCta}>
+              <Image
+                className={styles.linkedinCtaBackground} 
+                src={starBackground}
+                alt="star background image"
+              />
+              <Link 
+                className={styles.linkedinCtaLink}
+                href="https://www.linkedin.com/in/sadie-lee-8785a220a/" 
+                target='_blank'
+              >
+                Linked-In
+              </Link>
+            </div>
           </div>
           <Link
             className={`${styles.cvCtaContainer} ${styles.mobile}`} 
@@ -141,6 +160,22 @@ export default function AboutPage() {
               @sadie.artdesign
             </Link>
           </div>
+          <div className={styles.linkedinCtaContainer}>
+            <div className={styles.linkedinCta}>
+              <Image
+                className={styles.linkedinCtaBackground} 
+                src={starBackground}
+                alt="star background image"
+              />
+              <Link 
+                className={styles.linkedinCtaLink}
+                href="https://www.linkedin.com/in/sadie-lee-8785a220a/" 
+                target='_blank'
+              >
+                Linked-In
+              </Link>
+            </div>
+          </div>
           <Link
             className={styles.cvCtaContainer} 
             href="https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:d0140fae-ad6f-39fe-8b82-410feaf17ecd"
@@ -162,35 +197,64 @@ export default function AboutPage() {
             <p className={styles.cvCtaText}>CV</p>
           </Link>
           <div className={styles.textContainer}>
-            <p>
-              I am a versatile graphic designer with an interdisciplinary background, having immersed myself in the realms of art and design. Holding a Bachelor’s degree in Art Education, I possess a comprehensive understanding of art and design theory, practical skills, and a keen artistic sensibility. Seeking deeper insights into the design field, I went to the US to study Interaction Design after graduation, and currently, I’m pursuing a Master’s degree in the UK to further explore independent and experimental studies. Throughout my academic journey, I’ve balanced studies with practical experience, serving as an art teacher or design advisor during gap years, nurturing my artistic intuition. With a unique blend of artistic flair, technical proficiency, and a drive for innovation, I consistently deliver impactful designs to tackle creative challenges.
-            </p>
-            {/* <div>
-              <h4 className={styles.subHeading}>Experience</h4>
-              <div>
-                <p className={styles.listText}>
-                  2023 : Ark Publishing House| Atlanta, Georgia, Internal Graphic Designer and Illustrator 
-                </p>
-                <p className={styles.listText}>
-                  2022 : E&D Marketing Firm| Atlanta, Georgia, Graphic Designer
-                </p>
-              </div>
-            </div>
-            <div>
-              <h4 className={styles.subHeading}>Education</h4>
-              <div>
-                <p className={styles.listText}>
-                  MA, Graphic Media Design, London College of Communication(UAL) - 2023/2024
-                </p>
-                <p className={styles.listText}>
-                  BA, Art Education, Korea National University of Education 
-                </p>
-              </div>
-            </div> */}
+            {about &&
+              <>
+                {about.main.map((paragraph, index) => (
+                  <p 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+                <h4 className={styles.subHeading}>Experience</h4>
+                {about.experience.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.duration}</p>
+                    <p className={styles.textBold}>{data.role} {data.roleDescription && <span className={styles.textSpan}>({data.roleDescription})</span>}</p>
+                    <p>{data.location}</p>
+                  </div>
+                ))}
+                <h4 className={styles.subHeading}>Education</h4>
+                {about.education.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.duration}</p>
+                    <p>{data.degree} - <span className={styles.textBold}>{data.field}</span></p>
+                    <p>{data.school}, {data.location}</p>
+                  </div>
+                ))}
+                <h4 className={styles.subHeading}>Awards & Events</h4>
+                {about.awardsAndEvents.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.date}</p>
+                    <p>{data.description}</p>
+                  </div>
+                ))}
+                <h4 className={styles.subHeading}>Exhibition</h4>
+                {about.exhibition.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.date}</p>
+                    <p className={styles.textBold}>{data.title}</p>
+                    <p>{data.type}, {data.location}</p>
+                  </div>
+                ))}
+              </>
+            }
           </div>
         </section>
       </div>
-
     </main>
   )
 }
