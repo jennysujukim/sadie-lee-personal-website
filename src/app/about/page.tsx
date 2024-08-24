@@ -1,5 +1,8 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useDataContext } from '../utils/useDataContext'
 // assets
 import profileImg from '@/app/assets/about/profile.jpg'
 import starBackground from '@/app/assets/about/cta-background-star.svg'
@@ -9,6 +12,9 @@ import MainNav from '@/app/components/MainNav'
 import styles from './aboutPage.module.css'
 
 export default function AboutPage() {
+
+  const { about } = useDataContext()
+
   return (
     <main className={styles.main}>
       <div className={`${styles.navContainer} ${styles.mobile}`}>
@@ -48,7 +54,7 @@ export default function AboutPage() {
               />
               <Link 
                 className={styles.igCtaLink}
-                href="https://www.instagram.com/sadie.designs_/" 
+                href="https://www.instagram.com/sadie.artdesign/" 
                 target='_blank'
               >
                 Instagram
@@ -59,7 +65,7 @@ export default function AboutPage() {
               target='_blank' 
               className={styles.igSpan}
             >
-              @sadie.designs_
+              @sadie.artdesign
             </Link>
           </div>
           <div className={`${styles.linkedinCtaContainer} ${styles.mobile}`}>
@@ -191,38 +197,64 @@ export default function AboutPage() {
             <p className={styles.cvCtaText}>CV</p>
           </Link>
           <div className={styles.textContainer}>
-            <p>
-              I am a versatile graphic designer with a rich, interdisciplinary background in art and design. My journey began with a Bachelor&apos;s degree in Art Education, where I developed a strong foundation in both art theory and practice, honing my artistic sensibilities. Driven by a desire to deepen my expertise, I pursued advanced studies in Interaction Design in the U.S. and later earned a Master&apos;s degree in the UK, focusing on independent and experimental design practices.
-            </p>
-            <p>
-              Throughout my academic and professional journey, I&apos;ve seamlessly integrated theoretical knowledge with hands-on experience. During my gap years, I served as an art teacher and design advisor, further nurturing my artistic intuition and technical skills. This unique blend of creativity, technical proficiency, and innovative thinking empowers me to consistently deliver impactful designs that address diverse creative challenges.
-            </p>
-            <div>
-              <h4 className={styles.subHeading}>Experience</h4>
-              <div>
-                <p className={styles.listText}>
-                  2023 : Ark Publishing House| Atlanta, Georgia, Internal Graphic Designer and Illustrator 
-                </p>
-                <p className={styles.listText}>
-                  2022 : E&D Marketing Firm| Atlanta, Georgia, Graphic Designer
-                </p>
-              </div>
-            </div>
-            <div>
-              <h4 className={styles.subHeading}>Education</h4>
-              <div>
-                <p className={styles.listText}>
-                  MA, Graphic Media Design, London College of Communication(UAL) - 2023/2024
-                </p>
-                <p className={styles.listText}>
-                  BA, Art Education, Korea National University of Education 
-                </p>
-              </div>
-            </div>
+            {about &&
+              <>
+                {about.main.map((paragraph, index) => (
+                  <p 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+                <h4 className={styles.subHeading}>Experience</h4>
+                {about.experience.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.duration}</p>
+                    <p className={styles.textBold}>{data.role} {data.roleDescription && <span className={styles.textSpan}>({data.roleDescription})</span>}</p>
+                    <p>{data.location}</p>
+                  </div>
+                ))}
+                <h4 className={styles.subHeading}>Education</h4>
+                {about.education.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.duration}</p>
+                    <p>{data.degree} - <span className={styles.textBold}>{data.field}</span></p>
+                    <p>{data.school}, {data.location}</p>
+                  </div>
+                ))}
+                <h4 className={styles.subHeading}>Awards & Events</h4>
+                {about.awardsAndEvents.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.date}</p>
+                    <p>{data.description}</p>
+                  </div>
+                ))}
+                <h4 className={styles.subHeading}>Exhibition</h4>
+                {about.exhibition.map((data, index) => (
+                  <div 
+                    key={index}
+                    className={styles.textList}
+                  >
+                    <p className={styles.textDuration}>{data.date}</p>
+                    <p className={styles.textBold}>{data.title}</p>
+                    <p>{data.type}, {data.location}</p>
+                  </div>
+                ))}
+              </>
+            }
           </div>
         </section>
       </div>
-
     </main>
   )
 }

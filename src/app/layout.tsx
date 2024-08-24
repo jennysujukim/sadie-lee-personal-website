@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Sansita } from 'next/font/google'
 import localFont from 'next/font/local'
-import { WorkContextProvider } from './context/WorkContext'
+import { DataContextProvider } from './context/DataContext'
 // styles
 import './globals.css'
 
@@ -36,9 +36,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${sansita.variable} ${clashDisplay.variable}`}
       >
-        <WorkContextProvider>
+        <DataContextProvider>
           {children}
-        </WorkContextProvider>
+        </DataContextProvider>
       </body>
     </html>
   )

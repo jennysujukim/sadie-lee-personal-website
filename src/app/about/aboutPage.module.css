@@ -170,8 +170,8 @@
   lap:px-10 lap:py-16 lap:mt-[4rem] lap:overflow-scroll lap:max-h-aboutTextContainer;
 }
 
-.textContainer p {
-  @apply mb-5;
+.textList {
+  @apply mb-6;
 }
 
 .textContainer::-webkit-scrollbar {
@@ -179,9 +179,17 @@
 }
 
 .subHeading {
-  @apply uppercase font-medium mt-10 mb-6 ;
+  @apply uppercase font-semibold mt-14 mb-8 ;
 }
 
-.listText {
-  @apply mb-6;
+.textDuration {
+  @apply text-[0.8rem];
+}
+
+.textSpan {
+  @apply font-light;
+}
+
+.textBold {
+  @apply font-normal;
 }

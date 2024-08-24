@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { useWorkContext } from '@/app/utils/useWorkContext'
+import { useDataContext } from '@/app/utils/useDataContext'
 // components
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
@@ -12,7 +12,7 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  const { works } = useWorkContext()
+  const { works } = useDataContext()
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();

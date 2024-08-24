@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { useWorkContext } from '@/app/utils/useWorkContext'
+import { useDataContext } from '@/app/utils/useDataContext'
 // assets
 import star from '@/app/assets/nav-star.svg'
 import arrowTop from '@/app/assets/nav-mobile-arrow-top.svg'
@@ -15,7 +15,7 @@ import styles from './WorkNav.module.css'
 export default function HeaderNav() {
 
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState<boolean>(false)
-  const { works } = useWorkContext()
+  const { works } = useDataContext()
 
   const onClickScroll = (id: any) => {
     const target = document.getElementById(id)
