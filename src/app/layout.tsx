@@ -6,9 +6,17 @@ import { DataContextProvider } from './context/DataContext'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Sadie Lee_London-based graphic designer',
-  description: '.',
+  title: 'Sadie Lee : Graphic designer based in London',
+  description: 'Sadie Lee is a graphic designer with a strong foundation in art education, further enriched by advanced studies in Interaction Design and a Master’s degree in Graphic Media Design from LCC (UAL). Her interdisciplinary background empowers her to create innovative and impactful designs that effectively tackle a wide range of creative challenges.',
   keywords: 'London Graphic designer, London publication, design studio, UAL designer, London graphic, London graphic studio, London designer, Graphic media design, London branding, London ux design, London UI design, London art, London art lesson, London design commision, London art commision, London logo design, London app design, London type design',
+  openGraph: {
+    title: 'Sadie Lee : Graphic designer based in London',
+    description: 'Sadie Lee is a graphic designer with a strong foundation in art education, further enriched by advanced studies in Interaction Design and a Master’s degree in Graphic Media Design from LCC (UAL). Her interdisciplinary background empowers her to create innovative and impactful designs that effectively tackle a wide range of creative challenges.',
+    images: ['/big-circle.png'],
+    url: 'https://www.sadielee-design.com/',
+    type: 'website',
+    locale: 'en_GB'
+  }
 }
 
 const sansita = Sansita({ 
