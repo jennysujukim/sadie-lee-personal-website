@@ -6,6 +6,7 @@ import { useDataContext } from '../utils/useDataContext'
 // assets
 import profileImg from '@/app/assets/about/profile.jpg'
 import starBackground from '@/app/assets/about/cta-background-star.svg'
+import cvPdf from '@/app/assets/about/CV_Sadie Lee.pdf'
 // components
 import MainNav from '@/app/components/MainNav'
 // styles
@@ -14,6 +15,11 @@ import styles from './aboutPage.module.css'
 export default function AboutPage() {
 
   const { about } = useDataContext()
+
+  const handleOpenCvPdf = () => {
+    const cv = "./CV_Sadie Lee.pdf"
+    window.open(cv)
+  }
 
   return (
     <main className={styles.main}>
@@ -86,7 +92,7 @@ export default function AboutPage() {
           </div>
           <Link
             className={`${styles.cvCtaContainer} ${styles.mobile}`} 
-            href="https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:d0140fae-ad6f-39fe-8b82-410feaf17ecd"
+            href={cvPdf}
             target='_blank'
           >
             <svg 
@@ -178,7 +184,7 @@ export default function AboutPage() {
           </div>
           <Link
             className={styles.cvCtaContainer} 
-            href="https://acrobat.adobe.com/link/review?uri=urn:aaid:scds:US:d0140fae-ad6f-39fe-8b82-410feaf17ecd"
+            href={cvPdf}
             target='_blank'
           >
             <svg 

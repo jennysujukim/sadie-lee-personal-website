@@ -24,7 +24,7 @@ export default function MainNav({
 
   const pathname = usePathname()
   const pathText = pathname.trim().replace(/^\/+|\/+$/g, '')
-  const navLink = { text: pathText, link: pathname }
+  const navLinks = [ { text: "work", link: "/work" }, { text: "about", link: "/about" } ]
 
   return (
     <div className={styles.wrapper}>
@@ -56,12 +56,18 @@ export default function MainNav({
       }
       <nav className={isNavOnly ? styles.navContainer_Only : styles.navContainer}>
         <ul>
-          <li>
-            <NavLink 
-              link={navLink.link}
-              text={navLink.text}
-            />
-          </li>
+          {navLinks.map((navLink, index) => (
+            <li 
+              key={index}
+              className={styles.link}
+            >
+              <NavLink 
+                link={navLink.link}
+                text={navLink.text}
+                isHighlight={navLink.text === pathText}
+              />
+            </li>
+          ))}
         </ul>
       </nav>
     </div>

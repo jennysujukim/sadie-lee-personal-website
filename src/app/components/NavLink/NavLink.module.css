@@ -1,5 +1,6 @@
 .link {
-  @apply flex items-center;
+  @apply flex items-center 
+  tab-lg:mb-1;
 }
 
 .checkboxContainer {
@@ -7,7 +8,7 @@
 }
 
 .check {
-  @apply absolute -top-1 left-0;
+  @apply absolute -top-1 left-0 hidden;
 }
 
 .check.isHome {
@@ -15,17 +16,25 @@
 }
 
 .linkText {
-  @apply text-pink font-sansita font-bold italic text-mainNav-link-mobile pl-1
+  @apply text-pink opacity-50 font-sansita font-bold italic text-mainNav-link-mobile pl-1
   lap:text-mainNav-link;
 }
 
+.linkText.highlight {
+  @apply text-pink opacity-100;
+}
+
 .linkText.isHome {
-  @apply text-black text-lg pl-2
+  @apply text-black text-lg pl-2 opacity-100
   tab:text-xl
   lap:text-2xl;
 }
 
-/* Hover animation */
+.check.highlight {
+  @apply block;
+}
+
+/* Hover animation for Homepage */
 .link:hover .check.isHome {
   @apply block;
 }
