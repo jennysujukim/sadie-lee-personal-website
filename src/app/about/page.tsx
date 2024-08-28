@@ -67,7 +67,7 @@ export default function AboutPage() {
               </Link>
             </div>
             <Link 
-              href="mailto:sadielee.art@gmail.com" 
+              href="https://www.instagram.com/sadie.artdesign/" 
               target='_blank' 
               className={styles.igSpan}
             >
@@ -232,7 +232,7 @@ export default function AboutPage() {
                   >
                     <p className={styles.textDuration}>{data.duration}</p>
                     <p>{data.degree} - <span className={styles.textBold}>{data.field}</span></p>
-                    <p>{data.school}, {data.location}</p>
+                    <p><span className={styles.textBold}>{data.school}</span>, {data.location}</p>
                   </div>
                 ))}
                 <h4 className={styles.subHeading}>Awards & Events</h4>
@@ -242,6 +242,7 @@ export default function AboutPage() {
                     className={styles.textList}
                   >
                     <p className={styles.textDuration}>{data.date}</p>
+                    <p className={styles.textBold}>{data.title}</p>
                     <p>{data.description}</p>
                   </div>
                 ))}

@@ -59,6 +59,7 @@ export const aboutType = defineType({
           name: 'awardsAndEventsDetails',
           fields: [
             { type: 'string', name: 'date'},
+            { type: 'string', name: 'title'},
             { type: 'string', name: 'description' },
           ]
         }

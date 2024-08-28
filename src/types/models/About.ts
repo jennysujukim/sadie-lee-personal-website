@@ -17,6 +17,7 @@ export type AboutType = {
   }[];
   awardsAndEvents: {
     date: string;
+    title: string;
     description: string;
   }[];
   exhibition: {
