@@ -1,6 +1,9 @@
 import { WorkType } from "@/types/models/Work";
 // components
 import ImgCarousel from "../ImgCarousel"
+// styles 
+import styles from "./ArticleImgs.module.css"
+import Link from "next/link";
 
 type ArticleImgsProps = {
   works: WorkType[];
@@ -15,8 +18,18 @@ export default function ArticleImgs({ works, heights }: ArticleImgsProps) {
         <div 
           key={index} 
           id={work.slug.current}
-          style={{ marginBottom: '15rem', height: heights ? heights[index] : "auto" }}
+          style={{ height: heights ? heights[index] : "auto" }}
+          className={styles.wrapper}
         >
+          <div className={styles.titleContainer}>
+            <h2 className={styles.title}>{work.title}</h2>
+            <Link
+              className={styles.detailsLink} 
+              href={`/work/${work.slug.current}`}
+            >
+              See Full Project
+            </Link>
+          </div>
           <ImgCarousel 
             works={works}
             projectId={work.id}

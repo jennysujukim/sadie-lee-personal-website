@@ -13,7 +13,6 @@ type ArticleDescriptionsProps = {
 
 export default function ArticleDescriptions({ width, works, getHeightValue }: ArticleDescriptionsProps) {
 
-  const [hide, setHide] = useState<boolean>(false);
   const targets = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -23,16 +22,6 @@ export default function ArticleDescriptions({ width, works, getHeightValue }: Ar
     getHeightValue(heights)
 
   }, [width, works, getHeightValue])
-
-  useEffect(() => {
-
-    if(width && width < 150){
-      setHide(true)
-    } else {
-      setHide(false)
-    }
-
-  }, [width])
   
   return (
     <>
@@ -41,8 +30,7 @@ export default function ArticleDescriptions({ width, works, getHeightValue }: Ar
           key={index} 
           style={{ 
             width: width, 
-            maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.30)',
-            display: hide ? "none": "block",
+            maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.40)',
           }}
           id={work.slug.current}
         >
