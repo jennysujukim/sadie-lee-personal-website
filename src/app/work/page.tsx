@@ -96,7 +96,6 @@ export default function WorkPage() {
               }}
           >
             <ArticleDescriptions 
-              width={navContainerWidth} 
               getHeightValue={handleHeight}
               works={works}
             />

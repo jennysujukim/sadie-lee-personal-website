@@ -3,11 +3,19 @@
 }
 
 .subContainer {
-  @apply mt-2 mb-8 flex flex-wrap;
+  @apply mt-2 mb-8;
 }
 
-.divider {
-  @apply mx-2;
+.subTextContainer {
+  @apply flex;
+}
+
+.subTextTitle {
+  @apply text-pink font-normal mr-2;
+}
+
+.subTextDetails {
+  @apply inline-block ;
 }
 
 .keywords {

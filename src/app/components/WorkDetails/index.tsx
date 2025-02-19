@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDataContext } from "@/app/utils/useDataContext";
 import { WorkType } from "@/types/models/Work";
 // styles
-import styles from "./WorkDetails.module.css";
+//import styles from "./WorkDetails.module.css";
 
 type WorkDetailsProps = {
   slug: string;

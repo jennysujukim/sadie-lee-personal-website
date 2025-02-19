@@ -1,17 +1,16 @@
 "use client"
 import React from 'react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { WorkType } from '@/types/models/Work';
 // styles
 import styles from './ArticleDescriptions.module.css'
 
 type ArticleDescriptionsProps = {
-  width: number | undefined;
   works: WorkType[];
   getHeightValue: (value: (number | string)[] | undefined) => void;
 }
 
-export default function ArticleDescriptions({ width, works, getHeightValue }: ArticleDescriptionsProps) {
+export default function ArticleDescriptions({ works, getHeightValue }: ArticleDescriptionsProps) {
 
   const targets = useRef<(HTMLElement | null)[]>([]);
 
@@ -21,17 +20,14 @@ export default function ArticleDescriptions({ width, works, getHeightValue }: Ar
     ))
     getHeightValue(heights)
 
-  }, [width, works, getHeightValue])
+  }, [ works, getHeightValue])
   
   return (
     <>
       {works.map((work, index) => (
         <div 
           key={index} 
-          style={{ 
-            width: width, 
-            maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.40)',
-          }}
+          style={{ maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.40)' }}
           id={work.slug.current}
         >
           <article 
@@ -40,23 +36,41 @@ export default function ArticleDescriptions({ width, works, getHeightValue }: Ar
           >
             <h2 className={styles.title}>{work.title}</h2>
             <div className={styles.subContainer}>
-              {work.keywords.map((keyword, index) => (
-                <React.Fragment key={index}>
-                  <p className={styles.keywords}>{keyword}</p>
-                  {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
-                </React.Fragment>
-              ))}
-              <span className={styles.divider}>|</span>
-              {work.materials && work.materials.map((material, index) => (
-                <React.Fragment key={index}>
-                  <p className={styles.keywords}>{material}</p>
-                  {index !== work.materials.length - 1 && <p className={styles.comma}>,</p>}
-                </React.Fragment>
-              ))}
-              {work.materials && <span className={styles.divider}>|</span>}
-              <p>{work.type}</p>
-              <span className={styles.divider}>|</span>
-              <p className={styles.year}>{work.year}</p>
+              <div className={styles.subTextContainer}>
+                <p className={styles.subTextTitle}>Date</p>
+                <p>{work.year}</p>
+              </div>
+              <div className={styles.subTextContainer}>
+                <p className={styles.subTextTitle}>Category</p>
+                {work.keywords.map((keyword, index) => (
+                  <React.Fragment key={index}>
+                    <p>{keyword}</p>
+                    {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
+                  </React.Fragment>
+                ))}
+              </div>
+              {work.materials &&
+                <div className={styles.subTextContainer}>
+                  <p className={styles.subTextTitle}>Medium</p>
+                  {work.materials.map((material, index) => (
+                    <React.Fragment key={index}>
+                      <p>{material}</p>
+                      {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
+                    </React.Fragment>
+                  ))}
+                </div>
+              }
+              {/* {work.collaborators && 
+                <div className={styles.subTextContainer}>
+                  <p className={styles.subTextTitle}>Collaboration with</p>
+                  {work.collaborators.map((collaborator, index) => (
+                    <React.Fragment key={index}>
+                      <p>{collaborator}</p>
+                      {index !== work.collaborators.length - 1 && <p className={styles.comma}>,</p>}
+                    </React.Fragment>
+                  ))}
+                </div>
+              } */}
             </div>
             <div className={styles.descriptionContainer}>
               {work.descriptions.map((sentence, index) => (

@@ -30,5 +30,5 @@
 }
 
 .descriptionsContainer {
-  @apply lap:overflow-hidden;
+  @apply lap:overflow-hidden lap:mr-[2.5rem];
 }
