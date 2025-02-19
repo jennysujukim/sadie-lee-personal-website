@@ -5,6 +5,7 @@ const workQuery = groq`*[_type == "work"]{
   id,
   title,
   slug { current },
+  filter,
   type,
   year,
   keywords,
