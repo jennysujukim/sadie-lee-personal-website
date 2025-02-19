@@ -1,5 +1,51 @@
 .main {
   @apply mx-auto bg-lightpink
-  lap:pt-workNav-height
+  lap:pt-[2rem]
   desk-lg:max-w-constraint;
+}
+
+.wrapper {
+  @apply px-wrapper-side-mobile py-16 h-full
+  tab:px-wrapper-side-tab
+  lap:py-0 lap:px-wrapper-side-lap;
+}
+
+.carouselWrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+
+  width: fit-content;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.controls button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
