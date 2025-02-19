@@ -8,6 +8,7 @@ import { WorkType } from "@/types/models/Work";
 // assets
 import prevBtn from "@/app/assets/work-carousel-arrow-left.svg";
 import nextBtn from "@/app/assets/work-carousel-arrow-right.svg";
+import moveToTop from "@/app/assets/move-to-top.svg";
 // styles
 import styles from "./WorkDetails.module.css";
 
@@ -58,10 +59,22 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
     });
   };
 
+  const onClickScroll = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <>
       {work &&
         <main className={styles.main}>
+          <Image 
+            alt="move to top button"
+            src={moveToTop}
+            width={30}
+            height={30}
+            className={styles.moveToTop}
+            onClick={onClickScroll}
+          />
           <div className={styles.wrapper}>
             <button 
               type="button" 

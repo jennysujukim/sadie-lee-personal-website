@@ -18,30 +18,28 @@
   @apply order-2 relative flex justify-start transition-all duration-500 ease-in-out
   lap:-order-none;
 }
-
 .carousel:hover .arrowBtnLeft,
 .carousel:hover .arrowBtnRight {
   @apply opacity-100;
 }
 
 .arrowBtnLeftContainer {
-  @apply absolute w-[50%] left-0 bottom-0 top-0 my-auto
-  desk:flex desk:justify-start desk:items-center;
+  @apply absolute w-[50%] left-0 bottom-0 top-0 my-auto;
 }
 
 .arrowBtnLeft {
   @apply opacity-0 hidden
-  desk:block desk:w-[2.5vw] desk:translate-x-[-1.2rem];
+  tab:block;
 }
 
 .arrowBtnRightContainer {
   @apply absolute w-[50%] right-0 bottom-0 top-0 my-auto
-  desk:flex desk:justify-end desk:items-center;
+  tab:flex tab:justify-end;
 }
 
 .arrowBtnRight {
   @apply opacity-0 hidden
-  desk:block desk:w-[2.5vw] desk:translate-x-[1.2rem];
+  tab:block tab:right-0;
 }
 
 .imgContainer {

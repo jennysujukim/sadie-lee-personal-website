@@ -4,6 +4,10 @@
   desk-lg:max-w-constraint;
 }
 
+.moveToTop {
+  @apply fixed bottom-[2rem] right-[3rem];
+}
+
 .wrapper {
   @apply px-wrapper-side-mobile py-16 h-full
   tab:px-wrapper-side-tab
