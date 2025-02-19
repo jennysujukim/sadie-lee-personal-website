@@ -63,7 +63,7 @@
 
 .links {
   @apply hidden
-  lap:flex lap:flex-wrap lap:justify-end lap:items-center lap:gap-y-2
+  lap:flex lap:flex-wrap lap:justify-end lap:items-center lap:gap-y-1
   desk-lg:max-w-constraint;
 }
 

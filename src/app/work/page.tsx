@@ -13,7 +13,7 @@ import styles from './workPage.module.css'
 
 export default function WorkPage() {
 
-  const { works } = useDataContext()
+  const { selectedWorks } = useDataContext()
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number>(0);
@@ -73,7 +73,7 @@ export default function WorkPage() {
           <div className={styles.navContainer}>
             <MainNav />
           </div>
-          <ArticleMobile works={works} />
+          <ArticleMobile works={selectedWorks} />
         </div>
         <div className={styles.wrapper}>
           <div 
@@ -81,7 +81,7 @@ export default function WorkPage() {
             ref={imgsContainerRef}
           >
             <ArticleImgs 
-              works={works} 
+              works={selectedWorks} 
               heights={articleHeights}
             />
           </div>
@@ -99,7 +99,7 @@ export default function WorkPage() {
           >
             <ArticleDescriptions 
               getHeightValue={handleHeight}
-              works={works}
+              works={selectedWorks}
             />
           </div>
         </div>

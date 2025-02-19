@@ -15,20 +15,11 @@ import styles from './WorkNav.module.css'
 export default function HeaderNav() {
 
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState<boolean>(false)
-  const { works } = useDataContext()
-  const [ selectedWorks, setSelectedWorks ] = useState(works)
+  const { works, filterWorks, setSelectedWorks, selectedWorks } = useDataContext()
 
   useEffect(() => {
     setSelectedWorks(works)
-  }, [works])
-
-  const filterWorks = (type: string) => {
-    if (type === 'all') {
-      setSelectedWorks(works)
-    } else {
-      setSelectedWorks(works.filter((work) => work.filter === type))
-    }
-  }
+  }, [works, setSelectedWorks])
 
   const onClickScroll = (id: any) => {
     const target = document.getElementById(id)
@@ -86,7 +77,7 @@ export default function HeaderNav() {
       <header className={styles.header}>
         <div className={styles.filterContainer}>
           {['all', 'print', 'illustration', 'digital', 'painting'].map((filter) => (
-            <button key={filter} onClick={() => console.log(filterWorks(filter))}>
+            <button key={filter} onClick={() => filterWorks(filter)}>
               {filter.charAt(0).toUpperCase() + filter.slice(1)}
             </button>
           ))}
