@@ -10,8 +10,6 @@ export default function useResponsive() {
     const handleResponsive = () => {
       if (window.innerWidth >= Breakpoints.desk_lg) {
         setIsResponsive(BreakpointType.DesktopLg)
-      } else if (window.innerWidth >= Breakpoints.desk) {
-        setIsResponsive(BreakpointType.Desktop)
       } else if (window.innerWidth >= Breakpoints.lap) {
         setIsResponsive(BreakpointType.Laptop)
       } else if (window.innerWidth >= Breakpoints.tab_lg) {
