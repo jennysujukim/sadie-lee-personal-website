@@ -77,7 +77,11 @@ export default function HeaderNav() {
       <header className={styles.header}>
         <div className={styles.filterContainer}>
           {['all', 'print', 'illustration', 'digital', 'painting'].map((filter) => (
-            <button key={filter} onClick={() => filterWorks(filter)}>
+            <button 
+              key={filter} 
+              onClick={() => filterWorks(filter)}
+              className={styles.filterButton}
+            >
               {filter.charAt(0).toUpperCase() + filter.slice(1)}
             </button>
           ))}

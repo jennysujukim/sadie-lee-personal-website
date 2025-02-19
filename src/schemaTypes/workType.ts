@@ -42,23 +42,19 @@ export const workType = defineType({
     }),
     defineField({
       name: 'keywords',
-      type: 'array',
-      of: [{ type: 'string' }]
+      type: 'string',
     }),
     defineField({
       name: 'materials',
-      type: 'array',
-      of: [{ type: 'string' }]
+      type: 'string',
     }),
     defineField({
       name: 'collaborators',
-      type: 'array',
-      of: [{ type: 'string' }]
+      type: 'string',
     }),
     defineField({
       name: 'descriptions',
-      type: 'array',
-      of: [{ type: 'string' }]
+      type: 'string',
     }),
     defineField({
       name: 'images',

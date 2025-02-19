@@ -1,5 +1,5 @@
 .main {
-  @apply mx-auto bg-lightpink
+  @apply mx-auto bg-lightpink min-h-screen
   lap:pt-workNav-height
   desk-lg:max-w-constraint;
 }
