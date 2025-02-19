@@ -60,7 +60,7 @@ export default function ArticleDescriptions({ works, getHeightValue }: ArticleDe
                   ))}
                 </div>
               }
-              {/* {work.collaborators && 
+              {work.collaborators && 
                 <div className={styles.subTextContainer}>
                   <p className={styles.subTextTitle}>Collaboration with</p>
                   {work.collaborators.map((collaborator, index) => (
@@ -70,7 +70,7 @@ export default function ArticleDescriptions({ works, getHeightValue }: ArticleDe
                     </React.Fragment>
                   ))}
                 </div>
-              } */}
+              }
             </div>
             <div className={styles.descriptionContainer}>
               {work.descriptions.map((sentence, index) => (

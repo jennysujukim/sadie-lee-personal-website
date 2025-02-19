@@ -9,6 +9,21 @@ export type WorkType = {
   year: string;
   keywords: string[];
   materials: string[];
+  collaborators: string[];
   descriptions: string[];
   images: string[];
+  details: {
+    research: {
+      images: string[];
+      description: string[];
+    },
+    productionProcess: {
+      images: string[];
+      description: string[];
+    },
+    outcomeDetail: {
+      images: string[];
+      description: string[];
+    }
+  }
 }

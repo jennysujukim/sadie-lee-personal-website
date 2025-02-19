@@ -37,6 +37,11 @@ export const workType = defineType({
       of: [{ type: 'string' }]
     }),
     defineField({
+      name: 'collaborators',
+      type: 'array',
+      of: [{ type: 'string' }]
+    }),
+    defineField({
       name: 'descriptions',
       type: 'array',
       of: [{ type: 'string' }]
@@ -59,5 +64,108 @@ export const workType = defineType({
         ]
        }]
     }),
+    defineField({
+      name: 'details',
+      title: 'Details',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'research',
+          title: 'Research',
+          type: 'object',
+          fields : [
+            defineField({
+              name: 'images',
+              title: 'Images',
+              type: 'array',
+              of: [{
+                type: 'image',
+                options: {
+                  layout: 'grid',
+                  hotspot: true
+                },
+                fields: [
+                  {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
+                  }
+                ]
+              }]
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'array',
+              of: [{ type: 'string' }]
+            })
+          ]
+        }),
+        defineField({
+          name: 'productionProcess',
+          title: 'Production Process',
+          type: 'object',
+          fields : [
+            defineField({
+              name: 'images',
+              title: 'Images',
+              type: 'array',
+              of: [{
+                type: 'image',
+                options: {
+                  layout: 'grid',
+                  hotspot: true
+                },
+                fields: [
+                  {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
+                  }
+                ]
+              }]
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'array',
+              of: [{ type: 'string' }]
+            })
+          ]
+        }),
+        defineField({
+          name: 'outcomeDetail',
+          title: 'Outcome Detail',
+          type: 'object',
+          fields : [
+            defineField({
+              name: 'images',
+              title: 'Images',
+              type: 'array',
+              of: [{
+                type: 'image',
+                options: {
+                  layout: 'grid',
+                  hotspot: true
+                },
+                fields: [
+                  {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
+                  }
+                ]
+              }]
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'array',
+              of: [{ type: 'string' }]
+            })
+          ]
+        }),
+      ]
+    })
   ],
 })
