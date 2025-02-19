@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useDataContext } from '../utils/useDataContext'
+import { useDataContext } from '../utils/useDataContext';
+import { motion } from "framer-motion";
 // assets
 import profileImg from '@/app/assets/about/profile.jpg'
 import starBackground from '@/app/assets/about/cta-background-star.svg'
@@ -22,6 +23,11 @@ export default function AboutPage() {
   }
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ ease: "easeInOut", duration: 0.55, delay: 0.2 }}
+    >
     <main className={styles.main}>
       <div className={`${styles.navContainer} ${styles.mobile}`}>
         <MainNav />
@@ -263,5 +269,6 @@ export default function AboutPage() {
         </section>
       </div>
     </main>
+    </motion.div>
   )
 }
