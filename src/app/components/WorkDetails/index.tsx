@@ -1,40 +1,34 @@
 "use client"
-import React from 'react';
-import { useEffect, useRef } from 'react';
-import { WorkType } from '@/types/models/Work';
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useDataContext } from "@/app/utils/useDataContext";
+import { WorkType } from "@/types/models/Work";
 // styles
-import styles from './ArticleDescriptions.module.css'
+import styles from "./WorkDetails.module.css";
 
-type ArticleDescriptionsProps = {
-  works: WorkType[];
-  getHeightValue: (value: (number | string)[] | undefined) => void;
+type WorkDetailsProps = {
+  slug: string;
 }
 
-export default function ArticleDescriptions({ works, getHeightValue }: ArticleDescriptionsProps) {
+export default function WorkDetails({ slug }: WorkDetailsProps) {
 
-  const targets = useRef<(HTMLElement | null)[]>([]);
+  const router = useRouter();
+
+  const { works } = useDataContext();
+  const [ work, setWork ] = useState<WorkType | undefined>();
 
   useEffect(() => {
-    const heights = targets.current.map((target) => (
-      target && target.clientHeight !== 0 ? target.clientHeight : "auto"
-    ))
-    getHeightValue(heights)
+    const currentWork = works.find((work) => work.slug.current === slug)
+    setWork(currentWork)
+  }, [works, slug])
 
-  }, [ works, getHeightValue])
-  
   return (
     <>
-      {works.map((work, index) => (
-        <div 
-          key={index} 
-          style={{ maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.40)' }}
-          id={work.slug.current}
-        >
-          <article 
-            className={styles.container} 
-            ref={(el) => (targets.current[index] = el)}
-          >
-            <h2 className={styles.title}>{work.title}</h2>
+      {work &&
+        <main className={styles.main}>
+          <button type="button" onClick={() => router.back()}>Back</button>
+          <section>
+            <h2>{work.title}</h2>
             <div className={styles.subContainer}>
               <div className={styles.subTextContainer}>
                 <p className={styles.subTextTitle}>Date</p>
@@ -72,19 +66,10 @@ export default function ArticleDescriptions({ works, getHeightValue }: ArticleDe
                 </div>
               }
             </div>
-            <div className={styles.descriptionContainer}>
-              {work.descriptions.map((sentence, index) => (
-                <p 
-                  key={index}
-                  className={styles.description}
-                >
-                  {sentence}
-                </p>
-              ))}
-            </div>
-          </article>
-        </div>
-      ))}
+          </section>
+        </main>
+      }
     </>
+
   )
 }

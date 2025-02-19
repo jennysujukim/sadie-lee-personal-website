@@ -9,8 +9,23 @@ const workQuery = groq`*[_type == "work"]{
   year,
   keywords,
   materials,
+  collaborators,
   descriptions,
-  "images": images[].asset->url
+  "images": images[].asset->url,
+  details {
+    research {
+      "images": images[].asset->url,
+      description
+    },
+    productionProcess {
+      "images": images[].asset->url,
+      description
+    },
+    outcomeDetail {
+      "images": images[].asset->url,
+      description
+    }
+  }
 }`
 
 const aboutQuery = groq`*[_type == "about"]{

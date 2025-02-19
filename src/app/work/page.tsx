@@ -15,63 +15,54 @@ export default function WorkPage() {
   const { works } = useDataContext()
 
   // column resize interaction
-  const [navContainerWidth, setNavContainerWidth] = useState<number | undefined>();
+  const [navContainerWidth, setNavContainerWidth] = useState<number>(0);
   const targetRef = useRef<HTMLDivElement>(null);
-  const [padding, setPadding] = useState<boolean>(true);
-  const [articleHeights, setArticleHeights] = useState<(number | string)[] | undefined>([]);
+  const [showDescription, setShowDescription] = useState<boolean>(true);
+  const [articleHeights, setArticleHeights] = useState<(number | string)[]>([]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const ele = targetRef.current;
-    if (!ele) { return; }
+    if (!ele) return;
 
-    const startPos = {
-      x: e.clientX,
-      y: e.clientY,
-    };
-    
+    const startPos = e.clientX;
     const styles = window.getComputedStyle(ele);
-    const w = parseInt(styles.width, 10);
+    const initialWidth = parseInt(styles.width, 10);
 
     const handleMouseMove = (e: MouseEvent) => {
-        const dx = e.clientX - startPos.x;
-        setNavContainerWidth(w - dx);
-        updateCursor();
+      const newWidth = Math.max(0, initialWidth - (e.clientX - startPos)); // Prevent negative values
+      setNavContainerWidth(newWidth);
+      updateCursor();
     };
 
     const handleMouseUp = () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mouseup', handleMouseUp);
-        resetCursor();
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+      resetCursor();
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
-  }
+  };
 
   const updateCursor = () => {
     document.body.style.cursor = 'col-resize';
     document.body.style.userSelect = 'none';
-  }
+  };
 
   const resetCursor = () => {
     document.body.style.removeProperty('cursor');
     document.body.style.removeProperty('user-select');
-  }
+  };
 
   const imgsContainerRef = useRef<HTMLDivElement>(null);
 
   const handleHeight = useCallback((value: (number | string)[] | undefined) => {
-    setArticleHeights(value);
-  }, []); 
+    setArticleHeights(value ?? []);
+  }, []);
 
   useEffect(() => {
-    if(navContainerWidth && navContainerWidth < 150) {
-      setPadding(false)
-    } else {
-      setPadding(true)
-    }
-  }, [navContainerWidth])
-
+    setShowDescription(navContainerWidth >= 150);
+  }, [navContainerWidth]);
 
   return (
     <>
@@ -84,21 +75,27 @@ export default function WorkPage() {
         </div>
         <div className={styles.wrapper}>
           <div 
-            className={styles.imgsContainer}
+            className={styles.imgsContainer} 
             ref={imgsContainerRef}
           >
-            <ArticleImgs works={works} heights={articleHeights} />
+            <ArticleImgs 
+              works={works} 
+              heights={articleHeights}
+            />
           </div>
           <div className={styles.navContainer}>
-            <MainNav handleMouseDown={handleMouseDown}/>
+            <MainNav handleMouseDown={handleMouseDown} />
           </div>
-          <div 
-            className={styles.descriptionsContainer} 
+          <div
+            className={styles.descriptionsContainer}
             ref={targetRef}
-            style={{ padding: padding ? "0 2.5rem" : "0 1rem" }}
+            style={{ 
+                width: `${navContainerWidth}px`, 
+                display: showDescription ? 'block' : 'none',
+                maxWidth: 'calc((100vw - ((100px + 2rem))) * 0.40)',
+              }}
           >
             <ArticleDescriptions 
-              width={navContainerWidth} 
               getHeightValue={handleHeight}
               works={works}
             />
@@ -106,5 +103,5 @@ export default function WorkPage() {
         </div>
       </main>
     </>
-  )
+  );
 }

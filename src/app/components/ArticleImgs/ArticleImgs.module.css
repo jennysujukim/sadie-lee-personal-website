@@ -1,0 +1,18 @@
+.wrapper {
+  @apply mb-[15rem] 
+  lap:flex;
+}
+
+.titleContainer {
+  @apply lap:w-[400px] min-w-[250px] lap:pr-[2.5rem];
+}
+
+.title {
+  @apply 
+  lap:text-right lap:pb-3;
+}
+
+.detailsLink {
+  @apply text-pink font-normal hover:underline
+  lap:block lap:text-right;
+}

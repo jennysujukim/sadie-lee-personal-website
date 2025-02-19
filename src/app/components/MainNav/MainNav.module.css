@@ -4,6 +4,24 @@
 }
 
 /* ---- GRIP ---- */
+
+.gripText {
+  @apply hidden
+  lap:block lap:text-center lap:text-[14px] lap:mb-3 text-pink;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-30%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
 .gripContainer {
   @apply hidden
   lap:flex lap:justify-center lap:items-center lap:w-mainNav-width lap:mb-[2rem];

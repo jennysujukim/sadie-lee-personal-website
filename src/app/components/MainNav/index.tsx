@@ -31,25 +31,28 @@ export default function MainNav({
       {!isNavOnly &&
         <>
           {pathname !== '/about/' && 
-            <div className={styles.gripContainer}>
-              <Image 
-                className={styles.arrowLeft}
-                src={arrowLeft} 
-                alt="Left arrow icon"
-              />
-              <Image
-                className={styles.grip} 
-                src={grip} 
-                alt="Grip graphic"
-                onMouseDown={handleMouseDown}
-                draggable="false"
-              />
-              <Image 
-                className={styles.arrowRight}
-                src={arrowRight} 
-                alt="Right arrow icon"
-              />
-            </div>
+            <>
+              <span className={styles.gripText}>Drag Left & Right</span>
+              <div className={styles.gripContainer}>
+                <Image 
+                  className={styles.arrowLeft}
+                  src={arrowLeft} 
+                  alt="Left arrow icon"
+                />
+                <Image
+                  className={styles.grip} 
+                  src={grip} 
+                  alt="Grip graphic"
+                  onMouseDown={handleMouseDown}
+                  draggable="false"
+                />
+                <Image 
+                  className={styles.arrowRight}
+                  src={arrowRight} 
+                  alt="Right arrow icon"
+                />
+              </div>
+            </>
           }
           <Logo isLink={true} />
         </>

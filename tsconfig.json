@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/route.js", "src/app/components/MatterJSBridgeTablet/index.js"],
   "exclude": ["node_modules"]
