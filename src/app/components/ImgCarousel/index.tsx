@@ -54,6 +54,8 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
               <Image 
                 className={styles.arrowBtnLeft}
                 src={arrowLeft} 
+                width={40}
+                height={40}
                 alt="left arrow"
               />
             </button>
@@ -65,6 +67,8 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
               <Image 
                 className={styles.arrowBtnRight}
                 src={arrowRight} 
+                width={40}
+                height={40}
                 alt="right arrow"
               />
             </button>

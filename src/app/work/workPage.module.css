@@ -5,7 +5,7 @@
 }
 
 .mobileWrapper {
-  @apply relative 
+  @apply relative max-w-[1024px] mx-auto
   lap:hidden;
 }
 

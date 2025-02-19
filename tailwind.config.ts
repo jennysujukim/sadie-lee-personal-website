@@ -11,8 +11,7 @@ const config: Config = {
       screens: {
         'tab': '600px',
         'tab-lg': '768px',
-        'lap': '1024px',
-        'desk': '1200px',
+        'lap': '1240px',
         'desk-lg': '1920px'
       },
       colors: {

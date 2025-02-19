@@ -16,8 +16,7 @@
 
 .profileContainer {
   @apply flex-1 w-full max-w-[700px] relative
-  lap:static lap:w-profileImg-lap
-  desk:w-profileImg-desk;
+  lap:static lap:w-profileImg-lap;
 }
 
 .profileImg {
@@ -40,15 +39,13 @@
 
 /* ---- RIGHT TEXT COL ---- */
 .textWrapper {
-  @apply lap:relative lap:w-aboutTextWrapper-lap
-  desk:w-aboutTextWrapper-desk;
+  @apply lap:relative lap:w-aboutTextWrapper-lap;
 }
 
 /* ---- CTA ---- */
 .cvCtaContainer {
   @apply hidden
-  lap:flex lap:absolute lap:-bottom-[45px] lap:right-[1rem] lap:justify-center lap:items-center
-  desk:bottom-auto desk:top-0 desk:right-[2rem];
+  lap:flex lap:absolute lap:-bottom-[45px] lap:right-[1rem] lap:justify-center lap:items-center;
 }
 
 .cvCtaContainer.mobile {
@@ -78,8 +75,7 @@
 }
 
 .emailCtaContainer {
-  @apply lap:left-[2rem] lap:bottom-[-3.5rem]
-  desk:left-[unset] desk:right-[3rem] desk:bottom-[-3rem];
+  @apply lap:left-[2rem] lap:bottom-[-3.5rem];
 }
 
 .emailCtaContainer.mobile {
@@ -99,8 +95,7 @@
 }
 
 .linkedinCtaContainer {
-  @apply lap:left-[1rem] lap:-top-[1rem]
-  desk:left-[3rem];
+  @apply lap:left-[1rem] lap:-top-[1rem];
 }
 
 .linkedinCtaContainer.mobile {
@@ -154,8 +149,7 @@
 .emailSpan {
   @apply absolute text-xs -top-[13px] right-[-38px]
   tab:text-sm tab:top-0 tab:right-[-55px]
-  lap:top-[60px] lap:-right-[65px]
-  desk:top-[80px] desk:-right-[75px];
+  lap:top-[60px] lap:-right-[65px];
 }
 
 .igSpan {

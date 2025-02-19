@@ -6,8 +6,7 @@
   /* ---- BREAKPOINTS ----- */
   --bp-tab: 600px;
   --bp-tab-lg: 768px;
-  --bp-lap: 1024px;
-  --bp-desk: 1200px;
+  --bp-lap: 1240px;
   --bp-desk-lg: 1920px;
   /* ---- COLOURS ---- */
   --color-white: #ffffff;
@@ -49,9 +48,7 @@
   --min-w-carousel: 35vw;
   --w-articleImg: 100vw;
   --w-profileImg-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);
-  --w-profileImg-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.4);
   --w-aboutPageTextWrapper-lap: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.5);
-  --w-aboutPageTextWrapper-desk: calc((100vw - ((100px + 4rem) + 4rem + 4rem)) * 0.6);
   /* ---- BORDER RADIUS ----- */
   --b-radius-articleImg: 29px;
   --b-radius-descriptionContainer: 22px;
