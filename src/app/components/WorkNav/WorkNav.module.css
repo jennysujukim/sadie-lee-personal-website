@@ -49,11 +49,19 @@
 .header {
   @apply 
   hidden
-  lap:flex lap:block lap:fixed lap:w-full lap:z-50 lap:bg-gradient-workNav lap:min-h-workNav lap:py-3;
+  lap:flex lap:fixed lap:w-full lap:z-50 lap:bg-gradient-workNav lap:min-h-workNav lap:py-3 lap:px-4 lap:gap-3;
 }
 
 .filterContainer {
-  @apply lap:min-w-[300px];
+  @apply lap:min-w-[250px] lap:flex lap:flex-wrap lap:gap-x-6 lap:h-fit;
+}
+
+.filterButton {
+  @apply text-pink text-lg hover:underline;
+}
+
+.filterButton:hover {
+  filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
 .nav {
@@ -63,18 +71,18 @@
 
 .links {
   @apply hidden
-  lap:flex lap:flex-wrap lap:justify-end lap:items-center lap:gap-y-1
+  lap:flex lap:flex-wrap lap:justify-end lap:items-center lap:gap-y-1 lap:h-fit
   desk-lg:max-w-constraint;
 }
 
 .linkContainer {
   @apply hidden
-  lap:text-center lap:leading-tight lap:flex lap:justify-center lap:items-center lap:mr-3 lap:cursor-pointer;
+  lap:text-center lap:leading-tight lap:flex lap:justify-center lap:items-center lap:mr-2 lap:cursor-pointer;
 }
 
 .link {
   @apply hidden 
-  lap:block lap:relative lap:font-light lap:text-workNav-link lap:mr-3
+  lap:block lap:relative lap:font-light lap:text-workNav-link lap:mr-2
   lap:hover:line-through lap:hover:decoration-pink lap:hover:decoration-4 lap:min-w-[100px];
 }
 

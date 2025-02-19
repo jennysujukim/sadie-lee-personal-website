@@ -8,9 +8,9 @@ export type WorkType = {
   filter: 'print' | 'illustration' | 'digital' | 'painting';
   type: string;
   year: string;
-  keywords: string[];
-  materials: string[];
-  collaborators: string[];
+  keywords: string;
+  materials: string;
+  collaborators: string;
   descriptions: string[];
   images: string[];
   details: {

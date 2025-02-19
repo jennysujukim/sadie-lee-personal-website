@@ -1,4 +1,3 @@
-import React from "react"
 import { WorkType } from "@/types/models/Work"
 // components
 import ImgCarousel from "../ImgCarousel"
@@ -25,19 +24,9 @@ export default function ArticleMobile({ works }: ArticleMobileProps) {
           <article className={styles.container}>
             <h2>{work.title}</h2>
             <div className={styles.subContainer}>
-              {work.keywords.map((keyword, index) => (
-                <React.Fragment key={index}>
-                  <p className={styles.keywords}>{keyword}</p>
-                  {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
-                </React.Fragment>
-              ))}
+              <p className={styles.keywords}>{work.keywords}</p>
               <span className={styles.divider}>|</span>
-              {work.materials && work.materials.map((material, index) => (
-                <React.Fragment key={index}>
-                  <p className={styles.keywords}>{material}</p>
-                  {index !== work.materials.length - 1 && <p className={styles.comma}>,</p>}
-                </React.Fragment>
-              ))}
+              <p className={styles.keywords}>{work.materials}</p>
               {work.materials && <span className={styles.divider}>|</span>}
               <p>{work.type}</p>
               <span className={styles.divider}>|</span>

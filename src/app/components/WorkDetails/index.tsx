@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useDataContext } from "@/app/utils/useDataContext";
@@ -64,33 +64,18 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
                 </div>
                 <div className={styles.subTextContainer}>
                   <p className={styles.subTextTitle}>Category</p>
-                  {work.keywords.map((keyword, index) => (
-                    <React.Fragment key={index}>
-                      <p>{keyword}</p>
-                      {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
-                    </React.Fragment>
-                  ))}
+                  <p>{work.keywords}</p>
                 </div>
                 {work.materials &&
                   <div className={styles.subTextContainer}>
                     <p className={styles.subTextTitle}>Medium</p>
-                    {work.materials.map((material, index) => (
-                      <React.Fragment key={index}>
-                        <p>{material}</p>
-                        {index !== work.keywords.length - 1 && <p className={styles.comma}>,</p>}
-                      </React.Fragment>
-                    ))}
+                    <p>{work.materials}</p>
                   </div>
                 }
                 {work.collaborators && 
                   <div className={styles.subTextContainer}>
                     <p className={styles.subTextTitle}>Collaboration with</p>
-                    {work.collaborators.map((collaborator, index) => (
-                      <React.Fragment key={index}>
-                        <p>{collaborator}</p>
-                        {index !== work.collaborators.length - 1 && <p className={styles.comma}>,</p>}
-                      </React.Fragment>
-                    ))}
+                    <p>{work.collaborators}</p>
                   </div>
                 }
               </div>

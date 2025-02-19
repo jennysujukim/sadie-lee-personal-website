@@ -57,9 +57,9 @@ export default function WorkPage() {
 
   const imgsContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleHeight = useCallback((value: (number | string)[] | undefined) => {
+  const handleHeight = (value: (number | string)[] | undefined) => {
     setArticleHeights(value ?? []);
-  }, []);
+  };
 
   useEffect(() => {
     setShowDescription(navContainerWidth >= 150);

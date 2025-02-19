@@ -26,8 +26,8 @@
   --fs-h2: 1.4rem;
   --fs-h2-lap: 2rem;
   --fs-p: 0.8rem;
-  --fs-p-tab-lg: 1rem;
-  --fs-workNav-link: 1rem;
+  --fs-p-tab-lg: 15px;
+  --fs-workNav-link: 0.9rem;
   --fs-workNav-link-mobile: 1.2rem;
   --fs-mainNav-link: 1.2rem;
   --fs-mainNav-link-mobile: 1.2rem;
@@ -38,7 +38,7 @@
   /* ---- DIMENSIONS ---- */
   --w-scrollbar: 7px;
   --h-workNav-mobile: 90px;
-  --h-workNav: 10rem;
+  --h-workNav: 8rem;
   --h-workNav-linkContainer-mobile: calc(100% - var(--h-workNav-mobile));
   --h-aboutPage-lap: calc(100vh - 7rem);
   --max-h-workNav: 100px;
