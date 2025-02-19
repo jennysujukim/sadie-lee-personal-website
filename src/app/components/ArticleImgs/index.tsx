@@ -26,6 +26,7 @@ export default function ArticleImgs({ works, heights }: ArticleImgsProps) {
             <Link
               className={styles.detailsLink} 
               href={`/work/${work.slug.current}`}
+              
             >
               See Full Project
             </Link>

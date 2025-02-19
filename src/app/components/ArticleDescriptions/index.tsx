@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { WorkType } from '@/types/models/Work';
 // styles
 import styles from './ArticleDescriptions.module.css'
@@ -13,16 +13,30 @@ type ArticleDescriptionsProps = {
 export default function ArticleDescriptions({ works, getHeightValue }: ArticleDescriptionsProps) {
 
   const targets = useRef<(HTMLElement | null)[]>([]);
+  const prevHeights = useRef<(number | string)[]>([]);
 
-  useEffect(() => {
-
-    const heights = targets.current.map((target) => (
+  const updateHeights = useCallback(() => {
+    const newHeights = targets.current.map((target) => (
       target && target.clientHeight !== 0 ? target.clientHeight : "auto"
     ))
 
-    getHeightValue(heights)
+    if (!arraysAreEqual(newHeights, prevHeights.current)) {
+      getHeightValue(newHeights)
+      prevHeights.current = newHeights
+    }
+  }, [getHeightValue]);
 
-  }, [ works, getHeightValue])
+  const arraysAreEqual = (arr1: (number | string)[], arr2: (number | string)[]): boolean => {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
+  };
+
+  useEffect(() => {
+    updateHeights();
+  }, [works.length, updateHeights])
   
   return (
     <>
