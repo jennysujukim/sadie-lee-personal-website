@@ -19,6 +19,20 @@ export const workType = defineType({
       options: {source: 'title'},
     }),
     defineField({
+      name: 'filter',
+      title: 'Filter',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Print', value: 'print' },
+          { title: 'Illustration', value: 'illustration' },
+          { title: 'Digital', value: 'digital' },
+          { title: 'Painting', value: 'painting' },
+        ],
+        layout: 'dropdown'
+      }
+    }),
+    defineField({
       name: 'type',
       type: 'string',
     }),

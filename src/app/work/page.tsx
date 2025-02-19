@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useDataContext } from '@/app/utils/useDataContext'
 // components
+import WorkNav from "@/app/components/WorkNav"
 import ArticleMobile from '../components/ArticleMobile'
 import MainNav from '@/app/components/MainNav'
 import ArticleDescriptions from '../components/ArticleDescriptions'
@@ -66,6 +67,7 @@ export default function WorkPage() {
 
   return (
     <>
+      <WorkNav />
       <main className={styles.main}>
         <div className={styles.mobileWrapper}>
           <div className={styles.navContainer}>

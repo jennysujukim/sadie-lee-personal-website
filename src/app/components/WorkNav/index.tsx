@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -16,6 +16,19 @@ export default function HeaderNav() {
 
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState<boolean>(false)
   const { works } = useDataContext()
+  const [ selectedWorks, setSelectedWorks ] = useState(works)
+
+  useEffect(() => {
+    setSelectedWorks(works)
+  }, [works])
+
+  const filterWorks = (type: string) => {
+    if (type === 'all') {
+      setSelectedWorks(works)
+    } else {
+      setSelectedWorks(works.filter((work) => work.filter === type))
+    }
+  }
 
   const onClickScroll = (id: any) => {
     const target = document.getElementById(id)
@@ -40,6 +53,7 @@ export default function HeaderNav() {
 
   return (
     <>
+      {/* Mobile Version */}
       <header className={isMobileNavOpen ? `${styles.mobileHeader} ${styles.open}` : styles.mobileHeader}>
         <Image 
           className={isMobileNavOpen ? `${styles.mobileArrow} ${styles.open}` : styles.mobileArrow}
@@ -68,7 +82,15 @@ export default function HeaderNav() {
           }
         </nav>
       </header>
+      {/* Desktop Version */}
       <header className={styles.header}>
+        <div className={styles.filterContainer}>
+          {['all', 'print', 'illustration', 'digital', 'painting'].map((filter) => (
+            <button key={filter} onClick={() => console.log(filterWorks(filter))}>
+              {filter.charAt(0).toUpperCase() + filter.slice(1)}
+            </button>
+          ))}
+        </div>
         <nav className={styles.nav}>
           <ul className={styles.links}>
             {works.map((work, index)=> (

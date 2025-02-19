@@ -49,7 +49,11 @@
 .header {
   @apply 
   hidden
-  lap:block lap:fixed lap:w-full lap:z-50 lap:bg-gradient-workNav lap:min-h-workNav lap:py-3;
+  lap:flex lap:block lap:fixed lap:w-full lap:z-50 lap:bg-gradient-workNav lap:min-h-workNav lap:py-3;
+}
+
+.filterContainer {
+  @apply lap:min-w-[300px];
 }
 
 .nav {
@@ -59,7 +63,7 @@
 
 .links {
   @apply hidden
-  lap:flex lap:flex-wrap lap:justify-center lap:items-center lap:gap-y-2
+  lap:flex lap:flex-wrap lap:justify-end lap:items-center lap:gap-y-2
   desk-lg:max-w-constraint;
 }
 
