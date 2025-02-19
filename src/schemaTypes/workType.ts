@@ -54,7 +54,8 @@ export const workType = defineType({
     }),
     defineField({
       name: 'descriptions',
-      type: 'string',
+      type: 'array',
+      of: [{ type: 'string' }]
     }),
     defineField({
       name: 'images',
