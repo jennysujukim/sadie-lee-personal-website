@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useDataContext } from '@/app/utils/useDataContext'
 // components
 import WorkNav from "@/app/components/WorkNav"

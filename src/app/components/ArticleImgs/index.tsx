@@ -23,13 +23,14 @@ export default function ArticleImgs({ works, heights }: ArticleImgsProps) {
         >
           <div className={styles.titleContainer}>
             <h2 className={styles.title}>{work.title}</h2>
-            <Link
+            {work.details &&
+              <Link
               className={styles.detailsLink} 
               href={`/work/${work.slug.current}`}
-              
-            >
-              See Full Project
-            </Link>
+              >
+                See Full Project
+              </Link>
+            }
           </div>
           <ImgCarousel 
             works={works}
