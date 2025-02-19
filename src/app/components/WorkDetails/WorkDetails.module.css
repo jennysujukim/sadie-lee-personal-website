@@ -1,5 +1,5 @@
 .main {
-  @apply mx-auto bg-lightpink
+  @apply mx-auto bg-lightpink min-h-screen
   lap:pt-[2rem]
   desk-lg:max-w-constraint;
 }
@@ -7,45 +7,82 @@
 .wrapper {
   @apply px-wrapper-side-mobile py-16 h-full
   tab:px-wrapper-side-tab
-  lap:py-0 lap:px-wrapper-side-lap;
+  lap:py-0 lap:px-wrapper-side-lap lap:pb-[10rem];
+}
+
+.section {
+  @apply mb-[20rem] mx-auto max-w-[1100px] relative;
+}
+
+/* back button */
+.backButton {
+  @apply text-pink font-medium hover:underline mb-10;
+}
+
+.backButton:hover {
+  filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
+}
+
+
+/* title section */
+.titleSection {
+  @apply px-10 mb-[10rem];
+}
+
+.subContainer {
+  @apply mt-4;
+}
+
+.subTextContainer {
+  @apply flex mb-1;
+}
+
+.subTextTitle {
+  @apply text-pink font-normal mr-2 min-w-[150px];
+}
+
+/* details section */
+.sectionTitle {
+  @apply uppercase font-medium text-lg inline-block border border-pink bg-white px-6 py-2 rounded-full absolute top-[-2rem] left-[3rem] z-10;
 }
 
 .carouselWrapper {
-  overflow: hidden;
-  width: 100%;
+  @apply overflow-hidden w-full relative;
 }
 
 .carousel {
-  display: flex;
-
-  width: fit-content;
+  @apply flex w-fit;
   transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  min-width: 100%;
-  /* display: flex;
-  flex-wrap: wrap; */
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-5;
+}
+
+.slideImg {
+  @apply w-full;
 }
 
 .controls {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.controls button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 5px;
+  @apply absolute z-10 top-[46%] w-full flex justify-between;
 }
 
 .controls button:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
+  @apply opacity-30 cursor-not-allowed;
+}
+
+.descriptionContainer {
+  @apply absolute z-10 bg-white border border-neutral-400 p-5 rounded-descriptionContainer w-[500px];
+}
+
+.descriptionContainer.researchDesc {
+  @apply -bottom-[4rem] -right-[3rem] -rotate-2;
+}
+
+.descriptionContainer.productionProcessDesc {
+  @apply -bottom-[3rem] -left-[3rem] rotate-2;
+}
+
+.descriptionContainer.outcomeDetailDesc {
+  @apply -bottom-[4rem] -right-[3rem] -rotate-2;
 }
