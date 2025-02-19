@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { useDataContext } from '@/app/utils/useDataContext'
+import { motion } from "framer-motion";
 // components
 import WorkNav from "@/app/components/WorkNav"
 import ArticleMobile from '../components/ArticleMobile'
@@ -67,43 +68,49 @@ export default function WorkPage() {
 
   return (
     <>
+      <motion.div
+        initial={{ y: 5, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.55, delay: 0.2 }}
+      >
       <WorkNav />
-      <main className={styles.main}>
-        <div className={styles.mobileWrapper}>
-          <div className={styles.navContainer}>
-            <MainNav />
+        <main className={styles.main}>
+          <div className={styles.mobileWrapper}>
+            <div className={styles.navContainer}>
+              <MainNav />
+            </div>
+            <ArticleMobile works={selectedWorks} />
           </div>
-          <ArticleMobile works={selectedWorks} />
-        </div>
-        <div className={styles.wrapper}>
-          <div 
-            className={styles.imgsContainer} 
-            ref={imgsContainerRef}
-          >
-            <ArticleImgs 
-              works={selectedWorks} 
-              heights={articleHeights}
-            />
+          <div className={styles.wrapper}>
+            <div 
+              className={styles.imgsContainer} 
+              ref={imgsContainerRef}
+            >
+              <ArticleImgs 
+                works={selectedWorks} 
+                heights={articleHeights}
+              />
+            </div>
+            <div className={styles.navContainer}>
+              <MainNav handleMouseDown={handleMouseDown} />
+            </div>
+            <div
+              className={styles.descriptionsContainer}
+              ref={targetRef}
+              style={{ 
+                  width: `${navContainerWidth}px`, 
+                  display: showDescription ? 'block' : 'none',
+                  maxWidth: 'calc((100vw - ((100px + 2rem))) * 0.40)',
+                }}
+            >
+              <ArticleDescriptions 
+                getHeightValue={handleHeight}
+                works={selectedWorks}
+              />
+            </div>
           </div>
-          <div className={styles.navContainer}>
-            <MainNav handleMouseDown={handleMouseDown} />
-          </div>
-          <div
-            className={styles.descriptionsContainer}
-            ref={targetRef}
-            style={{ 
-                width: `${navContainerWidth}px`, 
-                display: showDescription ? 'block' : 'none',
-                maxWidth: 'calc((100vw - ((100px + 2rem))) * 0.40)',
-              }}
-          >
-            <ArticleDescriptions 
-              getHeightValue={handleHeight}
-              works={selectedWorks}
-            />
-          </div>
-        </div>
-      </main>
+        </main>
+      </motion.div>
     </>
   );
 }

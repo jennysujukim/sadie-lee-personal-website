@@ -7,20 +7,20 @@
 /* ---- CONTENT ---- */
 
 .wrapper {
-  @apply flex flex-col items-center px-wrapper-side-mobile py-16 h-full
+  @apply flex flex-col items-center px-wrapper-side-mobile py-16 h-full max-w-[1024px] mx-auto
   tab:px-wrapper-side-tab
-  lap:py-0 lap:px-wrapper-side-lap lap:flex-row lap:justify-center lap:items-center;
+  lap:max-w-max lap:py-0 lap:px-wrapper-side-lap lap:flex-row lap:justify-center lap:items-center;
 }
 
 /* ---- LEFT IMAGE COL ---- */
 
 .profileContainer {
   @apply flex-1 w-full max-w-[700px] relative
-  lap:static lap:w-profileImg-lap;
+  lap:w-profileImg-lap lap:flex lap:justify-center lap:items-center;
 }
 
 .profileImg {
-  @apply w-full;
+  @apply w-full lap:max-w-[500px];
 }
 
 .navContainer {

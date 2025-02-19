@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useDataContext } from "@/app/utils/useDataContext";
 import { WorkType } from "@/types/models/Work";
+import { motion } from "framer-motion";
 // assets
 import prevBtn from "@/app/assets/work-carousel-arrow-left.svg";
 import nextBtn from "@/app/assets/work-carousel-arrow-right.svg";
@@ -66,6 +67,11 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
   return (
     <>
       {work &&
+        <motion.div
+          initial={{ y: 5, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.55, delay: 0.2 }}
+        >
         <main className={styles.main}>
           <Image 
             alt="move to top button"
@@ -186,6 +192,7 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
             })}
           </div>
         </main>
+        </motion.div>
       }
     </>
   )
