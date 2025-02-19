@@ -88,7 +88,7 @@ export default function HeaderNav() {
         </div>
         <nav className={styles.nav}>
           <ul className={styles.links}>
-            {works.map((work, index)=> (
+            {selectedWorks.map((work, index)=> (
               <li 
                 key={index}
                 className={styles.linkContainer} 
