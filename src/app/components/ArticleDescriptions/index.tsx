@@ -43,7 +43,7 @@ export default function ArticleDescriptions({ works, getHeightValue }: ArticleDe
       {works.map((work, index) => (
         <div 
           key={index} 
-          style={{ maxWidth: 'calc((100vw - ((100px + 2rem) + 4rem + 4rem)) * 0.40)' }}
+          style={{ maxWidth: 'calc((100vw - (100px + 2rem)) * 0.30)' }}
           id={work.slug.current}
         >
           <div 

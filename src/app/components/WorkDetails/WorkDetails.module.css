@@ -60,7 +60,7 @@
 }
 
 .slide {
-  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-5;
+  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-[0.8rem];
 }
 
 .slideImg {
@@ -73,6 +73,14 @@
 
 .controls button:disabled {
   @apply opacity-30 cursor-not-allowed;
+}
+
+.prevBtn {
+  @apply absolute -left-[50px];
+}
+
+.nextBtn {
+  @apply absolute -right-[50px];
 }
 
 .descriptionContainer {

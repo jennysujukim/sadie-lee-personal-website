@@ -18,6 +18,20 @@ export default function WorkPage() {
 
   // column resize interaction
   const [navContainerWidth, setNavContainerWidth] = useState<number>(0);
+
+  // set initial width of ArticleDescription 
+  useEffect(() => {
+    const updateInitialWidth = () => {
+      const baseWidth = window.innerWidth - (100 + parseFloat(getComputedStyle(document.documentElement).fontSize) * 2);
+      setNavContainerWidth(baseWidth * 0.30);
+    };
+  
+    updateInitialWidth();
+    window.addEventListener("resize", updateInitialWidth);
+  
+    return () => window.removeEventListener("resize", updateInitialWidth);
+  }, []);
+
   const targetRef = useRef<HTMLDivElement>(null);
   const [showDescription, setShowDescription] = useState<boolean>(true);
   const [articleHeights, setArticleHeights] = useState<(number | string)[]>([]);
@@ -100,7 +114,7 @@ export default function WorkPage() {
               style={{ 
                   width: `${navContainerWidth}px`, 
                   display: showDescription ? 'block' : 'none',
-                  maxWidth: 'calc((100vw - ((100px + 2rem))) * 0.40)',
+                  maxWidth: 'calc((100vw - (100px + 2rem)) * 0.30)',
                 }}
             >
               <ArticleDescriptions 
