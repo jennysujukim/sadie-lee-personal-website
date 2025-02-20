@@ -16,6 +16,7 @@ export default function ArticleDescriptions({ works, getHeightValue }: ArticleDe
   const prevHeights = useRef<(number | string)[]>([]);
 
   const updateHeights = useCallback(() => {
+    
     const newHeights = targets.current.map((target) => (
       target && target.clientHeight !== 0 ? target.clientHeight : "auto"
     ))
