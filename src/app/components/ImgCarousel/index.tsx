@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import { WorkType } from '@/types/models/Work'
 // assets
@@ -8,6 +9,7 @@ import arrowRight from '@/app/assets/slide-arrow-right.svg'
 import arrowLeft from '@/app/assets/slide-arrow-left.svg'
 import dotImg from '@/app/assets/slide-dot.svg'
 import selectedDotImg from '@/app/assets/slide-dot-coloured.svg'
+import detailCta from '@/app/assets/modal-btn-mobile.svg'
 // styles
 import styles from './ImgCarousel.module.css'
 
@@ -45,6 +47,20 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
     <>
       {project && (
         <div className={styles.wrapper}>
+          {project.details &&
+            <Link 
+              href={`/work/${project.slug.current}`}
+              className={styles.detailCta}
+            >
+              <Image 
+                className={styles.cta}
+                src={detailCta}
+                width={50}
+                height={50}
+                alt='go to detail page button'
+              />
+            </Link>
+          }
           <div className={styles.carousel}>
             <button 
               className={styles.arrowBtnLeftContainer}

@@ -5,14 +5,9 @@
   lap:hidden;
 }
 
-/* .mobileHeader.open {
-  @apply bg-gradient-workNav-mobile-open h-full
-  lap:hidden;
-} */
-
 .mobileArrow {
-  @apply w-[16px] h-auto 
-  tab:w-[20px]
+  @apply w-[20px] h-auto cursor-pointer
+  tab:w-[30px]
   lap:hidden;
 }
 
@@ -21,12 +16,9 @@
   lap:hidden;
 }
 
-.divider {
-  @apply border-[0.5px] border-pink;
-}
-
 .mobileNav {
-  @apply bg-gradient-workNav-mobile-open fixed bottom-workNav-height-mobile h-workNav-linkContainer-mobile overflow-y-auto mx-wrapper-side-mobile max-w-[500px] rounded-[20px] drop-shadow-sm border border-pink
+  @apply bg-gradient-workNav-mobile-open fixed bottom-workNav-height-mobile h-[60%] overflow-y-auto mx-wrapper-side-mobile max-w-[500px] rounded-[20px] drop-shadow-sm border border-pink
+  tab:h-workNav-linkContainer-mobile
   lap:hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -53,14 +45,15 @@
 /* ---- FILTER ---- */
 
 .filterContainer {
-  @apply bg-white px-5 py-2 rounded-full border border-pink flex gap-3 z-30
-  lap:bg-[unset] lap:px-0 lap:py-0 lap:rounded-none lap:border-none
+  @apply bg-pink px-5 py-2 rounded-full border border-pink flex gap-3 z-30 flex-wrap justify-center mx-[0.5rem]
+  lap:mx-0 lap:justify-normal lap:gap-0 lap:bg-[unset] lap:px-0 lap:py-0 lap:rounded-none lap:border-none
   lap:min-w-[250px] lap:max-w-[250px] lap:flex lap:flex-wrap lap:gap-x-6 lap:h-fit;
 }
 
 .filterButton {
-  @apply text-pink text-sm hover:underline
-  tab:text-lg;
+  @apply text-white text-sm uppercase font-medium hover:underline
+  tab:text-base
+  lap:text-pink lap:font-normal;
 }
 
 .filterButton:hover {
@@ -69,6 +62,10 @@
 
 .filterButton.active {
   @apply underline;
+}
+
+.divider {
+  @apply border-[0.5px] border-white;
 }
 
 /* ---- DESK NAV ---- */

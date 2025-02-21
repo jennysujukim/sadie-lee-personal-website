@@ -49,14 +49,6 @@ export default function ArticleMobile({ works }: ArticleMobileProps) {
                   }
                 </div>
               </div>
-              {work.details &&
-                <Link
-                className={styles.detailsLink} 
-                href={`/work/${work.slug.current}`}
-                >
-                  See Full Project &gt;
-                </Link>
-              }
             </div>
             <div className={styles.descriptionContainer}>
               {work.descriptions.map((description, index) => (

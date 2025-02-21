@@ -100,7 +100,10 @@ export default function WorkNav() {
             className={isMobileNavOpen ? `${styles.mobileArrow} ${styles.open}` : styles.mobileArrow}
             src={arrowTop}
             alt="Arrow icon"
-            onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMobileNavOpen(!isMobileNavOpen)
+            }}
           />
         </div>
         {isMobileNavOpen &&

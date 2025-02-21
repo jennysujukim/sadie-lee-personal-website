@@ -1,6 +1,9 @@
 import { WorkType } from "@/types/models/Work";
+import Image from "next/image";
 // components
 import ImgCarousel from "../ImgCarousel"
+// assets
+import arrow from "@/app/assets/see-details-arrow.svg"
 // styles 
 import styles from "./ArticleImgs.module.css"
 import Link from "next/link";
@@ -29,6 +32,12 @@ export default function ArticleImgs({ works, heights }: ArticleImgsProps) {
               href={`/work/${work.slug.current}`}
               >
                 See Full Project
+                <Image 
+                  src={arrow}
+                  alt="arrow"
+                  width={20}
+                  height={20}
+                />
               </Link>
             }
           </div>
