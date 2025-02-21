@@ -1,18 +1,18 @@
 /* ---- MOBILE NAV ---- */
 
 .mobileHeader {
-  @apply 
-  fixed w-full z-40 bottom-0 bg-gradient-workNav-mobile h-workNav-height-mobile
+  @apply fixed bottom-[1.5rem] z-10 flex justify-center items-center left-0 right-0 mx-auto
   lap:hidden;
 }
 
-.mobileHeader.open {
+/* .mobileHeader.open {
   @apply bg-gradient-workNav-mobile-open h-full
   lap:hidden;
-}
+} */
 
 .mobileArrow {
-  @apply absolute bottom-[1rem] left-0 right-0 mx-auto
+  @apply w-[16px] h-auto 
+  tab:w-[20px]
   lap:hidden;
 }
 
@@ -21,11 +21,17 @@
   lap:hidden;
 }
 
+.divider {
+  @apply border-[0.5px] border-pink;
+}
+
 .mobileNav {
-  @apply px-7 text-center h-workNav-linkContainer-mobile overflow-y-auto
+  @apply bg-gradient-workNav-mobile-open fixed bottom-workNav-height-mobile h-workNav-linkContainer-mobile overflow-y-auto mx-wrapper-side-mobile max-w-[500px] rounded-[20px] drop-shadow-sm border border-pink
   lap:hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  transition: all 0.3 ease-in-out;
+  backdrop-filter: blur(5px);
 }
 
 .mobileNav::-webkit-scrollbar {
@@ -33,15 +39,32 @@
 }
 
 .mobileLinksContainer {
-  @apply pt-[10rem];
+  @apply p-6;
 }
 
 .mobileLinkContainer {
-  @apply mb-8;
+  @apply mb-6;
 }
 
 .mobileLink {
-  @apply text-workNav-link-mobile font-light;
+  @apply font-normal hover:text-pink;
+}
+
+/* ---- FILTER ---- */
+
+.filterContainer {
+  @apply bg-white px-5 py-2 rounded-full border border-pink flex gap-3 z-30
+  lap:bg-[unset] lap:px-0 lap:py-0 lap:rounded-none lap:border-none
+  lap:min-w-[250px] lap:max-w-[250px] lap:flex lap:flex-wrap lap:gap-x-6 lap:h-fit;
+}
+
+.filterButton {
+  @apply text-pink text-sm hover:underline
+  tab:text-lg;
+}
+
+.filterButton:hover {
+  filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
 /* ---- DESK NAV ---- */
@@ -50,18 +73,6 @@
   @apply 
   hidden
   lap:flex lap:fixed lap:w-full lap:z-50 lap:bg-gradient-workNav lap:min-h-workNav lap:py-3 lap:px-4 lap:gap-3;
-}
-
-.filterContainer {
-  @apply lap:min-w-[250px] lap:max-w-[250px] lap:flex lap:flex-wrap lap:gap-x-6 lap:h-fit;
-}
-
-.filterButton {
-  @apply text-pink text-lg hover:underline;
-}
-
-.filterButton:hover {
-  filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
 .nav {
