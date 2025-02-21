@@ -15,7 +15,7 @@ export default function WorkNav() {
 
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState<boolean>(false)
   const { works, filterWorks, setSelectedWorks, selectedWorks } = useDataContext()
-
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
   const mobileNavRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -72,16 +72,25 @@ export default function WorkNav() {
     return () => { document.body.style.overflow = '' }
   }, [isMobileNavOpen]);
 
+  // when filter is clicked, scroll to top
+  const onClickScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth'})
+  }
+
   return (
     <>
       {/* Mobile Version */}
       <header className={styles.mobileHeader}>
         <div className={styles.filterContainer}>
-          {['all', 'print', 'illustration', 'digital', 'painting'].map((filter) => (
+          {['all', 'print', 'illustration', 'digital', 'animation'].map((filter) => (
             <button 
               key={filter} 
-              onClick={() => filterWorks(filter)}
-              className={styles.filterButton}
+              onClick={() => {
+                filterWorks(filter)
+                setSelectedFilter(filter)
+                onClickScrollTop()
+              }}
+              className={`${styles.filterButton} ${selectedFilter === filter ? styles.active : ''}`}
             >
               {filter.charAt(0).toUpperCase() + filter.slice(1)}
             </button>
@@ -118,11 +127,15 @@ export default function WorkNav() {
       {/* Desktop Version */}
       <header className={styles.header}>
         <div className={styles.filterContainer}>
-          {['all', 'print', 'illustration', 'digital', 'painting'].map((filter) => (
+          {['all', 'print', 'illustration', 'digital', 'animation'].map((filter) => (
             <button 
               key={filter} 
-              onClick={() => filterWorks(filter)}
-              className={styles.filterButton}
+              onClick={() => {
+                filterWorks(filter)
+                setSelectedFilter(filter)
+                onClickScrollTop()
+              }}
+              className={`${styles.filterButton} ${selectedFilter === filter ? styles.active : ''}`}
             >
               {filter.charAt(0).toUpperCase() + filter.slice(1)}
             </button>

@@ -67,6 +67,10 @@
   filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
+.filterButton.active {
+  @apply underline;
+}
+
 /* ---- DESK NAV ---- */
 
 .header {

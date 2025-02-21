@@ -89,39 +89,79 @@ export default function WorkPage() {
       >
       <WorkNav />
         <main className={styles.main}>
+          {/* mobile version */}
           <div className={styles.mobileWrapper}>
-            <div className={styles.navContainer}>
-              <MainNav />
-            </div>
-            <ArticleMobile works={selectedWorks} />
+            {selectedWorks.length === 0 ? (
+              <>
+                <div className={styles.navContainer}>
+                  <MainNav />
+                </div>
+                <div className={styles.mobileDisabledContainer}>There are no works to show for the selected filter.</div>
+              </>
+            ) : (
+              <>
+                <div className={styles.navContainer}>
+                  <MainNav />
+                </div>
+                <ArticleMobile works={selectedWorks} />
+              </>
+            )}
+
           </div>
+          {/* desktop version */}
           <div className={styles.wrapper}>
-            <div 
-              className={styles.imgsContainer} 
-              ref={imgsContainerRef}
-            >
-              <ArticleImgs 
-                works={selectedWorks} 
-                heights={articleHeights}
-              />
-            </div>
-            <div className={styles.navContainer}>
-              <MainNav handleMouseDown={handleMouseDown} />
-            </div>
-            <div
-              className={styles.descriptionsContainer}
-              ref={targetRef}
-              style={{ 
-                  width: `${navContainerWidth}px`, 
-                  display: showDescription ? 'block' : 'none',
-                  maxWidth: 'calc((100vw - (100px + 2rem)) * 0.30)',
-                }}
-            >
-              <ArticleDescriptions 
-                getHeightValue={handleHeight}
-                works={selectedWorks}
-              />
-            </div>
+            {selectedWorks.length === 0 ? (
+              <>
+                <div 
+                  className={`${styles.imgsContainer} ${styles.disabled}`} 
+                  ref={imgsContainerRef}
+                >
+                  There are no works to show for the selected filter.
+                </div>
+                <div className={styles.navContainer}>
+                  <MainNav handleMouseDown={handleMouseDown} />
+                </div>
+                <div
+                  className={`${styles.descriptionsContainer} ${styles.disabled}`}
+                  ref={targetRef}
+                  style={{ 
+                      width: `0px`, 
+                      display: showDescription ? 'block' : 'none',
+                      maxWidth: 'calc((100vw - (100px + 2rem)) * 0.30)',
+                    }}
+                >
+                </div>
+              </>
+            ) : (
+              <>
+                <div 
+                  className={styles.imgsContainer} 
+                  ref={imgsContainerRef}
+                >
+                  <ArticleImgs 
+                    works={selectedWorks} 
+                    heights={articleHeights}
+                  />
+                </div>
+                <div className={styles.navContainer}>
+                  <MainNav handleMouseDown={handleMouseDown} />
+                </div>
+                <div
+                  className={styles.descriptionsContainer}
+                  ref={targetRef}
+                  style={{ 
+                      width: `${navContainerWidth}px`, 
+                      display: showDescription ? 'block' : 'none',
+                      maxWidth: 'calc((100vw - (100px + 2rem)) * 0.30)',
+                    }}
+                >
+                  <ArticleDescriptions 
+                    getHeightValue={handleHeight}
+                    works={selectedWorks}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </main>
       </motion.div>

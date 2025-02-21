@@ -9,8 +9,10 @@
   lap:hidden;
 }
 
-.mobileArticlesContainer {
-  @apply px-0;
+.mobileDisabledContainer {
+  @apply flex justify-center items-center h-[76vh] mx-wrapper-side-mobile
+  tab:mx-wrapper-side-tab
+  lap:hidden;
 }
 
 .wrapper {
@@ -31,4 +33,8 @@
 
 .descriptionsContainer {
   @apply lap:overflow-hidden lap:mr-[2.5rem];
+}
+
+.imgsContainer.disabled, .descriptionsContainer.disabled {
+  @apply flex justify-center items-center;
 }
