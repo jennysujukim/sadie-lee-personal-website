@@ -49,16 +49,29 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
   const productionProcessImgChunks = chunkImages(productionProcess.images);
   const outcomeDetailImgChunks = chunkImages(outcomeDetail.images);
 
+  // const changeSlide = (section: "research" | "productionProcess" | "outcomeDetail", direction: "next" | "prev") => {
+  //   setCurrentSlide((prev) => {
+  //     const newSlide =
+  //       direction === "next"
+  //         ? Math.min(prev[section] + 1, eval(`${section}ImgChunks`).length - 1)
+  //         : Math.max(prev[section] - 1, 0);
+
+  //     return { ...prev, [section]: newSlide };
+  //   });
+  // };
+
   const changeSlide = (section: "research" | "productionProcess" | "outcomeDetail", direction: "next" | "prev") => {
     setCurrentSlide((prev) => {
+      const totalSlides = eval(`${section}ImgChunks`).length
+  
       const newSlide =
         direction === "next"
-          ? Math.min(prev[section] + 1, eval(`${section}ImgChunks`).length - 1)
-          : Math.max(prev[section] - 1, 0);
-
-      return { ...prev, [section]: newSlide };
-    });
-  };
+          ? (prev[section] + 1) % totalSlides 
+          : (prev[section] - 1 + totalSlides) % totalSlides
+  
+      return { ...prev, [section]: newSlide }
+    })
+  }
 
   const onClickScroll = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -130,71 +143,73 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
                   key={section}
                   className={`${styles.section} ${styles.details}`}
                 >
-                  {imgChunks.length > 1 && (
-                    <div className={styles.control}>
-                      <button 
-                        onClick={() => changeSlide(section as any, "prev")} 
-                        disabled={slideIndex === 0}
-                        className={styles.prevBtn}
-                      >
-                        <Image 
-                          alt="previous button" 
-                          src={prevBtn} 
-                          width={40} 
-                          height={40}
-                        />
-                      </button>
-                    </div>
-                  )}
-                  <div className={styles.carouselWrapper}>
-                    <div className={styles.descriptionWrapper}>
-                      <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
-                      {sectionDetails.description &&
-                        <div className={`${styles.descriptionContainer} ${styles[`${section}Desc`]}`}>
-                          {sectionDetails.description.map((sentence, index) => (
-                            <p key={index}>{sentence}</p>
-                          ))}
-                        </div>
-                      }
-                    </div>
-                    <div 
-                      className={styles.carousel}
-                      style={{ transform: `translateX(-${slideIndex * 100}%)` }}
-                    >
-                      {imgChunks.map((chunk: any, index: number) => (
-                        <div key={index} className={styles.slide}>
-                          {chunk.map((image: any, imgIndex: number) => (
-                            <Image
-                              className={styles.slideImg}
-                              key={imgIndex}
-                              src={image}
-                              alt={`image of ${sectionTitle} ${work.title}`}
-                              width={500}
-                              height={500}
-                              placeholder="blur"
-                              blurDataURL={image}
-                            />
-                          ))}
-                        </div>
-                      ))}
-                    </div>
+                  <div className={styles.descriptionWrapper}>
+                    <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
+                    {sectionDetails.description &&
+                      <div className={`${styles.descriptionContainer} ${styles[`${section}Desc`]}`}>
+                        {sectionDetails.description.map((sentence, index) => (
+                          <p key={index}>{sentence}</p>
+                        ))}
+                      </div>
+                    }
                   </div>
-                  {imgChunks.length > 1 && (
-                    <div className={styles.control}>
-                      <button
-                        onClick={() => changeSlide(section as any, "next")}
-                        disabled={slideIndex === imgChunks.length - 1}
-                        className={styles.nextBtn} 
+                  <div className={styles.contentContainer}>
+                    {imgChunks.length > 1 && (
+                      <div className={styles.control}>
+                        <button 
+                          onClick={() => changeSlide(section as any, "prev")} 
+                          // disabled={slideIndex === 0}
+                          className={styles.prevBtn}
+                        >
+                          <Image 
+                            alt="previous button" 
+                            src={prevBtn} 
+                            width={40} 
+                            height={40}
+                          />
+                        </button>
+                      </div>
+                    )}
+                    <div className={styles.carouselWrapper}>
+                      <div 
+                        className={styles.carousel}
+                        style={{ transform: `translateX(-${slideIndex * 100}%)` }}
                       >
-                        <Image 
-                          alt="next button" 
-                          src={nextBtn} 
-                          width={40} 
-                          height={40}
-                        />
-                      </button>
+                        {imgChunks.map((chunk: any, index: number) => (
+                          <div key={index} className={styles.slide}>
+                            {chunk.map((image: any, imgIndex: number) => (
+                              <Image
+                                className={styles.slideImg}
+                                key={imgIndex}
+                                src={image}
+                                alt={`image of ${sectionTitle} ${work.title}`}
+                                width={500}
+                                height={500}
+                                placeholder="blur"
+                                blurDataURL={image}
+                              />
+                            ))}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  )}
+                    {imgChunks.length > 1 && (
+                      <div className={styles.control}>
+                        <button
+                          onClick={() => changeSlide(section as any, "next")}
+                          // disabled={slideIndex === imgChunks.length - 1}
+                          className={styles.nextBtn} 
+                        >
+                          <Image 
+                            alt="next button" 
+                            src={nextBtn} 
+                            width={40} 
+                            height={40}
+                          />
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </section>
               )
             })}

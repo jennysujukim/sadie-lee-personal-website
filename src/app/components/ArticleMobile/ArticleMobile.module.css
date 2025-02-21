@@ -1,12 +1,12 @@
 .container {
-  @apply mt-[3rem] mb-[7rem] px-wrapper-side-mobile 
+  @apply mt-[2rem] mb-[7rem] px-wrapper-side-mobile 
   tab:px-wrapper-side-tab
   tab-lg:mb-[10rem]
   lap:px-0;
 }
 
 .titleWrapper {
-  @apply tab:flex tab:justify-between tab:mb-4 tab:gap-4;
+  @apply mb-6 tab:flex tab:justify-between tab:tab:gap-4;
 }
 
 .subContainer {
@@ -18,12 +18,8 @@
 }
 
 .subTextTitle {
-  @apply text-pink text-sm font-normal mr-2 w-[100px] min-w-[100px];
-}
-
-.detailsLink {
-  @apply text-pink font-normal hover:underline block mb-4 text-sm
-  tab:mb-0 tab:text-lg;
+  @apply text-pink text-sm font-normal mr-2 w-[100px] min-w-[100px]
+  tab:min-w-[150px];
 }
 
 .descriptionContainer {

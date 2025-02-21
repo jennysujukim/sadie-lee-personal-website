@@ -5,7 +5,7 @@
 }
 
 .moveToTop {
-  @apply fixed bottom-[2rem] right-[3rem];
+  @apply fixed bottom-[2rem] right-[2rem] z-20;
 }
 
 .wrapper {
@@ -15,12 +15,16 @@
 }
 
 .section {
-  @apply mb-[15rem] mx-auto max-w-[1100px];
+  @apply mb-[8rem] mx-auto max-w-[1100px]
+  tab:mb-[10rem]
+  lap:mb-[15rem];
 }
 
 /* back button */
 .backButton {
-  @apply text-pink font-medium hover:underline mb-10;
+  @apply text-pink font-medium text-sm hover:underline mb-8
+  tab:text-base
+  lap:mb-10;
 }
 
 .backButton:hover {
@@ -30,7 +34,9 @@
 
 /* title section */
 .titleSection {
-  @apply px-10 mb-[10rem];
+  @apply mb-[6rem] px-3
+  tab:px-8
+  lap:px-10;
 }
 
 .subContainer {
@@ -38,7 +44,8 @@
 }
 
 .subTextContainer {
-  @apply flex mb-1;
+  @apply flex mb-1 flex-col
+  tab:flex-row;
 }
 
 .subTextTitle {
@@ -46,20 +53,25 @@
 }
 
 /* details section */
-.section.details {
-  @apply flex justify-center items-center;
-}
 
 .descriptionWrapper {
-  @apply lap:mb-10 lap:grid lap:grid-cols-12 lap:gap-7;
+  @apply px-3
+  tab:px-8
+  lap:mb-10 lap:grid lap:grid-cols-12 lap:gap-7;
 }
 
 .sectionTitle {
-  @apply uppercase font-medium text-lg inline-block border border-pink bg-white px-6 py-2 rounded-full h-fit w-fit lap:col-span-4;
+  @apply uppercase font-medium text-base inline-block border border-pink bg-white  rounded-full h-fit w-fit mb-5 px-4 py-1
+  lap:col-span-4 lap:text-lg lap:px-6 lap:py-2;
 }
 
 .descriptionContainer {
-  @apply lap:col-span-8;
+  @apply mb-8 
+  lap:col-span-8;
+}
+
+.contentContainer {
+  @apply flex;
 }
 
 .control {
@@ -71,11 +83,13 @@
 }
 
 .prevBtn {
-  @apply mr-4;
+  @apply mr-2
+  tab:mr-4;
 }
 
 .nextBtn {
-  @apply ml-4;
+  @apply ml-2
+  tab:ml-4;
 }
 
 .carouselWrapper {
@@ -88,7 +102,8 @@
 }
 
 .slide {
-  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-[0.8rem];
+  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-[0.5rem]
+  tab:gap-[0.8rem];
 }
 
 .slideImg {
