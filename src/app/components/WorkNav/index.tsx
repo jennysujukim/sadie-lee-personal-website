@@ -109,7 +109,7 @@ export default function WorkNav() {
         {isMobileNavOpen &&
           <nav className={styles.mobileNav} ref={mobileNavRef}>
             <ul className={styles.mobileLinksContainer}>
-              {works && works.map((work, index) => (
+              {selectedWorks && selectedWorks.map((work, index) => (
                 <li 
                   key={index}
                   className={styles.mobileLinkContainer}

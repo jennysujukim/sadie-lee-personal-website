@@ -49,29 +49,16 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
   const productionProcessImgChunks = chunkImages(productionProcess.images);
   const outcomeDetailImgChunks = chunkImages(outcomeDetail.images);
 
-  // const changeSlide = (section: "research" | "productionProcess" | "outcomeDetail", direction: "next" | "prev") => {
-  //   setCurrentSlide((prev) => {
-  //     const newSlide =
-  //       direction === "next"
-  //         ? Math.min(prev[section] + 1, eval(`${section}ImgChunks`).length - 1)
-  //         : Math.max(prev[section] - 1, 0);
-
-  //     return { ...prev, [section]: newSlide };
-  //   });
-  // };
-
   const changeSlide = (section: "research" | "productionProcess" | "outcomeDetail", direction: "next" | "prev") => {
     setCurrentSlide((prev) => {
-      const totalSlides = eval(`${section}ImgChunks`).length
-  
       const newSlide =
         direction === "next"
-          ? (prev[section] + 1) % totalSlides 
-          : (prev[section] - 1 + totalSlides) % totalSlides
-  
-      return { ...prev, [section]: newSlide }
-    })
-  }
+          ? Math.min(prev[section] + 1, eval(`${section}ImgChunks`).length - 1)
+          : Math.max(prev[section] - 1, 0);
+
+      return { ...prev, [section]: newSlide };
+    });
+  };
 
   const onClickScroll = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -155,10 +142,10 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
                   </div>
                   <div className={styles.contentContainer}>
                     {imgChunks.length > 1 && (
-                      <div className={styles.control}>
+                      <div className={`${styles.control} ${styles.prev}`}>
                         <button 
                           onClick={() => changeSlide(section as any, "prev")} 
-                          // disabled={slideIndex === 0}
+                          disabled={slideIndex === 0}
                           className={styles.prevBtn}
                         >
                           <Image 
@@ -194,10 +181,10 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
                       </div>
                     </div>
                     {imgChunks.length > 1 && (
-                      <div className={styles.control}>
+                      <div className={`${styles.control} ${styles.next}`}>
                         <button
                           onClick={() => changeSlide(section as any, "next")}
-                          // disabled={slideIndex === imgChunks.length - 1}
+                          disabled={slideIndex === imgChunks.length - 1}
                           className={styles.nextBtn} 
                         >
                           <Image 

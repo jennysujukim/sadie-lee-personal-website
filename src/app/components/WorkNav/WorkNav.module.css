@@ -17,7 +17,7 @@
 }
 
 .mobileNav {
-  @apply bg-gradient-workNav-mobile-open fixed bottom-workNav-height-mobile h-[60%] overflow-y-auto mx-wrapper-side-mobile max-w-[500px] rounded-[20px] drop-shadow-sm border border-pink
+  @apply bg-gradient-workNav-mobile-open fixed bottom-workNav-height-mobile h-[60%] overflow-y-auto mx-wrapper-side-mobile max-w-[500px] rounded-[20px] drop-shadow-sm border border-pink w-[88%]
   tab:h-workNav-linkContainer-mobile
   lap:hidden;
   -ms-overflow-style: none;
@@ -45,13 +45,14 @@
 /* ---- FILTER ---- */
 
 .filterContainer {
-  @apply bg-pink px-5 py-2 rounded-full border border-pink flex gap-3 z-30 flex-wrap justify-center mx-[0.5rem]
+  @apply bg-pink px-3 py-2 rounded-full border border-pink flex z-50 flex-wrap justify-center mx-[0.5rem] gap-2
+  tab:gap-3 tab:px-5
   lap:mx-0 lap:justify-normal lap:gap-0 lap:bg-[unset] lap:px-0 lap:py-0 lap:rounded-none lap:border-none
   lap:min-w-[250px] lap:max-w-[250px] lap:flex lap:flex-wrap lap:gap-x-6 lap:h-fit;
 }
 
 .filterButton {
-  @apply text-white text-sm uppercase font-medium hover:underline
+  @apply text-white text-xs uppercase font-medium hover:underline
   tab:text-base
   lap:text-pink lap:font-normal;
 }

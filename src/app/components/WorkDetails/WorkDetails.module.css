@@ -71,15 +71,24 @@
 }
 
 .contentContainer {
-  @apply flex;
+  @apply flex relative;
 }
 
 .control {
-  @apply flex justify-center items-center;
+  @apply absolute z-20 justify-center items-center flex 
+  tab:static;
 }
 
 .control button:disabled {
   @apply opacity-30 cursor-not-allowed;
+}
+
+.control.prev {
+  @apply left-0 top-0 bottom-0 my-auto;
+}
+
+.control.next {
+  @apply right-0 top-0 bottom-0 my-auto;
 }
 
 .prevBtn {
@@ -87,9 +96,19 @@
   tab:mr-4;
 }
 
+.prevBtn img {
+  @apply w-[30px] h-auto
+  tab:w-[40px];
+}
+
 .nextBtn {
   @apply ml-2
   tab:ml-4;
+}
+
+.nextBtn img {
+  @apply w-[30px] h-auto
+  tab:w-[40px];
 }
 
 .carouselWrapper {
