@@ -33,12 +33,13 @@
 }
 
 .arrowLeft, .arrowRight {
-  @apply opacity-0 transition-all duration-100 ease-in-out;
+  @apply transition-all duration-100 ease-in-out;
 }
 
 .gripContainer:hover .arrowLeft, .gripContainer:hover .arrowRight {
-  @apply opacity-100;
+  filter: drop-shadow(5px 5px 6px #FF4567);
 }
+ 
 
 /* ---- NAV ---- */
 .navContainer {

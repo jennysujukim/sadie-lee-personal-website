@@ -5,24 +5,25 @@
   lap:px-0;
 }
 
+.titleWrapper {
+  @apply tab:flex tab:justify-between tab:mb-4 tab:gap-4;
+}
+
 .subContainer {
-  @apply mt-2 mb-8 flex flex-wrap;
+  @apply mt-2 mb-3;
 }
 
-.divider {
-  @apply mx-2;
+.subTextContainer {
+  @apply flex mb-1;
 }
 
-.keywords {
-  @apply flex;
+.subTextTitle {
+  @apply text-pink text-sm font-normal mr-2 w-[100px] min-w-[100px];
 }
 
-.comma {
-  @apply pr-1;
-}
-
-.year {
-  @apply pl-1;
+.detailsLink {
+  @apply text-pink font-normal hover:underline block mb-4 text-sm
+  tab:mb-0 tab:text-lg;
 }
 
 .descriptionContainer {

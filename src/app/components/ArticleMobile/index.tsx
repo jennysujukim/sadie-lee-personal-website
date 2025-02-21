@@ -1,4 +1,5 @@
 import { WorkType } from "@/types/models/Work"
+import Link from "next/link"
 // components
 import ImgCarousel from "../ImgCarousel"
 // styles
@@ -22,15 +23,40 @@ export default function ArticleMobile({ works }: ArticleMobileProps) {
             projectId={work.id}
           />
           <article className={styles.container}>
-            <h2>{work.title}</h2>
-            <div className={styles.subContainer}>
-              <p className={styles.keywords}>{work.keywords}</p>
-              <span className={styles.divider}>|</span>
-              <p className={styles.keywords}>{work.materials}</p>
-              {work.materials && <span className={styles.divider}>|</span>}
-              <p>{work.type}</p>
-              <span className={styles.divider}>|</span>
-              <p className={styles.year}>{work.year}</p>
+            <div className={styles.titleWrapper}>
+              <div>
+                <h2>{work.title}</h2>
+                <div className={styles.subContainer}>
+                  <div className={styles.subTextContainer}>
+                    <p className={styles.subTextTitle}>Date</p>
+                    <p className={styles.subTextDetails}>{work.year}</p>
+                  </div>
+                  <div className={styles.subTextContainer}>
+                    <p className={styles.subTextTitle}>Category</p>
+                    <p className={styles.subTextDetails}>{work.keywords}</p>
+                  </div>
+                  {work.materials &&
+                    <div className={styles.subTextContainer}>
+                      <p className={styles.subTextTitle}>Medium</p>
+                      <p className={styles.subTextDetails}>{work.materials}</p>
+                    </div>
+                  }
+                  {work.collaborators && 
+                    <div className={styles.subTextContainer}>
+                      <p className={styles.subTextTitle}>Collaboration with</p>
+                      <p className={styles.subTextDetails}>{work.collaborators}</p>
+                    </div>
+                  }
+                </div>
+              </div>
+              {work.details &&
+                <Link
+                className={styles.detailsLink} 
+                href={`/work/${work.slug.current}`}
+                >
+                  See Full Project &gt;
+                </Link>
+              }
             </div>
             <div className={styles.descriptionContainer}>
               {work.descriptions.map((description, index) => (

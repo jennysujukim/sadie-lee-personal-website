@@ -27,7 +27,7 @@ export const workType = defineType({
           { title: 'Print', value: 'print' },
           { title: 'Illustration', value: 'illustration' },
           { title: 'Digital', value: 'digital' },
-          { title: 'Painting', value: 'painting' },
+          { title: 'Animation', value: 'animation' },
         ],
         layout: 'dropdown'
       }

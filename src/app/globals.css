@@ -36,9 +36,9 @@
   --spacing-sideWrapper-lap: 3rem;
   /* ---- DIMENSIONS ---- */
   --w-scrollbar: 7px;
-  --h-workNav-mobile: 90px;
+  --h-workNav-mobile: 80px;
   --h-workNav: 8rem;
-  --h-workNav-linkContainer-mobile: calc(100% - var(--h-workNav-mobile));
+  --h-workNav-linkContainer-mobile: 76%;
   --h-aboutPage-lap: calc(100vh - 7rem);
   --max-h-workNav: 100px;
   --max-h-aboutPageTextContainer-lap: calc(100vh - ((7rem * 2) + 4rem));

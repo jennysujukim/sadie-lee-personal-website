@@ -1,6 +1,7 @@
 .wrapper { 
-  @apply relative flex flex-col
-  lap:mb-0 lap:min-w-articleImg lap:min-h-articleWrapper;
+  @apply relative flex flex-col px-wrapper-side-mobile
+  tab:px-wrapper-side-tab
+  lap:px-0 lap:mb-0 lap:min-w-articleImg lap:min-h-articleWrapper;
 }
 /* ---- DOTS ---- */
 
@@ -24,22 +25,24 @@
 }
 
 .arrowBtnLeftContainer {
-  @apply absolute w-[50%] left-0 bottom-0 top-0 my-auto;
+  @apply absolute w-[50%] left-0 bottom-0 top-0 my-auto
+  tab:flex tab:justify-start tab:items-center;
 }
 
 .arrowBtnLeft {
-  @apply opacity-0 hidden
-  tab:block;
+  @apply 
+  opacity-0 hidden
+  tab:block tab:absolute tab:-left-[22px] tab:top-0 tab:bottom-0 tab:my-auto;
 }
 
 .arrowBtnRightContainer {
   @apply absolute w-[50%] right-0 bottom-0 top-0 my-auto
-  tab:flex tab:justify-end;
+  tab:flex tab:justify-end tab:items-center;
 }
 
 .arrowBtnRight {
   @apply opacity-0 hidden
-  tab:block tab:right-0;
+  tab:block tab:absolute tab:-right-[22px] tab:top-0 tab:bottom-0 tab:my-auto;
 }
 
 .imgContainer {

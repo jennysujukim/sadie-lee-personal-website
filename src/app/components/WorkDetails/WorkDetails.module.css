@@ -15,7 +15,7 @@
 }
 
 .section {
-  @apply mb-[20rem] mx-auto max-w-[1100px] relative;
+  @apply mb-[15rem] mx-auto max-w-[1100px];
 }
 
 /* back button */
@@ -46,12 +46,40 @@
 }
 
 /* details section */
+.section.details {
+  @apply flex justify-center items-center;
+}
+
+.descriptionWrapper {
+  @apply lap:mb-10 lap:grid lap:grid-cols-12 lap:gap-7;
+}
+
 .sectionTitle {
-  @apply uppercase font-medium text-lg inline-block border border-pink bg-white px-6 py-2 rounded-full absolute top-[-2rem] left-[3rem] z-10;
+  @apply uppercase font-medium text-lg inline-block border border-pink bg-white px-6 py-2 rounded-full h-fit w-fit lap:col-span-4;
+}
+
+.descriptionContainer {
+  @apply lap:col-span-8;
+}
+
+.control {
+  @apply flex justify-center items-center;
+}
+
+.control button:disabled {
+  @apply opacity-30 cursor-not-allowed;
+}
+
+.prevBtn {
+  @apply mr-4;
+}
+
+.nextBtn {
+  @apply ml-4;
 }
 
 .carouselWrapper {
-  @apply overflow-hidden w-full relative;
+  @apply overflow-hidden w-full;
 }
 
 .carousel {
@@ -60,33 +88,11 @@
 }
 
 .slide {
-  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-5;
+  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-[0.8rem];
 }
 
 .slideImg {
   @apply w-full;
 }
 
-.controls {
-  @apply absolute z-10 top-[46%] w-full flex justify-between;
-}
 
-.controls button:disabled {
-  @apply opacity-30 cursor-not-allowed;
-}
-
-.descriptionContainer {
-  @apply absolute z-10 bg-white border border-neutral-400 p-5 rounded-descriptionContainer w-[500px];
-}
-
-.descriptionContainer.researchDesc {
-  @apply -bottom-[4rem] -right-[3rem] -rotate-2;
-}
-
-.descriptionContainer.productionProcessDesc {
-  @apply -bottom-[3rem] -left-[3rem] rotate-2;
-}
-
-.descriptionContainer.outcomeDetailDesc {
-  @apply -bottom-[4rem] -right-[3rem] -rotate-2;
-}

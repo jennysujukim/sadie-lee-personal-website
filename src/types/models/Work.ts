@@ -5,7 +5,7 @@ export type WorkType = {
     _type: string;
     current: string;
   };
-  filter: 'print' | 'illustration' | 'digital' | 'painting';
+  filter: 'print' | 'illustration' | 'digital' | 'animation';
   type: string;
   year: string;
   keywords: string;

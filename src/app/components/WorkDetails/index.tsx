@@ -128,10 +128,35 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
               return (
                 <section 
                   key={section}
-                  className={`${styles.section} ${styles[`${section}Section`]}`}
+                  className={`${styles.section} ${styles.details}`}
                 >
-                  <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
+                  {imgChunks.length > 1 && (
+                    <div className={styles.control}>
+                      <button 
+                        onClick={() => changeSlide(section as any, "prev")} 
+                        disabled={slideIndex === 0}
+                        className={styles.prevBtn}
+                      >
+                        <Image 
+                          alt="previous button" 
+                          src={prevBtn} 
+                          width={40} 
+                          height={40}
+                        />
+                      </button>
+                    </div>
+                  )}
                   <div className={styles.carouselWrapper}>
+                    <div className={styles.descriptionWrapper}>
+                      <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
+                      {sectionDetails.description &&
+                        <div className={`${styles.descriptionContainer} ${styles[`${section}Desc`]}`}>
+                          {sectionDetails.description.map((sentence, index) => (
+                            <p key={index}>{sentence}</p>
+                          ))}
+                        </div>
+                      }
+                    </div>
                     <div 
                       className={styles.carousel}
                       style={{ transform: `translateX(-${slideIndex * 100}%)` }}
@@ -153,40 +178,23 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
                         </div>
                       ))}
                     </div>
-                    {imgChunks.length > 1 && (
-                      <div className={styles.controls}>
-                        <button 
-                          onClick={() => changeSlide(section as any, "prev")} 
-                          disabled={slideIndex === 0}
-                        >
-                          <Image 
-                            className={styles.prevBtn} 
-                            alt="previous button" 
-                            src={prevBtn} 
-                            width={40} 
-                            height={40}
-                          />
-                        </button>
-                        <button
-                          onClick={() => changeSlide(section as any, "next")}
-                          disabled={slideIndex === imgChunks.length - 1}
-                        >
-                          <Image 
-                            className={styles.nextBtn} 
-                            alt="next button" 
-                            src={nextBtn} 
-                            width={40} 
-                            height={40}
-                          />
-                        </button>
-                      </div>
-                    )}
                   </div>
-                  <div className={`${styles.descriptionContainer} ${styles[`${section}Desc`]}`}>
-                    {sectionDetails.description.map((sentence, index) => (
-                      <p key={index}>{sentence}</p>
-                    ))}
-                  </div>
+                  {imgChunks.length > 1 && (
+                    <div className={styles.control}>
+                      <button
+                        onClick={() => changeSlide(section as any, "next")}
+                        disabled={slideIndex === imgChunks.length - 1}
+                        className={styles.nextBtn} 
+                      >
+                        <Image 
+                          alt="next button" 
+                          src={nextBtn} 
+                          width={40} 
+                          height={40}
+                        />
+                      </button>
+                    </div>
+                  )}
                 </section>
               )
             })}
