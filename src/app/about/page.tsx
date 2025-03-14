@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 // assets
 import profileImg from '@/app/assets/about/profile.jpg'
 import starBackground from '@/app/assets/about/cta-background-star.svg'
-import cvPdf from '@/app/assets/about/CV_Sadie Lee.pdf'
+import cvPdf from '@/app/assets/about/CV_SADIE_SOJUNG.pdf'
 // components
 import MainNav from '@/app/components/MainNav'
 // styles
