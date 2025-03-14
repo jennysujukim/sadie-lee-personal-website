@@ -18,7 +18,7 @@ export default function AboutPage() {
   const { about } = useDataContext()
 
   const handleOpenCvPdf = () => {
-    const cv = "./CV_Sadie Lee.pdf"
+    const cv = "./CV_SADIE_SOJUNG.pdf"
     window.open(cv)
   }
 
