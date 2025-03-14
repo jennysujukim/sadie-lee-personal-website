@@ -23,7 +23,7 @@ export default function WorkPage() {
   useEffect(() => {
     const updateInitialWidth = () => {
       const baseWidth = window.innerWidth - (100 + parseFloat(getComputedStyle(document.documentElement).fontSize) * 2);
-      setNavContainerWidth(baseWidth * 0.30);
+      setNavContainerWidth(baseWidth * 0.20);
     };
   
     updateInitialWidth();

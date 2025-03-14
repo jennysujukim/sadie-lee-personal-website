@@ -7,8 +7,9 @@ import Logo from '../Logo'
 import NavLink from '../NavLink'
 // assets
 import grip from '@/app/assets/grip.svg'
-import arrowLeft from '@/app/assets/grip-arrow-left.svg'
-import arrowRight from '@/app/assets/grip-arrow-right.svg'
+// import arrowLeft from '@/app/assets/grip-arrow-left.svg'
+// import arrowRight from '@/app/assets/grip-arrow-right.svg'
+import dragPointer from '@/app/assets/drag-pointer.svg'
 // styles
 import styles from './MainNav.module.css'
 
@@ -32,13 +33,20 @@ export default function MainNav({
         <>
           {pathname !== '/about/' && 
             <>
-              <span className={styles.gripText}>Drag Left & Right</span>
-              <div className={styles.gripContainer}>
+              <div className={styles.gripText}>
+                <span>Drag Left & Right</span>
                 <Image 
+                  className={styles.arrowLeft}
+                  src={dragPointer} 
+                  alt="drag pointer"
+                />
+              </div>
+              <div className={styles.gripContainer}>
+                {/* <Image 
                   className={styles.arrowLeft}
                   src={arrowLeft} 
                   alt="Left arrow icon"
-                />
+                /> */}
                 <Image
                   className={styles.grip} 
                   src={grip} 
@@ -46,11 +54,11 @@ export default function MainNav({
                   onMouseDown={handleMouseDown}
                   draggable="false"
                 />
-                <Image 
+                {/* <Image 
                   className={styles.arrowRight}
                   src={arrowRight} 
                   alt="Right arrow icon"
-                />
+                /> */}
               </div>
             </>
           }

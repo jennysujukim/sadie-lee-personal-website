@@ -7,8 +7,12 @@
 
 .gripText {
   @apply hidden
-  lap:block lap:text-center lap:text-[14px] lap:mb-3 text-pink;
+  lap:flex lap:flex-col lap:justify-center lap:items-center lap:text-[14px] lap:mb-3 text-pink;
   animation: bounce 1s infinite;
+}
+
+.gripText span {
+  @apply lap:mb-1;
 }
 
 @keyframes bounce {
