@@ -241,28 +241,14 @@ export default function AboutPage() {
                     <p><span className={styles.textBold}>{data.school}</span>, {data.location}</p>
                   </div>
                 ))}
-                <h4 className={styles.subHeading}>Awards & Events</h4>
-                {about.awardsAndEvents.map((data, index) => (
-                  <div 
-                    key={index}
-                    className={styles.textList}
-                  >
-                    <p className={styles.textDuration}>{data.date}</p>
-                    <p className={styles.textBold}>{data.title}</p>
-                    <p>{data.description}</p>
-                  </div>
-                ))}
-                <h4 className={styles.subHeading}>Exhibition</h4>
-                {about.exhibition.map((data, index) => (
-                  <div 
-                    key={index}
-                    className={styles.textList}
-                  >
-                    <p className={styles.textDuration}>{data.date}</p>
-                    <p className={styles.textBold}>{data.title}</p>
-                    <p>{data.type}, {data.location}</p>
-                  </div>
-                ))}
+                <h4 className={styles.subHeading}>Skills</h4>
+                <div className={styles.textList}>
+                  <p className={styles.textBold}>{about.skills}</p>
+                </div>
+                <h4 className={styles.subHeading}>Tools</h4>
+                <div className={styles.textList}>
+                  <p className={styles.textBold}>{about.tools}</p>
+                </div>
               </>
             }
           </div>

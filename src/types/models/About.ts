@@ -15,15 +15,6 @@ export type AboutType = {
     location: string;
     school: string;
   }[];
-  awardsAndEvents: {
-    date: string;
-    title: string;
-    description: string;
-  }[];
-  exhibition: {
-    date: string;
-    location: string;
-    title: string;
-    type: string;
-  }[];
+  skills: string;
+  tools: string;
 }

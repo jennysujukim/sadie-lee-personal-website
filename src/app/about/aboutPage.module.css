@@ -46,7 +46,7 @@
 /* ---- CTA ---- */
 .cvCtaContainer {
   @apply hidden
-  lap:flex lap:absolute lap:-bottom-[45px] lap:right-[1rem] lap:justify-center lap:items-center;
+  lap:flex lap:absolute lap:top-[10px] lap:right-[2rem] lap:justify-center lap:items-center;
 }
 
 .cvCtaContainer.mobile {
@@ -76,7 +76,7 @@
 }
 
 .emailCtaContainer {
-  @apply lap:left-[2rem] lap:bottom-[-3.5rem];
+  @apply lap:right-[5rem] lap:bottom-[-3rem];
 }
 
 .emailCtaContainer.mobile {
@@ -85,7 +85,7 @@
 }
 
 .igCtaContainer {
-  @apply tab:left-[15rem]
+  @apply tab:left-[13rem]
   lap:top-0
   desk-lg:left-[20rem];
 }
@@ -150,7 +150,7 @@
 .emailSpan {
   @apply absolute text-xs -top-[13px] right-[-38px]
   tab:text-sm tab:top-0 tab:right-[-55px]
-  lap:top-[60px] lap:-right-[65px];
+  lap:top-[70px] lap:-right-[75px];
 }
 
 .igSpan {

@@ -23,8 +23,8 @@ const aboutQuery = groq`*[_type == "about"]{
   main,
   experience,
   education,
-  awardsAndEvents,
-  exhibition
+  skills,
+  tools
 }`
 
 export async function getData() {
