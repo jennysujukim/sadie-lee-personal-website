@@ -7,15 +7,12 @@
 /* ---- DETAIL CTA ---- */
 
 .detailCta {
-  @apply z-10 absolute top-[20px] right-[25px] hover:top-[18px] hover:right-[23px] ease-in-out transition-all
-  tab:right-[40px] tab:top-[5px] tab:hover:right-[38px] tab:hover:top-[3px]
-  lap:hidden;
+  @apply order-3 lap:hidden mt-4 underline text-pink text-right text-sm
+  tab:text-base;
 }
 
-.cta {
-  @apply h-auto
-  tab:w-[80px]
-  lap:hidden;
+.detailCta:hover {
+  filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
 /* ---- INDICATORS ---- */
@@ -31,6 +28,10 @@
 .dots {
   @apply px-[0.2rem] w-[0.8rem] h-[0.8rem]
   tab-lg:w-[1rem] tab-lg:h-[1rem];
+}
+
+.indicatorArrow {
+  @apply w-[20px] tab:w-[40px];
 }
 
 /* ---- CAROUSEL ---- */

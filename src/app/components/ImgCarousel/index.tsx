@@ -9,7 +9,6 @@ import arrowRight from '@/app/assets/slide-arrow-right.svg'
 import arrowLeft from '@/app/assets/slide-arrow-left.svg'
 import dotImg from '@/app/assets/slide-dot.svg'
 import selectedDotImg from '@/app/assets/slide-dot-coloured.svg'
-import detailCta from '@/app/assets/modal-btn-mobile.svg'
 // styles
 import styles from './ImgCarousel.module.css'
 
@@ -41,33 +40,12 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
   }
 
   const handleRightSideClick = () => nextSlide()
-
   const handleLeftSideClick = () => prevSlide()
-
-  // ** AUTO SLIDE ** //
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 5000);
-  //   return () => clearInterval(interval);
-  // }, [nextSlide]); 
 
   return (
     <>
       {project && (
         <div className={styles.wrapper}>
-          {project.details &&
-            <Link 
-              href={`/work/${project.slug.current}`}
-              className={styles.detailCta}
-            >
-              <Image 
-                className={styles.cta}
-                src={detailCta}
-                width={50}
-                height={50}
-                alt='go to detail page button'
-              />
-            </Link>
-          }
           <div className={styles.carousel}>
             <button 
               className={styles.clickLeftContainer}
@@ -86,7 +64,6 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
             {projectImages &&
               <Image 
                 className={styles.img} 
-                // src={project.images[currIndex]}
                 src={currIndex === 0 && isHovered ? projectImages[imageLength - 1] : projectImages[currIndex]}
                 alt={`Images of ${project.title}`}
                 width={1000}
@@ -105,6 +82,7 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
             >
               <Image 
                 src={arrowLeft} 
+                className={styles.indicatorArrow}
                 width={40}
                 height={40}
                 alt="left arrow"
@@ -136,7 +114,7 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
               tabIndex={-1}
             >
               <Image 
-                className={styles.arrowBtnRight}
+                className={styles.indicatorArrow}
                 src={arrowRight} 
                 width={40}
                 height={40}
@@ -144,6 +122,14 @@ export default function ImgCarousel({ works, projectId }: ImgCarouselProps) {
               />
             </button>
           </div>
+          {project.detailsImages &&
+            <Link 
+              href={`/work/${project.slug.current}`}
+              className={styles.detailCta}
+            >
+              See Full Project
+            </Link>
+          }
         </div>
       )}
     </>
