@@ -23,43 +23,60 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
 
   const { works } = useDataContext();
   const [ work, setWork ] = useState<WorkType | undefined>();
-  const [ currentSlide, setCurrentSlide ] = useState({
-    research: 0,
-    productionProcess: 0,
-    outcomeDetail: 0
-  })
+  const [currentSlides, setCurrentSlides] = useState<number[]>([]);
 
+  // ** Get correct work data ** //
   useEffect(() => {
     const currentWork = works.find((work) => work.slug.current === slug)
     setWork(currentWork)
+
+    if (currentWork) {
+      setCurrentSlides(Array(currentWork.detailsImages.length).fill(0));
+    } // Initialize slide indexes for each imagesSet
+
   }, [works, slug])
+
+  // ** auto slide ** //
+  useEffect(() => {
+    if (!work) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlides((prevSlides) =>
+        prevSlides.map((slide, idx) =>
+          (slide + 1) % work.detailsImages[idx].images.length
+        )
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [work]);
 
   if (!work) return null
 
-  const { research, productionProcess, outcomeDetail } = work.details;
+  // ** Handle next slide ** //
+  const nextSlide = (setIndex: number) => {
+    setCurrentSlides((prevSlides) =>
+      prevSlides.map((slide, idx) =>
+        idx === setIndex
+          ? (slide + 1) % work.detailsImages[setIndex].images.length
+          : slide
+      )
+    )
+  }
 
-  const chunkImages = (images: string[]) => images.reduce<string[][]>((acc: string[][], img: string, index: number) => {
-    const chunkIndex = Math.floor(index / 4)
-    if (!acc[chunkIndex]) acc[chunkIndex] = []
-    acc[chunkIndex].push(img)
-    return acc;
-  }, [])
-
-  const researchImgChunks = chunkImages(research.images);
-  const productionProcessImgChunks = chunkImages(productionProcess.images);
-  const outcomeDetailImgChunks = chunkImages(outcomeDetail.images);
-
-  const changeSlide = (section: "research" | "productionProcess" | "outcomeDetail", direction: "next" | "prev") => {
-    setCurrentSlide((prev) => {
-      const newSlide =
-        direction === "next"
-          ? Math.min(prev[section] + 1, eval(`${section}ImgChunks`).length - 1)
-          : Math.max(prev[section] - 1, 0);
-
-      return { ...prev, [section]: newSlide };
-    });
-  };
-
+  // ** Handle previous slide ** //
+  const prevSlide = (setIndex: number) => {
+    setCurrentSlides((prevSlides) =>
+      prevSlides.map((slide, idx) =>
+        idx === setIndex
+          ? (slide - 1 + work.detailsImages[setIndex].images.length) %
+            work.detailsImages[setIndex].images.length
+          : slide
+      )
+    )
+  }
+  
+  // ** Scroll To Top ** //
   const onClickScroll = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -72,136 +89,106 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.55, delay: 0.2 }}
         >
-        <main className={styles.main}>
-          <Image 
-            alt="move to top button"
-            src={moveToTop}
-            width={30}
-            height={30}
-            className={styles.moveToTop}
-            onClick={onClickScroll}
-          />
-          <div className={styles.wrapper}>
-            <button 
-              type="button" 
-              onClick={() => router.back()}
-              className={styles.backButton}
-            >
-              &lt; Back
-            </button>
-            <section className={`${styles.section} ${styles.titleSection}`}>
-              <h2>{work.title}</h2>
-              <div className={styles.subContainer}>
-                <div className={styles.subTextContainer}>
-                  <p className={styles.subTextTitle}>Date</p>
-                  <p>{work.year}</p>
-                </div>
-                <div className={styles.subTextContainer}>
-                  <p className={styles.subTextTitle}>Category</p>
-                  <p>{work.keywords}</p>
-                </div>
-                {work.materials &&
+          <main className={styles.main}>
+            <Image 
+              alt="move to top button"
+              src={moveToTop}
+              width={60}
+              height={60}
+              className={styles.moveToTop}
+              onClick={onClickScroll}
+            />
+            <div className={styles.wrapper}>
+              <button 
+                type="button" 
+                onClick={() => router.back()}
+                className={styles.backButton}
+              >
+                &lt; Back
+              </button>
+              <section className={styles.titleSection}>
+                <h2>{work.title}</h2>
+                <div className={styles.subContainer}>
                   <div className={styles.subTextContainer}>
-                    <p className={styles.subTextTitle}>Medium</p>
-                    <p>{work.materials}</p>
+                    <p className={styles.subTextTitle}>Date</p>
+                    <p>{work.year}</p>
                   </div>
-                }
-                {work.collaborators && 
                   <div className={styles.subTextContainer}>
-                    <p className={styles.subTextTitle}>Collaboration with</p>
-                    <p>{work.collaborators}</p>
+                    <p className={styles.subTextTitle}>Category</p>
+                    <p>{work.keywords}</p>
                   </div>
-                }
-              </div>
-            </section>
-            {["research", "productionProcess", "outcomeDetail"].map((section) => {
-              const sectionTitle = 
-                section === "research" ? "Research" :
-                section === "productionProcess" ? "Production Process" :
-                section === "outcomeDetail" ? "Outcome Detail" : 
-                ""
-
-              const sectionDetails = work.details[section as keyof typeof work.details];
-              const imgChunks = eval(`${section}ImgChunks`);
-              const slideIndex = currentSlide[section as keyof typeof currentSlide];
-
-              return (
-                <section 
-                  key={section}
-                  className={`${styles.section} ${styles.details}`}
-                >
-                  <div className={styles.descriptionWrapper}>
-                    <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
-                    {sectionDetails.description &&
-                      <div className={`${styles.descriptionContainer} ${styles[`${section}Desc`]}`}>
-                        {sectionDetails.description.map((sentence, index) => (
-                          <p key={index}>{sentence}</p>
-                        ))}
-                      </div>
-                    }
-                  </div>
-                  <div className={styles.contentContainer}>
-                    {imgChunks.length > 1 && (
-                      <div className={`${styles.control} ${styles.prev}`}>
-                        <button 
-                          onClick={() => changeSlide(section as any, "prev")} 
-                          disabled={slideIndex === 0}
-                          className={styles.prevBtn}
-                        >
-                          <Image 
-                            alt="previous button" 
-                            src={prevBtn} 
-                            width={40} 
-                            height={40}
-                          />
-                        </button>
-                      </div>
-                    )}
-                    <div className={styles.carouselWrapper}>
-                      <div 
-                        className={styles.carousel}
-                        style={{ transform: `translateX(-${slideIndex * 100}%)` }}
-                      >
-                        {imgChunks.map((chunk: any, index: number) => (
-                          <div key={index} className={styles.slide}>
-                            {chunk.map((image: any, imgIndex: number) => (
-                              <Image
-                                className={styles.slideImg}
-                                key={imgIndex}
-                                src={image}
-                                alt={`image of ${sectionTitle} ${work.title}`}
-                                width={500}
-                                height={500}
-                                placeholder="blur"
-                                blurDataURL={image}
-                              />
-                            ))}
-                          </div>
-                        ))}
-                      </div>
+                  {work.materials &&
+                    <div className={styles.subTextContainer}>
+                      <p className={styles.subTextTitle}>Medium</p>
+                      <p>{work.materials}</p>
                     </div>
-                    {imgChunks.length > 1 && (
-                      <div className={`${styles.control} ${styles.next}`}>
-                        <button
-                          onClick={() => changeSlide(section as any, "next")}
-                          disabled={slideIndex === imgChunks.length - 1}
-                          className={styles.nextBtn} 
-                        >
-                          <Image 
-                            alt="next button" 
-                            src={nextBtn} 
-                            width={40} 
-                            height={40}
-                          />
-                        </button>
+                  }
+                  {work.collaborators && 
+                    <div className={styles.subTextContainer}>
+                      <p className={styles.subTextTitle}>Collaboration with</p>
+                      <p>{work.collaborators}</p>
+                    </div>
+                  }
+                </div>
+              </section>
+              <section className={styles.imagesSection}>
+              {work.detailsImages.map((imagesSet, setIndex) => (
+                <div 
+                  key={setIndex}
+                  className={styles.carouselWrapper}
+                >
+                  {imagesSet.images.length > 1 && (
+                    <div className={styles.controls}>
+                      <button 
+                        className={styles.prevButton}
+                        onClick={() => prevSlide(setIndex)}
+                      >
+                        <Image
+                          className={styles.arrowLeft} 
+                          src={prevBtn} 
+                          alt="Previous" 
+                          width={40} 
+                          height={40}
+                        />
+                      </button>
+                      <button 
+                        className={styles.nextButton}
+                        onClick={() => nextSlide(setIndex)}
+                      >
+                        <Image 
+                          className={styles.arrowRight} 
+                          src={nextBtn} 
+                          alt="Next" 
+                          width={40} 
+                          height={40}
+                        />
+                      </button>
+                    </div>
+                  )}
+                  <div 
+                    className={styles.carousel}
+                    style={{ transform: `translateX(-${currentSlides[setIndex] * 100}%)` }}
+                  >
+                    {imagesSet.images.map((image, index) => (
+                      <div 
+                        key={index}
+                        className={styles.slide}
+                      >
+                        <Image 
+                          className={styles.slideImg}
+                          src={image}
+                          alt="project details image"
+                          width={500}
+                          height={500}
+                        />
                       </div>
-                    )}
+                    ))}
                   </div>
-                </section>
-              )
-            })}
-          </div>
-        </main>
+                </div>
+              ))}
+              </section>
+            </div>
+          </main>
         </motion.div>
       }
     </>

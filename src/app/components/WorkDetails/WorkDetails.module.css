@@ -9,34 +9,26 @@
 }
 
 .wrapper {
-  @apply px-wrapper-side-mobile py-16 h-full
-  tab:px-wrapper-side-tab
-  lap:py-0 lap:px-wrapper-side-lap lap:pb-[10rem];
-}
-
-.section {
-  @apply mb-[8rem] mx-auto max-w-[1100px]
-  tab:mb-[10rem]
-  lap:mb-[15rem];
+  @apply py-16
+  lap:py-0 lap:pb-[10rem];
 }
 
 /* back button */
 .backButton {
-  @apply text-pink font-medium text-sm hover:underline mb-8
-  tab:text-base
-  lap:mb-10;
+  @apply text-pink font-medium text-sm hover:underline fixed z-20 left-wrapper-side-mobile top-[2rem]
+  tab:text-base tab:left-wrapper-side-tab
+  lap:left-wrapper-side-lap;
 }
 
 .backButton:hover {
   filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
-
 /* title section */
 .titleSection {
-  @apply mb-[6rem] px-3
-  tab:px-8
-  lap:px-10;
+  @apply my-[6rem] px-wrapper-side-mobile mx-auto max-w-[1100px]
+  tab:px-wrapper-side-tab
+  lap:px-wrapper-side-lap;
 }
 
 .subContainer {
@@ -52,81 +44,50 @@
   @apply text-pink font-normal mr-2 min-w-[150px];
 }
 
-/* details section */
+/* images section */
 
-.descriptionWrapper {
-  @apply px-3
-  tab:px-8
-  lap:mb-10 lap:grid lap:grid-cols-12 lap:gap-7;
-}
-
-.sectionTitle {
-  @apply uppercase font-medium text-base inline-block border border-pink bg-white  rounded-full h-fit w-fit mb-5 px-4 py-1
-  lap:col-span-4 lap:text-lg lap:px-6 lap:py-2;
-}
-
-.descriptionContainer {
-  @apply mb-8 
-  lap:col-span-8;
-}
-
-.contentContainer {
-  @apply flex relative;
-}
-
-.control {
-  @apply absolute z-20 justify-center items-center flex 
-  tab:static;
-}
-
-.control button:disabled {
-  @apply opacity-30 cursor-not-allowed;
-}
-
-.control.prev {
-  @apply left-0 top-0 bottom-0 my-auto;
-}
-
-.control.next {
-  @apply right-0 top-0 bottom-0 my-auto;
-}
-
-.prevBtn {
-  @apply mr-2
-  tab:mr-4;
-}
-
-.prevBtn img {
-  @apply w-[30px] h-auto
-  tab:w-[40px];
-}
-
-.nextBtn {
-  @apply ml-2
-  tab:ml-4;
-}
-
-.nextBtn img {
-  @apply w-[30px] h-auto
-  tab:w-[40px];
+.imagesSection {
+  @apply flex flex-col gap-10;
 }
 
 .carouselWrapper {
-  @apply overflow-hidden w-full;
+  @apply overflow-hidden w-full relative;
 }
 
 .carousel {
-  @apply flex w-fit;
+  @apply flex w-full;
   transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-[0.5rem]
-  tab:gap-[0.8rem];
+  @apply min-w-full;
 }
 
 .slideImg {
   @apply w-full;
 }
 
+.controls {
+  @apply absolute top-0 left-0 w-full h-full z-10 flex;
+}
 
+.prevButton, .nextButton {
+  @apply w-[50%] h-full flex;
+}
+
+.prevButton {
+  @apply justify-start items-center pl-[1rem];
+}
+
+.nextButton {
+  @apply justify-end items-center pr-[1rem];
+}
+
+.arrowLeft, .arrowRight {
+  @apply hidden;
+}
+
+.controls:hover .arrowLeft,
+.controls:hover .arrowRight {
+  @apply block;
+}

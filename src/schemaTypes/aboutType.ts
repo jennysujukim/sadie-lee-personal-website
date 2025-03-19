@@ -16,6 +16,7 @@ export const aboutType = defineType({
     }),
     defineField({
       name: 'experience',
+      title: 'Experience',
       type: 'array',
       of: [
         { 
@@ -34,6 +35,7 @@ export const aboutType = defineType({
     }),
     defineField({
       name: 'education',
+      title: 'Education',
       type: 'array',
       of: [
         { 
@@ -51,35 +53,14 @@ export const aboutType = defineType({
       ]
     }),
     defineField({
-      name: 'awardsAndEvents',
-      type: 'array',
-      of: [
-        { 
-          type: 'object',
-          name: 'awardsAndEventsDetails',
-          fields: [
-            { type: 'string', name: 'date'},
-            { type: 'string', name: 'title'},
-            { type: 'string', name: 'description' },
-          ]
-        }
-      ]
+      name: 'skills',
+      title: 'Skills',
+      type: 'string',
     }),
     defineField({
-      name: 'exhibition',
-      type: 'array',
-      of: [
-        { 
-          type: 'object',
-          name: 'exhibitionDetails',
-          fields: [
-            { type: 'string', name: 'date'},
-            { type: 'string', name: 'title' },
-            { type: 'string', name: 'type' },
-            { type: 'string', name: 'location' }
-          ]
-        }
-      ]
+      name: 'tools',
+      title: 'Tools',
+      type: 'string',
     })
   ],
 })

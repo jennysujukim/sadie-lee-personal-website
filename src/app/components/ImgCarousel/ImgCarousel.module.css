@@ -7,26 +7,31 @@
 /* ---- DETAIL CTA ---- */
 
 .detailCta {
-  @apply z-10 absolute top-[20px] right-[25px] hover:top-[18px] hover:right-[23px] ease-in-out transition-all
-  tab:right-[40px] tab:top-[5px] tab:hover:right-[38px] tab:hover:top-[3px]
-  lap:hidden;
+  @apply order-3 lap:hidden mt-4 underline text-pink text-right text-sm
+  tab:text-base;
 }
 
-.cta {
-  @apply h-auto
-  tab:w-[80px]
-  lap:hidden;
+.detailCta:hover {
+  filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
-/* ---- DOTS ---- */
+/* ---- INDICATORS ---- */
+
+.indicatorsContainer {
+  @apply w-full flex justify-between items-center px-2 py-4;
+}
 
 .dotsContainer {
-  @apply w-full flex justify-center items-center px-2 py-4;
+  @apply flex justify-center items-center;
 }
 
 .dots {
   @apply px-[0.2rem] w-[0.8rem] h-[0.8rem]
   tab-lg:w-[1rem] tab-lg:h-[1rem];
+}
+
+.indicatorArrow {
+  @apply w-[20px] tab:w-[40px];
 }
 
 /* ---- CAROUSEL ---- */
@@ -39,25 +44,14 @@
   @apply opacity-100;
 }
 
-.arrowBtnLeftContainer {
+.clickLeftContainer {
   @apply absolute w-[50%] left-0 bottom-0 top-0 my-auto
   tab:flex tab:justify-start tab:items-center;
 }
 
-.arrowBtnLeft {
-  @apply 
-  opacity-0 hidden
-  tab:block tab:absolute tab:-left-[22px] tab:top-0 tab:bottom-0 tab:my-auto;
-}
-
-.arrowBtnRightContainer {
+.clickRightContainer {
   @apply absolute w-[50%] right-0 bottom-0 top-0 my-auto
   tab:flex tab:justify-end tab:items-center;
-}
-
-.arrowBtnRight {
-  @apply opacity-0 hidden
-  tab:block tab:absolute tab:-right-[22px] tab:top-0 tab:bottom-0 tab:my-auto;
 }
 
 .imgContainer {

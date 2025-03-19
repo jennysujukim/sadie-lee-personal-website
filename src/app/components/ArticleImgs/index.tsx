@@ -26,7 +26,7 @@ export default function ArticleImgs({ works, heights }: ArticleImgsProps) {
         >
           <div className={styles.titleContainer}>
             <h2 className={styles.title}>{work.title}</h2>
-            {work.details &&
+            {work.detailsImages &&
               <Link
               className={styles.detailsLink} 
               href={`/work/${work.slug.current}`}
