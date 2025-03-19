@@ -123,30 +123,32 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
                   className={styles.carouselWrapper}
                 >
                   {imagesSet.images.length > 1 && (
-                    <>
-                      <button
+                    <div className={styles.controls}>
+                      <button 
                         className={styles.prevButton}
                         onClick={() => prevSlide(setIndex)}
                       >
-                        <Image 
+                        <Image
+                          className={styles.arrowLeft} 
                           src={prevBtn} 
                           alt="Previous" 
-                          width={30} 
-                          height={30}
+                          width={40} 
+                          height={40}
                         />
                       </button>
-                      <button
+                      <button 
                         className={styles.nextButton}
                         onClick={() => nextSlide(setIndex)}
                       >
                         <Image 
+                          className={styles.arrowRight} 
                           src={nextBtn} 
                           alt="Next" 
-                          width={30} 
-                          height={30}
+                          width={40} 
+                          height={40}
                         />
                       </button>
-                    </>
+                    </div>
                   )}
                   <div 
                     className={styles.carousel}

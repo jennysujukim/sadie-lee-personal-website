@@ -15,19 +15,18 @@
 
 /* back button */
 .backButton {
-  @apply text-pink font-medium text-sm hover:underline mb-8 pl-wrapper-side-mobile
-  tab:text-base tab:pl-wrapper-side-tab
-  lap:mb-10 lap:pl-wrapper-side-lap;
+  @apply text-pink font-medium text-sm hover:underline fixed z-20 left-wrapper-side-mobile top-[2rem]
+  tab:text-base tab:left-wrapper-side-tab
+  lap:left-wrapper-side-lap;
 }
 
 .backButton:hover {
   filter: drop-shadow(5px 5px 15px rgba(255, 69, 103, 0.7));
 }
 
-
 /* title section */
 .titleSection {
-  @apply mb-[6rem] px-wrapper-side-mobile mx-auto max-w-[1100px]
+  @apply my-[6rem] px-wrapper-side-mobile mx-auto max-w-[1100px]
   tab:px-wrapper-side-tab
   lap:px-wrapper-side-lap;
 }
@@ -48,11 +47,11 @@
 /* images section */
 
 .imagesSection {
-  @apply flex flex-col gap-6;
+  @apply flex flex-col gap-10;
 }
 
 .carouselWrapper {
-  @apply overflow-hidden w-full;
+  @apply overflow-hidden w-full relative;
 }
 
 .carousel {
@@ -68,43 +67,27 @@
   @apply w-full;
 }
 
-
-
-.control {
-  @apply absolute z-20 justify-center items-center flex 
-  tab:static;
+.controls {
+  @apply absolute top-0 left-0 w-full h-full z-10 flex;
 }
 
-.control button:disabled {
-  @apply opacity-30 cursor-not-allowed;
+.prevButton, .nextButton {
+  @apply w-[50%] h-full flex;
 }
 
-.control.prev {
-  @apply left-0 top-0 bottom-0 my-auto;
+.prevButton {
+  @apply justify-start items-center pl-[1rem];
 }
 
-.control.next {
-  @apply right-0 top-0 bottom-0 my-auto;
+.nextButton {
+  @apply justify-end items-center pr-[1rem];
 }
 
-.prevBtn {
-  @apply mr-2
-  tab:mr-4;
+.arrowLeft, .arrowRight {
+  @apply hidden;
 }
 
-.prevBtn img {
-  @apply w-[30px] h-auto
-  tab:w-[40px];
+.controls:hover .arrowLeft,
+.controls:hover .arrowRight {
+  @apply block;
 }
-
-.nextBtn {
-  @apply ml-2
-  tab:ml-4;
-}
-
-.nextBtn img {
-  @apply w-[30px] h-auto
-  tab:w-[40px];
-}
-
-
