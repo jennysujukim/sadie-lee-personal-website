@@ -18,10 +18,14 @@
   lap:hidden;
 }
 
-/* ---- DOTS ---- */
+/* ---- INDICATORS ---- */
+
+.indicatorsContainer {
+  @apply w-full flex justify-between items-center px-2 py-4;
+}
 
 .dotsContainer {
-  @apply w-full flex justify-center items-center px-2 py-4;
+  @apply flex justify-center items-center;
 }
 
 .dots {
@@ -39,25 +43,14 @@
   @apply opacity-100;
 }
 
-.arrowBtnLeftContainer {
+.clickLeftContainer {
   @apply absolute w-[50%] left-0 bottom-0 top-0 my-auto
   tab:flex tab:justify-start tab:items-center;
 }
 
-.arrowBtnLeft {
-  @apply 
-  opacity-0 hidden
-  tab:block tab:absolute tab:-left-[22px] tab:top-0 tab:bottom-0 tab:my-auto;
-}
-
-.arrowBtnRightContainer {
+.clickRightContainer {
   @apply absolute w-[50%] right-0 bottom-0 top-0 my-auto
   tab:flex tab:justify-end tab:items-center;
-}
-
-.arrowBtnRight {
-  @apply opacity-0 hidden
-  tab:block tab:absolute tab:-right-[22px] tab:top-0 tab:bottom-0 tab:my-auto;
 }
 
 .imgContainer {
