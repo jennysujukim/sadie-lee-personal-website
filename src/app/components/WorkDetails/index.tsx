@@ -36,6 +36,21 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
 
   }, [works, slug])
 
+  // ** auto slide ** //
+  useEffect(() => {
+    if (!work) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlides((prevSlides) =>
+        prevSlides.map((slide, idx) =>
+          (slide + 1) % work.detailsImages[idx].images.length
+        )
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [work]);
+
   if (!work) return null
 
   // ** Handle next slide ** //
