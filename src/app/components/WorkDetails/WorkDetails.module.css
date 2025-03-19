@@ -9,22 +9,15 @@
 }
 
 .wrapper {
-  @apply px-wrapper-side-mobile py-16 h-full
-  tab:px-wrapper-side-tab
-  lap:py-0 lap:px-wrapper-side-lap lap:pb-[10rem];
-}
-
-.section {
-  @apply mb-[8rem] mx-auto max-w-[1100px]
-  tab:mb-[10rem]
-  lap:mb-[15rem];
+  @apply py-16
+  lap:py-0 lap:pb-[10rem];
 }
 
 /* back button */
 .backButton {
-  @apply text-pink font-medium text-sm hover:underline mb-8
-  tab:text-base
-  lap:mb-10;
+  @apply text-pink font-medium text-sm hover:underline mb-8 pl-wrapper-side-mobile
+  tab:text-base tab:pl-wrapper-side-tab
+  lap:mb-10 lap:pl-wrapper-side-lap;
 }
 
 .backButton:hover {
@@ -34,9 +27,9 @@
 
 /* title section */
 .titleSection {
-  @apply mb-[6rem] px-3
-  tab:px-8
-  lap:px-10;
+  @apply mb-[6rem] px-wrapper-side-mobile mx-auto max-w-[1100px]
+  tab:px-wrapper-side-tab
+  lap:px-wrapper-side-lap;
 }
 
 .subContainer {
@@ -52,27 +45,30 @@
   @apply text-pink font-normal mr-2 min-w-[150px];
 }
 
-/* details section */
+/* images section */
 
-.descriptionWrapper {
-  @apply px-3
-  tab:px-8
-  lap:mb-10 lap:grid lap:grid-cols-12 lap:gap-7;
+.imagesSection {
+  @apply flex flex-col gap-6;
 }
 
-.sectionTitle {
-  @apply uppercase font-medium text-base inline-block border border-pink bg-white  rounded-full h-fit w-fit mb-5 px-4 py-1
-  lap:col-span-4 lap:text-lg lap:px-6 lap:py-2;
+.carouselWrapper {
+  @apply overflow-hidden w-full;
 }
 
-.descriptionContainer {
-  @apply mb-8 
-  lap:col-span-8;
+.carousel {
+  @apply flex w-full;
+  transition: transform 0.5s ease-in-out;
 }
 
-.contentContainer {
-  @apply flex relative;
+.slide {
+  @apply min-w-full;
 }
+
+.slideImg {
+  @apply w-full;
+}
+
+
 
 .control {
   @apply absolute z-20 justify-center items-center flex 
@@ -109,24 +105,6 @@
 .nextBtn img {
   @apply w-[30px] h-auto
   tab:w-[40px];
-}
-
-.carouselWrapper {
-  @apply overflow-hidden w-full;
-}
-
-.carousel {
-  @apply flex w-fit;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  @apply min-w-full grid grid-cols-2 grid-rows-2 gap-[0.5rem]
-  tab:gap-[0.8rem];
-}
-
-.slideImg {
-  @apply w-full;
 }
 
 

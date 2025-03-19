@@ -13,19 +13,8 @@ const workQuery = groq`*[_type == "work"]{
   collaborators,
   descriptions,
   "images": images[].asset->url,
-  details {
-    research {
-      "images": images[].asset->url,
-      description
-    },
-    productionProcess {
-      "images": images[].asset->url,
-      description
-    },
-    outcomeDetail {
-      "images": images[].asset->url,
-      description
-    }
+  "detailsImages": detailsImages[]{
+    "images": images[].asset->url
   }
 }`
 
