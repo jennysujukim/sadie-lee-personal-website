@@ -178,8 +178,8 @@ export default function WorkDetails({ slug }: WorkDetailsProps) {
                           className={styles.slideImg}
                           src={image}
                           alt="project details image"
-                          width={500}
-                          height={500}
+                          width={2000}
+                          height={2000}
                         />
                       </div>
                     ))}
